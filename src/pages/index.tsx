@@ -22,10 +22,12 @@ const IndexPage = ({ data }: any) => (
     />
     <div className="bg-gray-100 py-12 lg:py-16">
       {data.portfolio && data.portfolio.nodes.length > 0 ? (
-        <div className="flex flex-wrap -mx-3 lg:-mx-6">
-          {data.portfolio.nodes.map((item: any) => (
-            <Card {...item} />
-          ))}
+        <div className="container">
+          <div className="flex flex-wrap -mx-3 lg:-mx-6">
+            {data.portfolio.nodes.map((item: any) => (
+              <Card {...item} />
+            ))}
+          </div>
         </div>
       ) : (
         <div className="container">No projects found.</div>

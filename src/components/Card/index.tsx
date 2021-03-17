@@ -7,21 +7,16 @@ interface ICardProps {
   name: string
   slug: string
   summary: string
-  image: {
-    layout: any
-    width: number
-    height: number
-    images: any
-  }
+  thumbnail: any
 }
 
-const Card: FC<ICardProps> = ({ name, slug, summary, image }) => {
+const Card: FC<ICardProps> = ({ name, slug, summary, thumbnail }) => {
   return (
     <div className="bg-white h-full shadow-sm rounded-md overflow-hidden group">
       <Link to={`/${slug}`}>
         <div className="group-hover:opacity-75 transition duration-150 ease-in-out">
           {/* <StaticImage fluid={thumbnail.localFile.childImageSharp.fluid} alt={name} /> */}
-          <GatsbyImage image={image} alt={name} />
+          <GatsbyImage image={thumbnail.gatsbyImageData} alt={name} />
         </div>
         <div className="p-4 sm:p-5">
           <h1 className="sm:text-lg text-gray-900 font-semibold">{name}</h1>
@@ -41,16 +36,11 @@ export const query = graphql`
     name
     slug
     thumbnail {
-      localFile {
-        childImageSharp {
-          gatsbyImageData(
-            layout: FIXED
-            width: 444
-            placeholder: BLURRED
-            formats: [AUTO, WEBP, AVIF]
-          )
-        }
-      }
+      gatsbyImageData(
+        layout: FULL_WIDTH
+        placeholder: BLURRED
+        formats: [AUTO, WEBP]
+      )
     }
     summary
   }
