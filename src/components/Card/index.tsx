@@ -29,7 +29,6 @@ const Card: FC<ICardProps> = ({ name, slug, summary, thumbnail }) => {
 
 export default Card
 
-// TODO: Fix image fetch https://www.gatsbyjs.com/docs/reference/release-notes/image-migration-guide/#fluid
 export const query = graphql`
   fragment PortfolioCard on ContentfulPortfolio {
     id
