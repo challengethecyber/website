@@ -11,6 +11,8 @@ import { useStaticQuery, graphql } from "gatsby"
 
 import Header from "./header"
 
+import "./layout.css"
+
 interface ILayoutProps {}
 
 const Layout: FC<ILayoutProps> = ({ children }) => {

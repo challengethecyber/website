@@ -8,8 +8,8 @@ const shooting = keyframes`
   }
   100% {
     transform: translate(
-      ${window.screen.width * 2}px,
-      ${window.screen.width * 2}px
+      ${typeof window !== `undefined` ? window.screen.width * 2 : 0}px,
+      ${typeof window !== `undefined` ? window.screen.width * 2 : 0}px
     );
   }
 `
@@ -42,7 +42,7 @@ const StarStyle = styled.div`
   top: ${props => props.y}px;
   left: ${props => props.x}px;
   height: 2px;
-  background-image: linear-gradient(-45deg, #5f91ff, rgba(0, 0, 255, 0));
+  background-image: linear-gradient(-45deg, #d6d6d6, rgba(0, 0, 255, 0));
   filter: drop-shadow(0 0 8px #d6d6d6);
   animation: ${tail} ${props => props.duration * 2}ms ${props => props.delay}ms
       ease-in-out infinite,
@@ -60,7 +60,7 @@ const StarStyle = styled.div`
     background-image: linear-gradient(
       -45deg,
       rgba(0, 0, 255, 0),
-      #5f91ff,
+      #d6d6d6,
       rgba(0, 0, 255, 0)
     );
     transform: translateX(50%) rotateZ(45deg);
@@ -74,14 +74,11 @@ const StarStyle = styled.div`
 `
 
 const Stars = () => {
-  const NB_STARS = 100
+  const NB_STARS = 25
   const stars = Array.from({ length: NB_STARS })
 
   const DURATION = 5000
 
-  const [x, setX] = React.useState(Math.random() * 10)
-  const [y, setY] = React.useState(Math.random() * 10)
-  console.log(x, y)
   return (
     <div
       id="root"
@@ -92,10 +89,17 @@ const Stars = () => {
           <>
             <StarStyle
               key={index}
-              x={Math.random() * window.screen.width}
-              y={Math.random() * window.screen.height}
+              x={
+                Math.random() *
+                (typeof window !== `undefined` ? window.screen.width : 0)
+              }
+              y={
+                (Math.random() *
+                  (typeof window !== `undefined` ? window.screen.height : 0)) /
+                2
+              }
               duration={DURATION}
-              delay={200 * index}
+              delay={(DURATION / NB_STARS) * 4 * index}
             />
           </>
         ))}

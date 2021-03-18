@@ -14,7 +14,7 @@ module.exports = {
     author: `@gatsbyjs`,
     menu: [
       { name: "Home", to: "/" },
-      { name: "Page 2", to: "/page-2" },
+      { name: "Blog", to: "/blog" },
     ],
   },
   plugins: [
