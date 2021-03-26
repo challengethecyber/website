@@ -49,28 +49,29 @@ const StarStyle = styled.div`
     ${shooting} ${props => props.duration * 2}ms ${props => props.delay}ms
       ease-in-out infinite;
 
-  &:before,
-  &:after {
-    position: absolute;
-    content: "";
-    top: calc(50% - 1px);
-    right: 0;
-    height: 2px;
-    border-radius: 100%;
-    background-image: linear-gradient(
-      -45deg,
-      rgba(0, 0, 255, 0),
-      #d6d6d6,
-      rgba(0, 0, 255, 0)
-    );
-    transform: translateX(50%) rotateZ(45deg);
-    animation: ${shining} ${props => props.duration}ms ${props => props.delay}ms
-      ease-in-out infinite;
-  }
+  // &:before,
+  // &:after {
+  //   position: absolute;
+  //   content: "";
+  //   top: calc(50% - 1px);
+  //   right: 0;
+  //   height: 2px;
+  //   border-radius: 100%;
+  //   background-image: linear-gradient(
+  //     -45deg,
+  //     rgba(0, 0, 255, 0),
+  //     #d6d6d6,
+  //     rgba(0, 0, 255, 0)
+  //   );
+  //   transform: translateX(50%) rotateZ(45deg);
+  //   animation: ${shining} ${props => props.duration}ms ${props =>
+    props.delay}ms
+  //     ease-in-out infinite;
+  // }
 
-  &:after {
-    transform: translateX(50%) rotateZ(-45deg);
-  }
+  // &:after {
+  //   transform: translateX(50%) rotateZ(-45deg);
+  // }
 `
 
 const Stars = () => {
