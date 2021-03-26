@@ -20,6 +20,10 @@ module.exports = {
       }
     }
   },
+  plugins: [
+    require('@tailwindcss/aspect-ratio'),
+    require('@tailwindcss/typography')
+  ],
   variants: {
     opacity: ["responsive", "hover", "focus", "group-hover"],
     display: ["responsive", "hover", "focus", "last"],

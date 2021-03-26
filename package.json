@@ -5,6 +5,8 @@
   "version": "0.1.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/typography": "^0.4.0",
     "contentful-import": "^7.9.41",
     "gatsby": "^3.1.0",
     "gatsby-plugin-gatsby-cloud": "^2.1.0",
