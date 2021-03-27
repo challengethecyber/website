@@ -4,7 +4,7 @@ const Content = () => {
   return (
     <div className="relative bg-white">
       <div className="lg:absolute lg:inset-0">
-        <div className="lg:absolute lg:inset-y-0 lg:left-0 lg:w-1/2">
+        <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
           <img
             className="h-56 w-full object-cover lg:absolute lg:h-full"
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1567&q=80"
@@ -13,8 +13,8 @@ const Content = () => {
         </div>
       </div>
       <div className="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
-        <div className="lg:col-start-2 lg:pl-8">
-          <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:ml-auto lg:mr-0">
+        <div className="lg:col-start-1 lg:pr-8">
+          <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-auto lg:ml-0">
             <h2 className="leading-6 text-orange-500 font-semibold tracking-wide uppercase">
               Work with us
             </h2>

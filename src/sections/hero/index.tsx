@@ -1,6 +1,25 @@
 import React from "react"
 
-const Hero = () => {
+import { graphql } from "gatsby"
+import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+
+import Logo from "../../images/ctc-satellite.svg" // TODO take care of linting
+
+export interface IHeroProps {
+  data: [
+    {
+      title: string
+      subtitle: string
+      heroImage: {
+        gatsbyImageData: IGatsbyImageData
+        description: string
+      }
+    }
+  ]
+}
+
+const Hero = ({ data }: IHeroProps) => {
+  console.log("Data: ", data)
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -24,10 +43,7 @@ const Hero = () => {
                 <div className="flex items-center justify-between w-full md:w-auto">
                   <a href="#">
                     <span className="sr-only">Workflow</span>
-                    <img
-                      className="h-8 w-auto sm:h-10"
-                      src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                    />
+                    <img className="h-8 w-auto sm:h-10" src={Logo} />
                   </a>
                   <div className="-mr-2 flex items-center md:hidden">
                     <button
@@ -180,16 +196,14 @@ const Hero = () => {
 
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
-              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                <span className="block xl:inline">Data to enrich your</span>
+              <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl flex flex-col">
+                <span className="block xl:inline">{data[0].title}</span>
                 <span className="block text-orange-500 xl:inline">
-                  online business
+                  Challenge the Cyber
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui
-                lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat
-                fugiat aliqua.
+                {data[0].subtitle}
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
@@ -200,7 +214,7 @@ const Hero = () => {
                     Get started
                   </a>
                 </div>
-                <div className="mt-3 sm:mt-0 sm:ml-3 shadow-xs">
+                <div className="rounded-md mt-3 sm:mt-0 sm:ml-3 shadow-sm">
                   <a
                     href="#"
                     className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-600 bg-orange-50 hover:bg-orange-100 md:py-4 md:text-lg md:px-10"
@@ -214,10 +228,15 @@ const Hero = () => {
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        <img
+        {/* <img
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixqx=79TiEXealR&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
           alt=""
+        /> */}
+        <GatsbyImage
+          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
+          image={data[0].heroImage.gatsbyImageData}
+          alt={data[0].heroImage.description}
         />
       </div>
     </div>
@@ -225,3 +244,14 @@ const Hero = () => {
 }
 
 export default Hero
+
+export const query = graphql`
+  fragment Lander on ContentfulLander {
+    heroImage {
+      gatsbyImageData(layout: FIXED, formats: AUTO)
+      description
+    }
+    title
+    subtitle
+  }
+`

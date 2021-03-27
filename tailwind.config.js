@@ -12,7 +12,8 @@ module.exports = {
       sans: ["Inter var", "system-ui", "sans-serif"],
     },
     colors: {
-      ...colors
+      ...colors,
+      transparent: 'transparent'
     },
     extend: {
       zIndex: {

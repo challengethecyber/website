@@ -1,6 +1,11 @@
 {
     "editor.formatOnPaste": true,
     "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
     "eslint.validate": ["javascript", "javascriptreact", "html", "typescript", "typescriptreact"],
     "typescript.tsdk": "node_modules/typescript/lib",
     "js/ts.implicitProjectConfig.checkJs": true
