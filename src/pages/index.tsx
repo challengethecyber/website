@@ -9,6 +9,7 @@ import Content from "../sections/content"
 import Blog from "../sections/blog"
 import Logos from "../sections/logos"
 import Footer from "../sections/footer"
+import EnrollmentSlideOver from "components/EnrollmentSlideOver"
 
 interface IQueryProps {
   data: {
@@ -31,6 +32,7 @@ const IndexPage = ({ data }: IQueryProps) => {
       <Blog data={data.news.nodes} />
       <Logos />
       <Footer />
+      <EnrollmentSlideOver />
     </div>
   )
 }
