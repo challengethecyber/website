@@ -32,7 +32,7 @@ const Input = React.forwardRef<any, IInputProps>(
         {error && (
           <div className="flex mt-2">
             <XCircleIcon className="flex-shrink-0 h-5 w-5 text-red-400" />
-            <p className="ml-3 text-sm text-red-700">{error.message}</p>
+            <p className="ml-2 text-sm text-red-700">{error.message}</p>
           </div>
         )}
       </div>
