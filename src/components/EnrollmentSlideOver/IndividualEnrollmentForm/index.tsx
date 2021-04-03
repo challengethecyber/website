@@ -1,30 +1,22 @@
-import React, { useState, FC } from "react"
-import { useForm } from "react-hook-form"
+import React from "react"
+import { UseFormRegister } from "react-hook-form"
+
+import { IIndividualEnrollmentInput } from "../types"
 
 import Input from "components/Input"
 
-type IIndividualEnrollmentInput = {
-  name: {
-    firstName: string
-    lastName: string
-  }
-  emailAddress: string
-  birthYear: number
-  educationalInstitute: string
+type IIndividualEnrollmentFormProps = {
+  register: UseFormRegister<IIndividualEnrollmentInput>
+  errors: any
 }
 
-const IndividualEnrollmentForm: FC = ({}) => {
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<IIndividualEnrollmentInput>()
-
-  const onSubmit = (data: IIndividualEnrollmentInput) => console.log(data)
-
+const IndividualEnrollmentForm = ({
+  register,
+  errors,
+}: IIndividualEnrollmentFormProps) => {
   return (
-    <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
-      <div className="flex flex-col md:flex-row gap-4">
+    <form className="flex flex-col space-y-6">
+      <div className="flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-4">
         <Input
           label="Voornaam*"
           error={errors?.name?.firstName}
@@ -42,6 +34,7 @@ const IndividualEnrollmentForm: FC = ({}) => {
       </div>
       <Input
         label="E-mailadres*"
+        type="email"
         error={errors?.emailAddress}
         {...register("emailAddress", {
           required: { value: true, message: "Dit veld is verplicht" },
@@ -51,28 +44,30 @@ const IndividualEnrollmentForm: FC = ({}) => {
           },
         })}
       />
-      <Input
-        type="number"
-        label="Geboortejaar*"
-        error={errors?.birthYear}
-        {...register("birthYear", {
-          required: { value: true, message: "Dit veld is verplicht" },
-          min: { value: 1900, message: "Je geboortejaar is ongeldig" },
-          max: { value: 2021, message: "Je geboortejaar is ongeldig" },
-        })}
-      />
-      <Input
-        label="Onderwijsinstelling"
-        error={errors?.educationalInstitute}
-        {...register("educationalInstitute")}
-      />
-      <div className="space-x-3 flex justify-end">
-        <button
-          type="submit"
-          className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
-        >
-          Aanmelden
-        </button>
+      <div className="flex flex-col space-y-6 md:flex-row md:space-y-0 md:space-x-4">
+        <Input
+          className="md:w-48 md:flex-none"
+          type="number"
+          label="Geboortejaar*"
+          error={errors?.birthYear}
+          {...register("birthYear", {
+            required: { value: true, message: "Dit veld is verplicht" },
+            min: {
+              value: new Date().getFullYear() - 80,
+              message: "Je geboortejaar is ongeldig",
+            },
+            max: {
+              value: new Date().getFullYear(),
+              message: "Je geboortejaar is ongeldig",
+            },
+          })}
+        />
+        <Input
+          className="md:flex-1"
+          label="Onderwijsinstelling"
+          error={errors?.educationalInstitute}
+          {...register("educationalInstitute")}
+        />
       </div>
     </form>
   )

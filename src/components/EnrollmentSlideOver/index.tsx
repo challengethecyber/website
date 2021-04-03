@@ -1,32 +1,51 @@
 import React, { useState, FC } from "react"
+import { useForm } from "react-hook-form"
+
+import {
+  IIndividualEnrollmentInput,
+  ITeamEnrollmentInput,
+  IEnrollmentInput,
+} from "./types"
 
 import { PlusIcon } from "@heroicons/react/solid"
 import { XIcon } from "@heroicons/react/outline"
 
 import IndividualEnrollmentForm from "./IndividualEnrollmentForm"
 
-type Inputs = {
-  teamName: string
-}
-
 const EnrollmentSlideOver: FC = () => {
-  const onSubmit = (data: any) => console.log(data)
+  const onSubmit = async (data: IEnrollmentInput) => {
+    console.log(JSON.stringify(data))
+    // await fetch("https://usebasin.com/f/97c2ca1e7a73", {
+    //   method: "POST",
+    //   headers: { "Content-Type": "application/json" },
+    //   body: JSON.stringify(data),
+    // })
+  }
+
+  const {
+    register: individualFormRegister,
+    handleSubmit: handleIndividualFormSubmit,
+    formState: { errors: individualFormErrors },
+  } = useForm<IIndividualEnrollmentInput>()
+
+  console.log(individualFormErrors)
 
   const [isTeamEnrollment, setIsTeamEnrollment] = useState(false)
   const [showSlideOver, setShowSlideOver] = useState(true)
-  const [isAddingTeammate, setIsAddingTeammate] = useState(false)
-  const [members, setMembers] = useState([
-    {
-      firstName: "Diederik",
-      lastName: "Bakker",
-      birthYear: 1996,
-      educationalInstitution: "Universiteit Twente",
-      gender: "M",
-      bootcamp: true,
-      isCoach: true,
-      isMainContact: true,
-    },
-  ])
+
+  // const [isAddingTeammate, setIsAddingTeammate] = useState(false)
+  // const [members, setMembers] = useState([
+  //   {
+  //     firstName: "Diederik",
+  //     lastName: "Bakker",
+  //     birthYear: 1996,
+  //     educationalInstitution: "Universiteit Twente",
+  //     gender: "M",
+  //     bootcamp: true,
+  //     isCoach: true,
+  //     isMainContact: true,
+  //   },
+  // ])
 
   // Personal or team?
   // Buttons
@@ -127,7 +146,10 @@ const EnrollmentSlideOver: FC = () => {
                       {isTeamEnrollment ? (
                         <div />
                       ) : (
-                        <IndividualEnrollmentForm />
+                        <IndividualEnrollmentForm
+                          register={individualFormRegister}
+                          errors={individualFormErrors}
+                        />
                       )}
 
                       {/* <div>
@@ -189,6 +211,11 @@ const EnrollmentSlideOver: FC = () => {
                   <button
                     type="submit"
                     className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
+                    onClick={() =>
+                      isTeamEnrollment
+                        ? handleIndividualFormSubmit(onSubmit)()
+                        : handleIndividualFormSubmit(onSubmit)()
+                    }
                   >
                     Aanmelden
                   </button>

@@ -4,6 +4,7 @@ import { FieldError } from "react-hook-form"
 import { XCircleIcon } from "@heroicons/react/solid"
 
 interface IInputProps {
+  className?: string
   type?: string
   label: string
   name: string
@@ -12,14 +13,16 @@ interface IInputProps {
 }
 
 const Input = React.forwardRef<any, IInputProps>(
-  ({ type, label, error, onChange, name }, ref) => (
-    <div className="w-full">
+  ({ className, type, label, error, onChange, name }, ref) => (
+    <div className={`w-full ${className ? className : ""}`}>
       <span className="text-sm font-medium text-gray-900"></span>
       <label className="block text-sm font-medium text-gray-900">{label}</label>
       <div className="mt-1">
         <input
-          className={`block w-full shadow-sm sm:text-sm rounded-md border-gray-300 focus:ring-orange-400 focus:border-orange-400 ${
-            error ? "border-red-300 border-2" : ""
+          className={`block w-full shadow-sm sm:text-sm rounded-md border-gray-300 ${
+            error
+              ? "border-red-400 focus:ring-red-400 focus:border-red-400"
+              : "focus:ring-orange-400 focus:border-orange-400"
           }`}
           onChange={onChange}
           name={name}
