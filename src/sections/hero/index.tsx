@@ -6,20 +6,17 @@ import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import Logo from "../../images/ctc-satellite.svg" // TODO take care of linting
 
 export interface IHeroProps {
-  data: [
-    {
-      title: string
-      subtitle: string
-      heroImage: {
-        gatsbyImageData: IGatsbyImageData
-        description: string
-      }
+  data: {
+    title: string
+    subtitle: string
+    heroImage: {
+      gatsbyImageData: IGatsbyImageData
+      description: string
     }
-  ]
+  }
 }
 
 const Hero = ({ data }: IHeroProps) => {
-  console.log("Data: ", data)
   return (
     <div className="relative bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
@@ -62,9 +59,9 @@ const Hero = ({ data }: IHeroProps) => {
                         aria-hidden="true"
                       >
                         <path
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                          stroke-width="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
                           d="M4 6h16M4 12h16M4 18h16"
                         />
                       </svg>
@@ -147,9 +144,9 @@ const Hero = ({ data }: IHeroProps) => {
                       aria-hidden="true"
                     >
                       <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
                         d="M6 18L18 6M6 6l12 12"
                       />
                     </svg>
@@ -197,13 +194,13 @@ const Hero = ({ data }: IHeroProps) => {
           <main className="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 md:mt-16 lg:mt-20 lg:px-8 xl:mt-28">
             <div className="sm:text-center lg:text-left">
               <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl flex flex-col">
-                <span className="block xl:inline">{data[0].title}</span>
+                <span className="block xl:inline">{data.title}</span>
                 <span className="block text-orange-500 xl:inline">
                   Challenge the Cyber
                 </span>
               </h1>
               <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                {data[0].subtitle}
+                {data.subtitle}
               </p>
               <div className="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
                 <div className="rounded-md shadow">
@@ -235,8 +232,8 @@ const Hero = ({ data }: IHeroProps) => {
         /> */}
         <GatsbyImage
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          image={data[0].heroImage.gatsbyImageData}
-          alt={data[0].heroImage.description}
+          image={data.heroImage.gatsbyImageData}
+          alt={data.heroImage.description}
         />
       </div>
     </div>
