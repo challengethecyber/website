@@ -5,7 +5,7 @@ import { graphql, Node, NodeInput } from "gatsby"
 import SEO from "../components/seo"
 import Hero from "../sections/hero"
 import Testimonial from "../sections/testimonial"
-import Content from "../sections/content"
+import About from "../sections/about"
 import Blog from "../sections/blog"
 import Logos from "../sections/logos"
 import Footer from "../sections/footer"
@@ -17,19 +17,19 @@ interface IQueryProps {
     news: {
       nodes: any
     }
+    sponsors: any
   }
 }
 
 const IndexPage = ({ data }: IQueryProps) => {
-  console.log("Index: ", data)
   return (
     <div>
       <SEO title="Home" />
       <Hero data={data.lander} />
       {/* <Testimonial /> */}
-      <Content data={data.about} />
+      <About data={data.about} />
       <Blog data={data.news.nodes} />
-      <Logos />
+      <Logos data={data.sponsors} />
       <Footer />
     </div>
   )
@@ -49,6 +49,9 @@ export const query = graphql`
       nodes {
         ...News
       }
+    }
+    sponsors: contentfulSponsors {
+      ...Sponsors
     }
   }
 `

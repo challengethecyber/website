@@ -57,10 +57,10 @@ const Blog = ({ data }: IBlogProps) => {
           {data.map(news => (
             <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
               <div className="flex-shrink-0">
-                <img
+                <GatsbyImage
                   className="h-48 w-full object-cover"
-                  src="https://images.unsplash.com/photo-1496128858413-b36217c2ce36?ixlib=rb-1.2.1&ixqx=79TiEXealR&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1679&q=80"
-                  alt=""
+                  image={news.picture.gatsbyImageData}
+                  alt={news.picture.description}
                 />
               </div>
               <div className="flex-1 bg-white p-6 flex flex-col justify-between">
