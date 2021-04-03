@@ -2,6 +2,9 @@ import React from "react"
 
 import { graphql } from "gatsby"
 
+import Shapes from "./shapes"
+import Header from "../../components/header"
+
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 import {
@@ -18,76 +21,81 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
       <p className="mb-4">{children}</p>
     ),
-    [INLINES.HYPERLINK]: (node: any, children: any) => (
-      <a href={node.data.uri} className="text-orange-500 font-medium">
-        {children}
-      </a>
+    [BLOCKS.UL_LIST]: (node: any, children: any) => (
+      <ul className="list-disc mb-4 ml-8">{children}</ul>
     ),
+    [BLOCKS.LIST_ITEM]: (node: any, children: any) => {
+      console.log("Child: ")
+      return <li>{children}</li>
+    },
+    [INLINES.HYPERLINK]: (node: any, children: any) => {
+      if (node.data.uri.includes("youtube.com/embed")) {
+        console.log(node)
+
+        return (
+          <iframe
+            className="w-full lg:max-w-lg h-72"
+            src={node.data.uri}
+            title="Replaceme"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        )
+      } else {
+        return (
+          <a href={node.data.uri} className="text-orange-500 font-medium">
+            {children}
+          </a>
+        )
+      }
+    },
   },
 }
 
-export interface IAboutProps {
+export interface IContentProps {
   data: {
-    catchTitle: string
+    link: string
     title: string
-    about: RenderRichTextData<ContentfulRichTextGatsbyReference>
-    picture: {
-      gatsbyImageData: IGatsbyImageData
-      description: string
-    }
+    content: RenderRichTextData<ContentfulRichTextGatsbyReference>
   }
 }
 
-export default function Content({ data }: IAboutProps) {
-  const imageRight = false
-  return (
-    <div className="relative bg-white">
-      <div className="lg:absolute lg:inset-0">
-        <div
-          className={`lg:absolute lg:inset-y-0 ${
-            imageRight ? "lg:right-0" : "lg:left-0"
-          } lg:w-1/2`}
-        >
-          <GatsbyImage
-            className="h-56 w-full object-cover lg:absolute lg:h-full"
-            image={data.picture.gatsbyImageData}
-            alt={data.picture.description}
-          />
-        </div>
-      </div>
-      <div className="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
-        <div
-          className={`${
-            imageRight ? "lg:col-start-1 lg:pr-8" : "lg:col-start-2 lg:pl-8"
-          } `}
-        >
-          <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-auto lg:ml-0">
-            <h2 className="leading-6 text-orange-500 font-semibold tracking-wide uppercase">
-              {data.catchTitle}
-            </h2>
-            <h3 className="my-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              {data.title}
-            </h3>
-            <div className="text-gray-500">
-              {renderRichText(data.about, options)}
-            </div>
-          </div>
-        </div>
+const Content = ({ data }: IContentProps) => (
+  <div className="relative bg-white overflow-hidden">
+    <div className="mx-auto">
+      <div className="relative z-10 pb-8 bg-white">
+        <Header />
       </div>
     </div>
-  )
-}
+    <Shapes />
+    <div className="relative px-4 sm:px-6 lg:px-8">
+      <div className="text-lg max-w-prose mx-auto">
+        <h1 className="mb-8">
+          <span className="block text-base text-center text-orange-500 font-semibold tracking-wide uppercase">
+            {data.link}
+          </span>
+          <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            {data.title}
+          </span>
+        </h1>
+        <div className="text-gray-500">
+          {renderRichText(data.content, options)}
+        </div>
+      </div>
+      <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto"></div>
+    </div>
+  </div>
+)
+
+export default Content
 
 export const query = graphql`
-  fragment About on ContentfulAbout {
-    catchTitle
+  fragment Content on ContentfulContent {
+    link
     title
-    about {
+    content {
       raw
-    }
-    picture {
-      gatsbyImageData(formats: AUTO)
-      description
     }
   }
 `
