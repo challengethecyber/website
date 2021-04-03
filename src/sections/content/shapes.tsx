@@ -70,7 +70,7 @@ const Shapes = () => (
           fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"
         />
       </svg>
-      <svg
+      {/* <svg
         className="absolute bottom-12 left-full transform translate-x-32"
         width="404"
         height="384"
@@ -101,7 +101,7 @@ const Shapes = () => (
           height="384"
           fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)"
         />
-      </svg>
+      </svg> */}
     </div>
   </div>
 )

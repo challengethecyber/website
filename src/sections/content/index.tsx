@@ -63,11 +63,6 @@ export interface IContentProps {
 
 const Content = ({ data }: IContentProps) => (
   <div className="relative bg-white overflow-hidden">
-    <div className="mx-auto">
-      <div className="relative z-10 pb-8 bg-white">
-        <Header />
-      </div>
-    </div>
     <Shapes />
     <div className="relative px-4 sm:px-6 lg:px-8">
       <div className="text-lg max-w-prose mx-auto">

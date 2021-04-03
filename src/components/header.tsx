@@ -55,9 +55,12 @@ const Header = () => (
           </div>
         </div>
         <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
-          <a href="#" className="font-medium text-gray-500 hover:text-gray-900">
+          <Link
+            to="/news/"
+            className="font-medium text-gray-500 hover:text-gray-900"
+          >
             Nieuws
-          </a>
+          </Link>
           <Link
             to="/links/"
             className="font-medium text-gray-500 hover:text-gray-900"
@@ -119,13 +122,12 @@ const Header = () => (
           >
             Home
           </Link>
-          <a
-            href="#"
+          <Link
+            to="/news/"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
           >
             Nieuws
-          </a>
-
+          </Link>
           <Link
             to="/links/"
             className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
