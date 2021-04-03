@@ -47,7 +47,7 @@ export const query = graphql`
     about: contentfulAbout {
       ...About
     }
-    news: allContentfulNews(limit: 3, sort: { fields: date }) {
+    news: allContentfulNews(limit: 3, sort: { fields: date, order: DESC }) {
       nodes {
         ...News
       }

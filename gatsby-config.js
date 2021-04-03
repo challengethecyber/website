@@ -11,12 +11,13 @@ if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_ACCESS_TOKEN) {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Challenge the Cyber`,
+    description: `Met Challenge the Cyber willen wij de groep jonge cybersecuritytalenten vergroten, diverser maken en hun de middelen geven om te excelleren.`,
     author: `@gatsbyjs`,
     menu: [
       { name: "Home", to: "/" },
-      { name: "Blog", to: "/blog" },
+      { name: "Nieuws", to: "/nieuw" },
+      { name: "Links", to: "/links" },
     ],
   },
   plugins: [
