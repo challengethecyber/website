@@ -45,7 +45,8 @@ module.exports = {
         name: `challenge-the-cyber`,
         short_name: `ctc`,
         start_url: `/`,
-        icon: `src/images/ctc-satellite.svg`, // This path is relative to the root of the site.
+        icon: `src/images/ctc-satellite.svg`,
+        background_color: `#ffffff`,
       },
     },
     {
