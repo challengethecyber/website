@@ -24,23 +24,27 @@ interface IQueryProps {
 }
 
 const IndexPage = ({ data }: IQueryProps) => {
-  const isEnrollmentOpen = true
+  const isEnrollmentOpen = process.env.GATSBY_ENROLLMENT_OPEN === "true"
   const [showEnrollmentSlideOver, setShowEnrollmentSlideOver] = useState(false)
 
   return (
     <div>
       <SEO title="Home" />
       <Hero data={data.lander} />
-      <CTA setShowEnrollmentSlideOver={setShowEnrollmentSlideOver} />
+      {isEnrollmentOpen && (
+        <CTA setShowEnrollmentSlideOver={setShowEnrollmentSlideOver} />
+      )}
       {/* <Testimonial /> */}
       <About data={data.about} />
       <Blog data={data.news.nodes} />
       <Logos data={data.sponsors} />
       <Footer />
-      <EnrollmentSlideOver
-        showEnrollmentSlideOver={showEnrollmentSlideOver}
-        setShowEnrollmentSlideOver={setShowEnrollmentSlideOver}
-      />
+      {isEnrollmentOpen && (
+        <EnrollmentSlideOver
+          showEnrollmentSlideOver={showEnrollmentSlideOver}
+          setShowEnrollmentSlideOver={setShowEnrollmentSlideOver}
+        />
+      )}
     </div>
   )
 }

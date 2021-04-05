@@ -3,9 +3,11 @@ import React, { useState } from "react"
 interface IToggleProps {
   onChange: (newValue: boolean) => void
   value: boolean
+  mainText: string
+  subText: string
 }
 
-const Toggle = ({ onChange, value }: IToggleProps) => {
+const Toggle = ({ onChange, value, mainText, subText }: IToggleProps) => {
   return (
     <div className="flex items-center justify-between">
       <button
@@ -61,12 +63,8 @@ const Toggle = ({ onChange, value }: IToggleProps) => {
         </span>
       </button>
       <span className="flex-grow flex flex-col ml-6" id="availability-label">
-        <span className="text-sm font-medium text-gray-900">
-          Deelname bootcamp
-        </span>
-        <span className="text-sm text-gray-500">
-          Geef hier aan of je je wilt kwalificeren voor de talentklas
-        </span>
+        <span className="text-sm font-medium text-gray-900">{mainText}</span>
+        <span className="text-sm text-gray-500">{subText}</span>
       </span>
     </div>
   )

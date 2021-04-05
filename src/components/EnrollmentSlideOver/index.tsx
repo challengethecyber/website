@@ -44,7 +44,7 @@ const EnrollmentSlideOver = ({
 
   const [isLoading, setIsLoading] = useState(false)
   const [hasSubmissionSucceeded, setHasSubmissionSucceeded] = useState(false)
-  const [isTeamEnrollment, setIsTeamEnrollment] = useState(false)
+  const [isTeamEnrollment, setIsTeamEnrollment] = useState(true)
 
   const onSubmit = async (data: IEnrollmentInput) => {
     setIsLoading(true)

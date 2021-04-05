@@ -6,7 +6,7 @@ import {
   UseFormWatch,
 } from "react-hook-form"
 
-import { PlusIcon, XCircleIcon, CheckIcon } from "@heroicons/react/solid"
+import { XCircleIcon, UserAddIcon } from "@heroicons/react/solid"
 
 import { ITeamEnrollmentInput, IIndividualEnrollmentInput } from "../types"
 
@@ -121,13 +121,14 @@ const TeamEnrollmentForm = ({
             errors={memberFormErrors}
             setValue={memberFormSetValue}
             watch={memberFormWatch}
+            isMemberForm
           />
           <div className="w-full flex justify-end">
             <button
-              className="mt-6 inline-flex space-x-2 justify-center shadow-sm py-2 px-3 font-medium text-sm rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
+              className="mt-6 w-full inline-flex space-x-2 justify-center shadow-sm py-3 px-4 font-medium text-md rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
               onClick={handleMemberFormSubmit(onMemberFormSubmit)}
             >
-              <CheckIcon className="h-5 w-5" />
+              <UserAddIcon className="h-6 w-6" />
               <span>Teamlid toevoegen</span>
             </button>
           </div>

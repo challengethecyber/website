@@ -11,12 +11,14 @@ import { IIndividualEnrollmentInput } from "../types"
 import Input from "components/Input"
 import Select from "components/Select"
 import Toggle from "components/Toggle"
+import ContextCard from "components/ContextCard"
 
 type IIndividualEnrollmentFormProps = {
   register: UseFormRegister<IIndividualEnrollmentInput>
   errors: UseFormStateReturn<IIndividualEnrollmentInput>["errors"]
   setValue: UseFormSetValue<IIndividualEnrollmentInput>
   watch: UseFormWatch<IIndividualEnrollmentInput>
+  isMemberForm?: boolean
 }
 
 const IndividualEnrollmentForm = ({
@@ -24,6 +26,7 @@ const IndividualEnrollmentForm = ({
   errors,
   setValue,
   watch,
+  isMemberForm = false,
 }: IIndividualEnrollmentFormProps) => {
   useEffect(() => {
     register("bootcamp", {
@@ -33,6 +36,12 @@ const IndividualEnrollmentForm = ({
 
   return (
     <form className="flex flex-col space-y-6">
+      {!isMemberForm && (
+        <ContextCard
+          mainText="Geen team? Geen nood!"
+          subText="Meld je aan en wij zorgen dat je in een team komt met andere individuele spelers."
+        />
+      )}
       <div className="grid grid-cols-1 gap-y-6 sm:grid-cols-2 sm:gap-x-8">
         <Input
           label="Voornaam*"
@@ -61,12 +70,13 @@ const IndividualEnrollmentForm = ({
             required: { value: true, message: "Dit veld is verplicht" },
             valueAsNumber: true,
             min: {
-              value: new Date().getFullYear() - 80,
-              message: "Je geboortejaar is ongeldig",
+              value: 1995,
+              message: "Je kunt alleen deelnemen met een geboortejaar na 1995",
             },
             max: {
-              value: new Date().getFullYear(),
-              message: "Je geboortejaar is ongeldig",
+              value: 2006,
+              message:
+                "Je kunt alleen deelnemen met een geboortejaar voor 2006",
             },
           })}
         />
@@ -100,6 +110,12 @@ const IndividualEnrollmentForm = ({
       <Toggle
         onChange={(value: boolean) => setValue("bootcamp", value)}
         value={watch("bootcamp")}
+        mainText="Deelname cyberbootcamp"
+        subText={
+          isMemberForm
+            ? "Geef hier aan of deze deelnemer in aanmerking wil komen voor deelname aan het cyberbootcamp"
+            : "Geef hier aan of je in aanmerking wilt komen voor deelname aan het cyberbootcamp"
+        }
       />
     </form>
   )

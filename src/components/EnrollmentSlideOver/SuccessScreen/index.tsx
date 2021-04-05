@@ -27,9 +27,14 @@ const SuccessScreen = ({}: ISuccessScreenProps) => {
         className="h-48 fill-current text-orange-500"
         ref={animationContainer}
       />
-      <p className="inline-flex justify-center font-medium text-lg">
-        Bedankt voor je aanmelding!
-      </p>
+      <div className="flex flex-col">
+        <span className="font-medium text-lg text-center">
+          Leuk dat je meedoet!
+        </span>
+        <span className="font-medium text-gray-700 text-sm text-center">
+          Je ontvangt een e-mail ter bevestiging van je aanmelding.
+        </span>
+      </div>
     </div>
   )
 }
