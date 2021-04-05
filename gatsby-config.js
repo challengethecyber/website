@@ -1,3 +1,5 @@
+const path = require("path")
+
 require("dotenv").config()
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env
 
@@ -19,6 +21,12 @@ module.exports = {
     ],
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        components: path.join(__dirname, "src/components"),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
