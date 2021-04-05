@@ -51,8 +51,8 @@ const EnrollmentSlideOver = ({
 
     data.enrollmentType = isTeamEnrollment ? "team" : "individual"
     const enrollmentUrl = isTeamEnrollment
-      ? process.env.GATSBY_ENROLLMENT_WEBHOOK_INDIVIDUAL!
-      : process.env.GATSBY_ENROLLMENT_WEBHOOK_TEAM!
+      ? process.env.GATSBY_ENROLLMENT_WEBHOOK_TEAM!
+      : process.env.GATSBY_ENROLLMENT_WEBHOOK_INDIVIDUAL!
 
     await fetch(enrollmentUrl, {
       method: "POST",
