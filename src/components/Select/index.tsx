@@ -1,35 +1,23 @@
 import React from "react"
-import { FieldError, UseFormRegisterReturn } from "react-hook-form"
+import { FieldError } from "react-hook-form"
 
 import { XCircleIcon } from "@heroicons/react/solid"
 
-interface IInputProps {
+interface ISelectProps {
   className?: string
-  type?: string
+  options: string[]
   label: string
   name: string
-  onChange: UseFormRegisterReturn["onChange"]
-  autoComplete?: string
-  error?: FieldError
+  onChange: any
+  error?: FieldError | undefined
 }
 
-const Input = React.forwardRef<any, IInputProps>(
-  (
-    {
-      className = "",
-      type = "text",
-      label,
-      error,
-      onChange,
-      autoComplete = "",
-      name,
-    },
-    ref
-  ) => (
+const Select = React.forwardRef<any, ISelectProps>(
+  ({ className = "", options, label, error, onChange, name }, ref) => (
     <div className={`w-full ${className}`}>
       <label className="block text-sm font-medium text-gray-900">{label}</label>
-      <input
-        className={`mt-1 py-3 px-4 block w-full shadow-sm text-sm rounded-md border-none bg-gray-100 focus:outline-none transition duration-75 ease-linear focus:ring-2 ${
+      <select
+        className={`mt-1 block w-full pl-3 pr-10 py-3 px-4 text-sm border-none bg-gray-100 shadow-sm rounded-md transition duration-75 ease-linear focus:ring-2 ${
           error
             ? "border-red-500 focus:ring-red-400 focus:border-red-500"
             : "focus:ring-orange-400 focus:border-orange-400"
@@ -37,9 +25,11 @@ const Input = React.forwardRef<any, IInputProps>(
         onChange={onChange}
         name={name}
         ref={ref}
-        type={type}
-        autoComplete={autoComplete}
-      />
+      >
+        {options.map((o: string) => (
+          <option>{o}</option>
+        ))}
+      </select>
       {error && (
         <div className="flex mt-2">
           <XCircleIcon className="flex-shrink-0 h-5 w-5 text-red-500" />
@@ -50,4 +40,4 @@ const Input = React.forwardRef<any, IInputProps>(
   )
 )
 
-export default Input
+export default Select

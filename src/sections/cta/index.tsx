@@ -13,9 +13,9 @@ interface ICTAProps {
 
 const CTA = ({ setShowEnrollmentSlideOver }: ICTAProps) => (
   <div className="bg-white">
-    <div className="max-w-8xl md:max-w-full mx-auto py-16 lg:py-0 px-4 sm:px-6 lg:px-0">
+    <div className="max-w-8xl md:max-w-full mx-auto py-12 lg:py-0 px-4 sm:px-6 lg:px-0">
       <div className="bg-orange-500 rounded-lg lg:rounded-none shadow-xl overflow-hidden lg:gap-4">
-        <div className="max-w-2xl mx-auto text-center py-16 px-4 sm:py-20 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto text-center py-12 px-4 sm:py-20 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-extrabold text-white sm:text-4xl">
             <span className="block">
               Meld je nu aan voor de Challenge the Cyber CTF!
@@ -27,7 +27,7 @@ const CTA = ({ setShowEnrollmentSlideOver }: ICTAProps) => (
             en een plaats bij het Cyberbootcamp.
           </p>
           <div className="mt-5 max-w-xl mx-auto sm:flex sm:justify-center md:mt-8">
-            <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-50 bg-orange-400 hover:bg-orange-300 md:py-4 md:text-lg md:px-10">
+            <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-50 bg-orange-400 hover:bg-orange-450 md:py-4 md:text-lg md:px-10">
               <InformationCircleIcon className="h-6 w-6" />
               <span className="ml-2">Meer informatie</span>
             </button>

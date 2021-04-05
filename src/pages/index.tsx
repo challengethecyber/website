@@ -25,7 +25,7 @@ interface IQueryProps {
 
 const IndexPage = ({ data }: IQueryProps) => {
   const isEnrollmentOpen = true
-  const [showEnrollmentSlideOver, setShowEnrollmentSlideOver] = useState(false)
+  const [showEnrollmentSlideOver, setShowEnrollmentSlideOver] = useState(true)
 
   return (
     <div>

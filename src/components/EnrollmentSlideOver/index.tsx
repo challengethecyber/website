@@ -8,10 +8,12 @@ import {
   IEnrollmentInput,
 } from "./types"
 
-import { PlusIcon } from "@heroicons/react/solid"
 import { XIcon } from "@heroicons/react/outline"
+import { UserIcon, UsersIcon } from "@heroicons/react/solid"
 
 import IndividualEnrollmentForm from "./IndividualEnrollmentForm"
+import TeamEnrollmentForm from "./TeamEnrollmentForm"
+import SuccessScreen from "./SuccessScreen"
 
 interface IEnrollmentSlideOverProps {
   showEnrollmentSlideOver: boolean
@@ -24,55 +26,42 @@ const EnrollmentSlideOver = ({
   showEnrollmentSlideOver,
   setShowEnrollmentSlideOver,
 }: IEnrollmentSlideOverProps) => {
-  const onSubmit = async (data: IEnrollmentInput) => {
-    console.log(JSON.stringify(data))
-    // await fetch("https://usebasin.com/f/97c2ca1e7a73", {
-    //   method: "POST",
-    //   headers: { "Content-Type": "application/json" },
-    //   body: JSON.stringify(data),
-    // })
-  }
-
   const {
     register: individualFormRegister,
     handleSubmit: handleIndividualFormSubmit,
+    setValue: setIndividualFormValue,
+    watch: individualFormWatch,
     formState: { errors: individualFormErrors },
-  } = useForm<IIndividualEnrollmentInput>()
+  } = useForm<IIndividualEnrollmentInput>({ defaultValues: { bootcamp: true } })
 
-  console.log(individualFormErrors)
+  const {
+    register: teamFormRegister,
+    handleSubmit: handleTeamFormSubmit,
+    setValue: setTeamFormValue,
+    watch: teamFormWatch,
+    formState: { errors: teamFormErrors },
+  } = useForm<ITeamEnrollmentInput>()
 
+  const [isLoading, setIsLoading] = useState(false)
+  const [hasSubmissionSucceeded, setHasSubmissionSucceeded] = useState(true)
   const [isTeamEnrollment, setIsTeamEnrollment] = useState(false)
 
-  const [isAddingTeammate, setIsAddingTeammate] = useState(false)
-  const [members, setMembers] = useState([
-    {
-      firstName: "Diederik",
-      lastName: "Bakker",
-      birthYear: 1996,
-      educationalInstitution: "Universiteit Twente",
-      gender: "M",
-      bootcamp: true,
-      isCoach: true,
-      isMainContact: true,
-    },
-  ])
+  const onSubmit = async (data: IEnrollmentInput) => {
+    setIsLoading(true)
 
-  // Personal or team?
-  // Buttons
+    data.enrollmentType = isTeamEnrollment ? "team" : "individual"
+    const enrollmentUrl = isTeamEnrollment
+      ? "https://hooks.zapier.com/hooks/catch/9818544/oj8cjyu/"
+      : "https://hooks.zapier.com/hooks/catch/9818544/oj8xrvx/"
 
-  // Category (with explanation)
+    await fetch(enrollmentUrl, {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
 
-  // Onderwijsinstelling
-
-  // Contactpersoon
-
-  // Team Coach
-
-  // Individual
-  // Name
-  // Birth year
-  // Onderwijsinstelling
-  // E-mailadres
+    setIsLoading(false)
+    setHasSubmissionSucceeded(true)
+  }
 
   return (
     <div
@@ -110,10 +99,10 @@ const EnrollmentSlideOver = ({
           <div className="w-screen max-w-xl">
             <div className="h-full flex flex-col bg-white shadow-xl overflow-y-auto">
               <div className="flex-1">
-                <div className="py-6 px-4 bg-orange-600 sm:px-6">
+                <div className="py-6 px-4 bg-orange-500 sm:px-6">
                   <div className="flex items-center justify-between">
                     <h2
-                      className="text-lg font-medium text-white"
+                      className="text-xl font-medium text-white"
                       id="slide-over-title"
                     >
                       Aanmelden voor Challenge the Cyber CTF 2021
@@ -121,7 +110,7 @@ const EnrollmentSlideOver = ({
                     <div className="ml-3 h-7 flex items-center">
                       <button
                         type="button"
-                        className="bg-orange-600 rounded-md text-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                        className="bg-orange-500 rounded-md text-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                         onClick={() => setShowEnrollmentSlideOver(false)}
                       >
                         <span className="sr-only">Close panel</span>
@@ -136,106 +125,78 @@ const EnrollmentSlideOver = ({
                     </p>
                   </div>
                 </div>
-                <div className="flex-1 flex flex-col justify-between">
-                  <div className="px-4 divide-y divide-gray-200 sm:px-6">
-                    <div className="space-y-6 pt-6 pb-5">
-                      <div>
-                        <label className="block text-sm font-medium text-gray-900">
-                          Soort inschrijving
-                        </label>
-                        <nav className="flex space-x-4 mt-2" aria-label="Tabs">
-                          <button
-                            className={`${
-                              !isTeamEnrollment
-                                ? "bg-orange-500 text-white"
-                                : "bg-gray-50 text-gray-500 hover:text-gray-700"
-                            } px-3 py-2 font-medium text-sm rounded-md`}
-                            onClick={() => setIsTeamEnrollment(false)}
-                          >
-                            Individueel
-                          </button>
-                          <button
-                            className={`${
-                              isTeamEnrollment
-                                ? "bg-orange-500 text-white"
-                                : "bg-gray-50 text-gray-500 hover:text-gray-700"
-                            } px-3 py-2 font-medium text-sm rounded-md`}
-                            onClick={() => setIsTeamEnrollment(true)}
-                          >
-                            Team
-                          </button>
-                        </nav>
-                      </div>
-
-                      {isTeamEnrollment ? (
+                {hasSubmissionSucceeded ? (
+                  <SuccessScreen />
+                ) : (
+                  <div className="flex-1 flex flex-col justify-between">
+                    <div className="px-4 divide-y divide-gray-200 sm:px-6">
+                      <div className="space-y-6 pt-6 pb-5">
                         <div>
                           <label className="block text-sm font-medium text-gray-900">
-                            Teamleden
+                            Soort inschrijving
                           </label>
-                          <ul className="mt-2 border-t border-b border-gray-200 divide-y divide-gray-200">
-                            {members.map((member, i) => (
-                              <li className="py-3 flex justify-between items-center">
-                                <div className="truncate">
-                                  <p className="text-sm font-medium text-gray-900 truncate">
-                                    {`${member.firstName} ${member.lastName}`}
-                                  </p>
-                                  <p className="text-sm text-gray-500 truncate">
-                                    {member.educationalInstitution}
-                                  </p>
-                                </div>
-                                <button
-                                  type="button"
-                                  className="ml-6 bg-white rounded-md text-sm font-medium text-orange-500 hover:text-orange-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
-                                  onClick={() =>
-                                    setMembers([...members].splice(i - 1, 1))
-                                  }
-                                >
-                                  Verwijderen
-                                </button>
-                              </li>
-                            ))}
-                            <li className="py-2 flex justify-between items-center">
-                              {isAddingTeammate ? (
-                                <div className="px-4 py-5 sm:p-6">
-                                  <Input label="Voornaam" />
-                                  <Input label="Achternaam" />
-                                </div>
-                              ) : (
-                                <button
-                                  type="button"
-                                  className="group -ml-1 bg-white p-1 rounded-md flex items-center focus:outline-none focus:ring-2 focus:ring-orange-400"
-                                  onClick={() => setIsAddingTeammate(true)}
-                                >
-                                  <span className="w-8 h-8 rounded-full border-2 border-dashed border-gray-300 flex items-center justify-center text-gray-400">
-                                    <PlusIcon />
-                                  </span>
-                                  <span className="ml-4 text-sm font-medium text-orange-500 group-hover:text-orange-400">
-                                    Teamlid toevoegen
-                                  </span>
-                                </button>
-                              )}
-                            </li>
-                          </ul>
+                          <nav
+                            className="flex space-x-4 mt-2"
+                            aria-label="Tabs"
+                          >
+                            <button
+                              className={`transition ease-in-out duration-100 inline-flex space-x-2 ${
+                                !isTeamEnrollment
+                                  ? "bg-orange-500 text-white"
+                                  : "bg-gray-100 text-gray-500 hover:text-gray-700"
+                              } py-3 px-4 font-medium text-md rounded-md`}
+                              onClick={() => setIsTeamEnrollment(false)}
+                            >
+                              <UserIcon className="h-6 w-6" />
+                              <span>Individueel</span>
+                            </button>
+                            <button
+                              className={`transition ease-in-out duration-100 inline-flex space-x-2 ${
+                                isTeamEnrollment
+                                  ? "bg-orange-500 text-white"
+                                  : "bg-gray-100 text-gray-500 hover:text-gray-700"
+                              } py-3 px-4 font-medium text-md rounded-md`}
+                              onClick={() => setIsTeamEnrollment(true)}
+                            >
+                              <UsersIcon className="h-6 w-6" />
+                              <span>Team</span>
+                            </button>
+                          </nav>
                         </div>
-                      ) : (
-                        <IndividualEnrollmentForm
-                          register={individualFormRegister}
-                          errors={individualFormErrors}
-                        />
-                      )}
+
+                        {isTeamEnrollment ? (
+                          <TeamEnrollmentForm
+                            register={teamFormRegister}
+                            errors={teamFormErrors}
+                            setValue={setTeamFormValue}
+                            watch={teamFormWatch}
+                          />
+                        ) : (
+                          <IndividualEnrollmentForm
+                            register={individualFormRegister}
+                            errors={individualFormErrors}
+                            setValue={setIndividualFormValue}
+                            watch={individualFormWatch}
+                          />
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
+                )}
               </div>
 
               <div className="flex-shrink-0 px-4 border-t border-gray-200 py-5 sm:px-6">
                 <div className="space-x-3 flex justify-end">
                   <button
-                    type="submit"
-                    className="inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
+                    disabled={isLoading}
+                    className={`inline-flex justify-center text-white border border-transparent shadow-sm py-3 px-4 font-medium text-md rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 ${
+                      isLoading
+                        ? "bg-gray-400 cursor-default"
+                        : "bg-orange-500 hover:bg-orange-600"
+                    }`}
                     onClick={() =>
                       isTeamEnrollment
-                        ? handleIndividualFormSubmit(onSubmit)()
+                        ? handleTeamFormSubmit(onSubmit)()
                         : handleIndividualFormSubmit(onSubmit)()
                     }
                   >
