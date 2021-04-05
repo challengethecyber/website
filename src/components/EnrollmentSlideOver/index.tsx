@@ -43,7 +43,7 @@ const EnrollmentSlideOver = ({
   } = useForm<ITeamEnrollmentInput>()
 
   const [isLoading, setIsLoading] = useState(false)
-  const [hasSubmissionSucceeded, setHasSubmissionSucceeded] = useState(true)
+  const [hasSubmissionSucceeded, setHasSubmissionSucceeded] = useState(false)
   const [isTeamEnrollment, setIsTeamEnrollment] = useState(false)
 
   const onSubmit = async (data: IEnrollmentInput) => {
@@ -51,8 +51,8 @@ const EnrollmentSlideOver = ({
 
     data.enrollmentType = isTeamEnrollment ? "team" : "individual"
     const enrollmentUrl = isTeamEnrollment
-      ? "https://hooks.zapier.com/hooks/catch/9818544/oj8cjyu/"
-      : "https://hooks.zapier.com/hooks/catch/9818544/oj8xrvx/"
+      ? process.env.GATSBY_ENROLLMENT_WEBHOOK_INDIVIDUAL!
+      : process.env.GATSBY_ENROLLMENT_WEBHOOK_TEAM!
 
     await fetch(enrollmentUrl, {
       method: "POST",
@@ -98,36 +98,37 @@ const EnrollmentSlideOver = ({
         >
           <div className="w-screen max-w-xl">
             <div className="h-full flex flex-col bg-white shadow-xl overflow-y-auto">
-              <div className="flex-1">
-                <div className="py-6 px-4 bg-orange-500 sm:px-6">
-                  <div className="flex items-center justify-between">
-                    <h2
-                      className="text-xl font-medium text-white"
-                      id="slide-over-title"
-                    >
-                      Aanmelden voor Challenge the Cyber CTF 2021
-                    </h2>
-                    <div className="ml-3 h-7 flex items-center">
-                      <button
-                        type="button"
-                        className="bg-orange-500 rounded-md text-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
-                        onClick={() => setShowEnrollmentSlideOver(false)}
+              {hasSubmissionSucceeded ? (
+                <SuccessScreen />
+              ) : (
+                <div className="flex-1">
+                  <div className="py-6 px-4 bg-orange-500 sm:px-6">
+                    <div className="flex items-center justify-between">
+                      <h2
+                        className="text-xl font-medium text-white"
+                        id="slide-over-title"
                       >
-                        <span className="sr-only">Close panel</span>
-                        <XIcon className="h-6 w-6" />
-                      </button>
+                        Aanmelden voor Challenge the Cyber CTF 2021
+                      </h2>
+                      <div className="ml-3 h-7 flex items-center">
+                        <button
+                          type="button"
+                          className="bg-orange-500 rounded-md text-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                          onClick={() => setShowEnrollmentSlideOver(false)}
+                        >
+                          <span className="sr-only">Close panel</span>
+                          <XIcon className="h-6 w-6" />
+                        </button>
+                      </div>
+                    </div>
+                    <div className="mt-1">
+                      <p className="text-sm text-orange-200">
+                        Leuk dat je mee wilt doen met de Challenge the Cyber
+                        CTF! Om je aan te melden hebben we wat gegevens van je
+                        nodig.
+                      </p>
                     </div>
                   </div>
-                  <div className="mt-1">
-                    <p className="text-sm text-orange-200">
-                      Leuk dat je mee wilt doen met de Challenge the Cyber CTF!
-                      Om je aan te melden hebben we wat gegevens van je nodig.
-                    </p>
-                  </div>
-                </div>
-                {hasSubmissionSucceeded ? (
-                  <SuccessScreen />
-                ) : (
                   <div className="flex-1 flex flex-col justify-between">
                     <div className="px-4 divide-y divide-gray-200 sm:px-6">
                       <div className="space-y-6 pt-6 pb-5">
@@ -182,26 +183,35 @@ const EnrollmentSlideOver = ({
                       </div>
                     </div>
                   </div>
-                )}
-              </div>
-
+                </div>
+              )}
               <div className="flex-shrink-0 px-4 border-t border-gray-200 py-5 sm:px-6">
                 <div className="space-x-3 flex justify-end">
-                  <button
-                    disabled={isLoading}
-                    className={`inline-flex justify-center text-white border border-transparent shadow-sm py-3 px-4 font-medium text-md rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 ${
-                      isLoading
-                        ? "bg-gray-400 cursor-default"
-                        : "bg-orange-500 hover:bg-orange-600"
-                    }`}
-                    onClick={() =>
-                      isTeamEnrollment
-                        ? handleTeamFormSubmit(onSubmit)()
-                        : handleIndividualFormSubmit(onSubmit)()
-                    }
-                  >
-                    Aanmelden
-                  </button>
+                  {hasSubmissionSucceeded ? (
+                    <button
+                      disabled={isLoading}
+                      className="inline-flex justify-center text-white border border-transparent shadow-sm py-3 px-4 font-medium text-md rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 bg-orange-500 hover:bg-orange-600"
+                      onClick={() => setShowEnrollmentSlideOver(false)}
+                    >
+                      Sluiten
+                    </button>
+                  ) : (
+                    <button
+                      disabled={isLoading}
+                      className={`inline-flex justify-center text-white border border-transparent shadow-sm py-3 px-4 font-medium text-md rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 ${
+                        isLoading
+                          ? "bg-gray-400 cursor-default"
+                          : "bg-orange-500 hover:bg-orange-600"
+                      }`}
+                      onClick={() =>
+                        isTeamEnrollment
+                          ? handleTeamFormSubmit(onSubmit)()
+                          : handleIndividualFormSubmit(onSubmit)()
+                      }
+                    >
+                      Aanmelden
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
