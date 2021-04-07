@@ -15,7 +15,7 @@ import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 const options = {
   renderMark: {},
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
+    [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
       <p className="mb-4">{children}</p>
     ),
     [INLINES.HYPERLINK]: (node: any, children: any) => (
@@ -23,10 +23,10 @@ const options = {
         {children}
       </a>
     ),
-    [BLOCKS.UL_LIST]: (node: any, children: any) => (
+    [BLOCKS.UL_LIST]: (_node: any, children: any) => (
       <ul className="list-disc mb-4 ml-8">{children}</ul>
     ),
-    [BLOCKS.LIST_ITEM]: (node: any, children: any) => {
+    [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
       console.log("Child: ")
       return <li className="mb-2">{children[0].props.children[0]}</li>
     },
@@ -75,7 +75,10 @@ const Logos = ({ data }: ILogosProps) => {
           </div>
           <div className="mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
             {data.logos.map(logo => (
-              <div className="col-span-1 flex justify-center py-8 px-8 bg-gray-50">
+              <div
+                key={logo.description}
+                className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
+              >
                 <a href={logo.description}>
                   <img
                     className="max-h-12"

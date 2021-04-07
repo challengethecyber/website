@@ -4,12 +4,12 @@ import { graphql, Node, NodeInput } from "gatsby"
 
 import SEO from "../components/seo"
 import Header from "../components/header"
-import News from "../sections/news"
+import Content from "../sections/content"
 import Footer from "../sections/footer"
 
 interface IQueryProps {
   data: {
-    allContentfulNews: {
+    allContentfulContent: {
       nodes: any
     }
   }
@@ -18,19 +18,13 @@ interface IQueryProps {
 const IndexPage = ({ data }: IQueryProps) => {
   return (
     <div>
-      <SEO title="Nieuws" />
+      <SEO title="CTF" />
       <div className="max-w-7xl mx-auto">
         <div className="relative z-10 pb-8 bg-white">
           <Header />
         </div>
       </div>
-      {data.allContentfulNews.nodes.map((news: any, index: number) => {
-        return (
-          <div key={index} className="divide-solid">
-            <News data={news} textLeft={index % 2 === 0} />
-          </div>
-        )
-      })}
+      <Content data={data.allContentfulContent.nodes[0]} />
       <Footer />
     </div>
   )
@@ -40,9 +34,9 @@ export default IndexPage
 
 export const query = graphql`
   query {
-    allContentfulNews(sort: { fields: date, order: DESC }) {
+    allContentfulContent(filter: { link: { eq: "CTF" } }) {
       nodes {
-        ...AllNews
+        ...Content
       }
     }
   }

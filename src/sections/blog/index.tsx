@@ -1,6 +1,6 @@
 import React from "react"
 
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
@@ -55,49 +55,46 @@ const Blog = ({ data }: IBlogProps) => {
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           {data.map(news => (
-            <div className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0">
-                <GatsbyImage
-                  className="h-48 w-full object-cover"
-                  image={news.picture.gatsbyImageData}
-                  alt={news.picture.description}
-                />
-              </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                  <p className="text-sm font-medium text-orange-500">
-                    <a href="#" className="hover:underline">
+            <Link key={news.title} to="/news/" className="block mt-2">
+              {/* TODO jump to post */}
+              <div className="flex flex-col rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105">
+                <div className="flex-shrink-0">
+                  <GatsbyImage
+                    className="h-48 w-full object-cover"
+                    image={news.picture.gatsbyImageData}
+                    alt={news.picture.description}
+                  />
+                </div>
+                <div className="flex-1 bg-white p-6 flex flex-col justify-between">
+                  <div className="flex-1">
+                    <p className="text-sm font-medium text-orange-500">
                       {news.type}
-                    </a>
-                  </p>
-                  <a href="#" className="block mt-2">
+                    </p>
+
                     <p className="text-xl font-semibold text-gray-900">
                       {news.title}
                     </p>
-                    <div className="mt-3 text-base text-gray-500 max-h-32 overflow-hidden">
-                      {/* todo ellipsis */}
+
+                    <div className="relative mt-3 text-base text-gray-500 max-h-32 overflow-hidden">
+                      <div className="absolute h-8 bottom-0 w-full bg-gradient-to-b from-transparent to-white"></div>
                       {renderRichText(news.content, options)}
                     </div>
-                  </a>
-                </div>
-                <div className="mt-6 flex items-center">
-                  <div className="ml-3">
-                    <p className="text-sm font-medium text-gray-900">
-                      <a href="#" className="hover:underline">
+                  </div>
+                  <div className="mt-6 flex items-center">
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-gray-900">
                         {news.author}
-                      </a>
-                    </p>
-                    <div className="flex space-x-1 text-sm text-gray-500">
-                      <time dateTime={news.date}>
-                        {new Date(news.date).toLocaleDateString()}
-                      </time>
-                      {/* <span aria-hidden="true">&middot;</span>
-                      <span>6 min read</span> */}
+                      </p>
+                      <div className="flex space-x-1 text-sm text-gray-500">
+                        <time dateTime={news.date}>
+                          {new Date(news.date).toLocaleDateString()}
+                        </time>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
