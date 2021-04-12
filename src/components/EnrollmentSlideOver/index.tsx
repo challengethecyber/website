@@ -59,10 +59,10 @@ const EnrollmentSlideOver = ({
       ? process.env.GATSBY_ENROLLMENT_WEBHOOK_TEAM!
       : process.env.GATSBY_ENROLLMENT_WEBHOOK_INDIVIDUAL!
 
-    // await fetch(enrollmentUrl, {
-    //   method: "POST",
-    //   body: JSON.stringify(data),
-    // })
+    await fetch(enrollmentUrl, {
+      method: "POST",
+      body: JSON.stringify(data),
+    })
 
     setIsLoading(false)
     setHasSubmissionSucceeded(true)
