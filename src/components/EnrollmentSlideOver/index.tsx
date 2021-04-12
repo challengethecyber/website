@@ -2,11 +2,7 @@ import React, { useState, FC } from "react"
 import { Transition } from "@headlessui/react"
 import { useForm } from "react-hook-form"
 
-import {
-  IIndividualEnrollmentInput,
-  ITeamEnrollmentInput,
-  IEnrollmentInput,
-} from "./types"
+import { IIndividualEnrollmentInput, ITeamEnrollmentInput } from "./types"
 
 import { XIcon } from "@heroicons/react/outline"
 import { UserIcon, UsersIcon } from "@heroicons/react/solid"
@@ -32,7 +28,13 @@ const EnrollmentSlideOver = ({
     setValue: setIndividualFormValue,
     watch: individualFormWatch,
     formState: { errors: individualFormErrors },
-  } = useForm<IIndividualEnrollmentInput>({ defaultValues: { bootcamp: true } })
+  } = useForm<IIndividualEnrollmentInput>({
+    defaultValues: {
+      bootcamp: true,
+      newsletter: true,
+      privacyStatement: false,
+    },
+  })
 
   const {
     register: teamFormRegister,
@@ -40,24 +42,27 @@ const EnrollmentSlideOver = ({
     setValue: setTeamFormValue,
     watch: teamFormWatch,
     formState: { errors: teamFormErrors },
-  } = useForm<ITeamEnrollmentInput>()
+  } = useForm<ITeamEnrollmentInput>({
+    defaultValues: { privacyStatement: false },
+  })
 
   const [isLoading, setIsLoading] = useState(false)
   const [hasSubmissionSucceeded, setHasSubmissionSucceeded] = useState(false)
   const [isTeamEnrollment, setIsTeamEnrollment] = useState(true)
 
-  const onSubmit = async (data: IEnrollmentInput) => {
+  const onSubmit = async (
+    data: IIndividualEnrollmentInput | ITeamEnrollmentInput
+  ) => {
     setIsLoading(true)
 
-    data.enrollmentType = isTeamEnrollment ? "team" : "individual"
     const enrollmentUrl = isTeamEnrollment
       ? process.env.GATSBY_ENROLLMENT_WEBHOOK_TEAM!
       : process.env.GATSBY_ENROLLMENT_WEBHOOK_INDIVIDUAL!
 
-    await fetch(enrollmentUrl, {
-      method: "POST",
-      body: JSON.stringify(data),
-    })
+    // await fetch(enrollmentUrl, {
+    //   method: "POST",
+    //   body: JSON.stringify(data),
+    // })
 
     setIsLoading(false)
     setHasSubmissionSucceeded(true)

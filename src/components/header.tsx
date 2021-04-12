@@ -22,19 +22,20 @@ const Header = () => {
       link: "/ctf/",
       prettyName: "CTF",
       icon: <PuzzleIcon className="h-6 w-6" />,
-      description: "De CTF mag je gerust het NK hacken noemen!",
+      description:
+        "Strijd met je team voor de winst in de jaarlijkse competitie",
     },
     {
       link: "/cyberbootcamp/",
       prettyName: "Cyberbootcamp",
       icon: <AcademicCapIcon className="h-6 w-6" />,
-      description: "Tijdens de cyberbootcamp trainen we voor de ECSC.",
+      description: "Een week lang leren, hacken, trainen en relaxen",
     },
     {
       link: "/ecsc/",
       prettyName: "ECSC",
       icon: <FlagIcon className="h-6 w-6" />,
-      description: "Dan zal de ECSC wel het EK hacken zijn.",
+      description: "Dé hackingcompetitie van Europa",
     },
   ]
 
@@ -76,7 +77,7 @@ const Header = () => {
             </button>
 
             <Transition
-              className="absolute z-10 -ml-4 mt-3 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-10"
+              className="absolute z-10 -ml-4 mt-3 right-0 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-10"
               show={isInitiativesOpen}
               enter="transition ease-out duration-200"
               enterFrom="opacity-0 translate-y-1"
@@ -157,20 +158,22 @@ const Header = () => {
             </div>
           </div>
           <div className="px-2 pt-2 pb-3 mt-2 space-y-1">
-            {pages.map(({ link, prettyName, icon }) => (
-              <Link
-                key={link}
-                to={link}
-                className="my-3 flex items-center rounded-lg hover:bg-gray-50"
-              >
-                <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-orange-400 to-orange-600 text-white">
-                  {icon}
-                </div>
-                <div className="ml-4 text-base font-medium text-gray-900">
-                  {prettyName}
-                </div>
-              </Link>
-            ))}
+            <div>
+              {pages.map(({ link, prettyName, icon }) => (
+                <Link
+                  key={link}
+                  to={link}
+                  className="my-3 flex items-center rounded-lg hover:bg-gray-50"
+                >
+                  <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-orange-400 to-orange-600 text-white">
+                    {icon}
+                  </div>
+                  <div className="ml-4 text-base font-medium text-gray-900">
+                    {prettyName}
+                  </div>
+                </Link>
+              ))}
+            </div>
             <Link
               to="/"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"

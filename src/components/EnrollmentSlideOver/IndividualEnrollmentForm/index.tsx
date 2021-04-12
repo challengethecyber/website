@@ -29,9 +29,17 @@ const IndividualEnrollmentForm = ({
   isMemberForm = false,
 }: IIndividualEnrollmentFormProps) => {
   useEffect(() => {
-    register("bootcamp", {
-      required: { value: true, message: "Dit veld is verplicht" },
-    })
+    register("bootcamp")
+
+    register("newsletter")
+
+    if (!isMemberForm) {
+      register("privacyStatement", {
+        validate: (privacyStatement?: boolean) =>
+          privacyStatement ||
+          "Accepteer de privacyverklaring om verder te gaan",
+      })
+    }
   }, [])
 
   return (
@@ -117,6 +125,37 @@ const IndividualEnrollmentForm = ({
             : "Geef hier aan of je in aanmerking wilt komen voor deelname aan het cyberbootcamp"
         }
       />
+      <Toggle
+        onChange={(value: boolean) => setValue("newsletter", value)}
+        value={watch("newsletter")}
+        mainText="Aanmelding voor de nieuwsbrief"
+        subText={
+          isMemberForm
+            ? "Geef hier aan of deze deelnemer twee keer per jaar een mailing wil ontvangen van Challenge the Cyber"
+            : "Geef hier aan of je twee keer per jaar een mailing wilt ontvangen van Challenge the Cyber"
+        }
+      />
+      {!isMemberForm && (
+        <Toggle
+          onChange={(value: boolean) => setValue("privacyStatement", value)}
+          value={watch("privacyStatement") || false}
+          mainText="Ik ga akkoord met de privacyverklaring"
+          subText={
+            <span>
+              Geef hier aan of je akkoord gaat met de{" "}
+              <a
+                className="underline"
+                href="/privacy-statement"
+                target="_blank"
+              >
+                privacyverklaring
+              </a>{" "}
+              van Challenge the Cyber
+            </span>
+          }
+          error={errors?.privacyStatement}
+        />
+      )}
     </form>
   )
 }

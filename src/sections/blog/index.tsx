@@ -76,7 +76,7 @@ const Blog = ({ data }: IBlogProps) => {
                     </p>
 
                     <div className="relative mt-3 text-base text-gray-500 max-h-32 overflow-hidden">
-                      <div className="absolute h-8 bottom-0 w-full bg-gradient-to-b from-transparent to-white"></div>
+                      <div className="absolute h-8 bottom-0 w-full bg-gradient-to-t from-white"></div>
                       {renderRichText(news.content, options)}
                     </div>
                   </div>

@@ -81,7 +81,7 @@ const Logos = ({ data }: ILogosProps) => {
               >
                 <a href={logo.description}>
                   <img
-                    className="max-h-12"
+                    className="max-h-12 h-12"
                     src={logo.file.url}
                     alt={logo.title}
                   />
