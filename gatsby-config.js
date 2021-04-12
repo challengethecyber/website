@@ -1,3 +1,5 @@
+const path = require("path")
+
 require("dotenv").config()
 const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env
 
@@ -9,15 +11,22 @@ if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_ACCESS_TOKEN) {
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    title: `Challenge the Cyber`,
+    description: `Met Challenge the Cyber willen wij de groep jonge cybersecuritytalenten vergroten, diverser maken en hun de middelen geven om te excelleren.`,
     author: `@gatsbyjs`,
     menu: [
       { name: "Home", to: "/" },
-      { name: "Blog", to: "/blog" },
+      { name: "Nieuws", to: "/nieuw" },
+      { name: "Links", to: "/links" },
     ],
   },
   plugins: [
+    {
+      resolve: "gatsby-plugin-root-import",
+      options: {
+        components: path.join(__dirname, "src/components"),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
@@ -33,13 +42,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: `challenge-the-cyber`,
+        short_name: `ctc`,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/ctc-satellite.svg`,
+        background_color: `#ffffff`,
       },
     },
     {
@@ -47,7 +54,7 @@ module.exports = {
       options: {
         spaceId: CONTENTFUL_SPACE_ID,
         accessToken: CONTENTFUL_ACCESS_TOKEN,
-        // downloadLocal: true,
+        downloadLocal: false,
       },
     },
     `gatsby-plugin-gatsby-cloud`,

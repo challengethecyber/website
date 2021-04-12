@@ -1,8 +1,8 @@
-const colors = require('tailwindcss/colors')
+const colors = require("tailwindcss/colors")
 
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
-  darkMode: 'media',
+  purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  darkMode: false,
   theme: {
     container: {
       center: true,
@@ -13,17 +13,18 @@ module.exports = {
     },
     colors: {
       ...colors,
-      transparent: 'transparent'
+      transparent: "transparent",
     },
     extend: {
       zIndex: {
-        '-1': '-1',
-      }
-    }
+        "-1": "-1",
+      },
+    },
   },
   plugins: [
-    require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/typography')
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
   ],
   variants: {
     opacity: ["responsive", "hover", "focus", "group-hover"],
