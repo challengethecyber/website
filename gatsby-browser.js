@@ -4,4 +4,12 @@
  * See: https://www.gatsbyjs.com/docs/browser-apis/
  */
 
-import './src/styles/global.css';
+import React from "react"
+
+import { EnrollmentProvider } from "./src/context/enrollment"
+
+import "./src/styles/global.css"
+
+export const wrapRootElement = ({ element }) => (
+  <EnrollmentProvider>{element}</EnrollmentProvider>
+)

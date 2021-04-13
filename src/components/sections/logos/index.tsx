@@ -59,9 +59,9 @@ const Logos = ({ data }: ILogosProps) => {
             <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
               {data.title}
             </h2>
-            <p className="mt-3 max-w-3xl text-lg text-gray-500">
+            <div className="mt-3 max-w-3xl text-lg text-gray-500">
               {renderRichText(data.description, options)}
-            </p>
+            </div>
             <div className="mt-8 sm:flex">
               <div className="rounded-md shadow">
                 <a

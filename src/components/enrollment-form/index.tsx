@@ -7,9 +7,9 @@ import { IIndividualEnrollmentInput, ITeamEnrollmentInput } from "./types"
 import { XIcon } from "@heroicons/react/outline"
 import { UserIcon, UsersIcon } from "@heroicons/react/solid"
 
-import IndividualEnrollmentForm from "./IndividualEnrollmentForm"
-import TeamEnrollmentForm from "./TeamEnrollmentForm"
-import SuccessScreen from "./SuccessScreen"
+import IndividualEnrollmentForm from "./individual-form"
+import TeamEnrollmentForm from "./team-form"
+import SuccessScreen from "./success-screen"
 
 interface IEnrollmentSlideOverProps {
   showEnrollmentSlideOver: boolean
