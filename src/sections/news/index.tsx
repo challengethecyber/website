@@ -13,14 +13,16 @@ import { CameraIcon } from "@heroicons/react/solid"
 const options = {
   renderMark: {},
   renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
+    // eslint-disable-next-line react/display-name
+    [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
       <p className="mb-4">{children}</p>
     ),
-    [BLOCKS.UL_LIST]: (node: any, children: any) => (
+    // eslint-disable-next-line react/display-name
+    [BLOCKS.UL_LIST]: (_node: any, children: any) => (
       <ul className="list-disc mb-4 ml-8">{children}</ul>
     ),
-    [BLOCKS.LIST_ITEM]: (node: any, children: any) => {
-      console.log("Child: ")
+    // eslint-disable-next-line react/display-name
+    [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
       return <li>{children}</li>
     },
     [INLINES.HYPERLINK]: (node: any, children: any) => {
@@ -66,7 +68,7 @@ export interface INewsProps {
 
 const News = ({ data, textLeft }: INewsProps) => (
   <div className="overflow-hidden">
-    <div className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
+    <div className="relative max-w-7xl mx-auto py-4 md:py-8 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="hidden lg:block bg-gray-50 absolute -z-1 top-0 bottom-0 left-3/4 w-screen"></div>
       <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
         <div
@@ -125,7 +127,7 @@ const News = ({ data, textLeft }: INewsProps) => (
           </svg>
           <div className="relative text-base mx-auto max-w-prose lg:max-w-none">
             <figure>
-              <div className="aspect-w-12 aspect-h-7">
+              <div className="">
                 <GatsbyImage
                   className="rounded-lg shadow-lg object-cover object-center"
                   image={data.picture.gatsbyImageData}

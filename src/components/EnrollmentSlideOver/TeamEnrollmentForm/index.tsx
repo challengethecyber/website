@@ -13,6 +13,7 @@ import { ITeamEnrollmentInput, IIndividualEnrollmentInput } from "../types"
 import Input from "components/Input"
 import MemberCard from "./MemberCard"
 import IndividualEnrollmentForm from "../IndividualEnrollmentForm"
+import Toggle from "components/Toggle"
 
 type ITeamEnrollmentFormProps = {
   register: UseFormRegister<ITeamEnrollmentInput>
@@ -34,13 +35,20 @@ const TeamEnrollmentForm = ({
     setValue: memberFormSetValue,
     watch: memberFormWatch,
     reset: memberFormReset,
-  } = useForm<IIndividualEnrollmentInput>({ defaultValues: { bootcamp: true } })
+  } = useForm<IIndividualEnrollmentInput>({
+    defaultValues: { bootcamp: true, newsletter: true },
+  })
 
   useEffect(() => {
     register("members", {
       validate: members =>
         (members?.length > 1 && members?.length <= 5) ||
         "Voeg minimaal twee en maximaal vijf teamleden toe",
+    })
+
+    register("privacyStatement", {
+      validate: (privacyStatement: boolean) =>
+        privacyStatement || "Accepteer de privacyverklaring om verder te gaan",
     })
   }, [])
 
@@ -91,6 +99,7 @@ const TeamEnrollmentForm = ({
           <ul className="grid gap-4 mb-4">
             {members?.map((member, index) => (
               <MemberCard
+                key={index}
                 member={member}
                 onDelete={() => removeMember(index)}
                 onSetCaptain={() => setCaptain(index)}
@@ -134,6 +143,21 @@ const TeamEnrollmentForm = ({
           </div>
         </div>
       </div>
+      <Toggle
+        onChange={(value: boolean) => setValue("privacyStatement", value)}
+        value={watch("privacyStatement")}
+        mainText="Ik ga akkoord met de privacyverklaring"
+        subText={
+          <span>
+            Geef hier aan of je akkoord gaat met de{" "}
+            <a className="underline" href="/privacy-statement" target="_blank">
+              privacyverklaring
+            </a>{" "}
+            van Challenge the Cyber
+          </span>
+        }
+        error={errors?.privacyStatement}
+      />
     </form>
   )
 }

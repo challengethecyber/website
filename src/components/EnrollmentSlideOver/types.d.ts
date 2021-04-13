@@ -9,16 +9,12 @@ export type IIndividualEnrollmentInput = {
   educationalInstitution: string
   isCaptain?: boolean
   bootcamp: boolean
+  newsletter: boolean
+  privacyStatement?: boolean
 }
 
 export type ITeamEnrollmentInput = {
   teamName: string
   members: IIndividualEnrollmentInput[]
-}
-
-export type IEnrollmentInput = (
-  | IIndividualEnrollmentInput
-  | ITeamEnrollmentInput
-) & {
-  enrollmentType: string
+  privacyStatement: boolean
 }
