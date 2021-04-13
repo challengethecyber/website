@@ -10,10 +10,10 @@ import { XCircleIcon, UserAddIcon } from "@heroicons/react/solid"
 
 import { ITeamEnrollmentInput, IIndividualEnrollmentInput } from "../types"
 
-import Input from "../../../components/input"
+import Input from "/src/components/input"
 import MemberCard from "./member-card"
 import IndividualEnrollmentForm from "../individual-form"
-import Toggle from "../../../components/toggle"
+import Toggle from "/src/components/toggle"
 
 type ITeamEnrollmentFormProps = {
   register: UseFormRegister<ITeamEnrollmentInput>
