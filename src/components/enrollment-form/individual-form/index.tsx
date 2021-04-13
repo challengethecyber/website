@@ -8,9 +8,9 @@ import {
 
 import { IIndividualEnrollmentInput } from "../types"
 
-import Input from "/src/components/input"
-import Select from "/src/components/select"
-import Toggle from "/src/components/toggle"
+import Input from "components/input"
+import Select from "components/select"
+import Toggle from "components/toggle"
 import ContextCard from "components/context-card"
 
 type IIndividualEnrollmentFormProps = {
