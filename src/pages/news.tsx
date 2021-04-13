@@ -1,11 +1,9 @@
 import React from "react"
 
-import { graphql, Node, NodeInput } from "gatsby"
+import { graphql } from "gatsby"
 
-import SEO from "../components/seo"
-import Header from "../components/header"
-import News from "../sections/news"
-import Footer from "../sections/footer"
+import Page from "components/page"
+import News from "components/sections/news"
 
 interface IQueryProps {
   data: {
@@ -15,15 +13,9 @@ interface IQueryProps {
   }
 }
 
-const IndexPage = ({ data }: IQueryProps) => {
+const NewsPage = ({ data }: IQueryProps) => {
   return (
-    <div>
-      <SEO title="Nieuws" />
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-white">
-          <Header />
-        </div>
-      </div>
+    <Page title="Nieuws">
       {data.allContentfulNews.nodes.map((news: any, index: number) => {
         return (
           <div key={index} className="divide-solid">
@@ -31,12 +23,11 @@ const IndexPage = ({ data }: IQueryProps) => {
           </div>
         )
       })}
-      <Footer />
-    </div>
+    </Page>
   )
 }
 
-export default IndexPage
+export default NewsPage
 
 export const query = graphql`
   query {

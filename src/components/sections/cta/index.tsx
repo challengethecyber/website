@@ -1,4 +1,5 @@
 import React from "react"
+import { Link } from "gatsby"
 
 import {
   InformationCircleIcon,
@@ -27,10 +28,13 @@ const CTA = ({ setShowEnrollmentSlideOver }: ICTAProps) => (
             en een plaats bij het Cyberbootcamp.
           </p>
           <div className="mt-5 max-w-xl mx-auto sm:flex sm:justify-center md:mt-8">
-            <button className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-50 bg-orange-400 hover:bg-orange-450 md:py-4 md:text-lg md:px-10">
+            <Link
+              className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-50 bg-orange-400 hover:bg-orange-450 md:py-4 md:text-lg md:px-10"
+              to="/ctf"
+            >
               <InformationCircleIcon className="h-6 w-6" />
               <span className="ml-2">Meer informatie</span>
-            </button>
+            </Link>
             <button
               onClick={() => setShowEnrollmentSlideOver(true)}
               className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-500 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 sm:ml-4 mt-2 sm:mt-0"

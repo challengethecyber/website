@@ -3,7 +3,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
-import Header from "../../components/header"
+import Header from "components/page/header"
 
 import {
   RenderRichTextData,
@@ -47,19 +47,14 @@ const Hero = ({ data }: IHeroProps) => {
                   Challenge the Cyber
                 </span>
               </h1>
-              <p className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+              <div className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 {renderRichText(data.subtitle, options)}
-              </p>
+              </div>
             </div>
           </main>
         </div>
       </div>
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
-        {/* <img
-          className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixqx=79TiEXealR&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-          alt=""
-        /> */}
         <GatsbyImage
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
           image={data.heroImage.gatsbyImageData}

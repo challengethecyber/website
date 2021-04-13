@@ -1,16 +1,15 @@
-import React, { useState } from "react"
+import React, { useContext } from "react"
 
-import { graphql, Node, NodeInput } from "gatsby"
+import { graphql } from "gatsby"
 
-import SEO from "../components/seo"
-import Hero from "../sections/hero"
-import CTA from "../sections/cta"
-import Testimonial from "../sections/testimonial"
-import About from "../sections/about"
-import Blog from "../sections/blog"
-import Logos from "../sections/logos"
-import Footer from "../sections/footer"
-import EnrollmentSlideOver from "components/EnrollmentSlideOver"
+import Page from "components/page"
+
+import Hero from "components/sections/hero"
+import CTA from "components/sections/cta"
+import About from "components/sections/about"
+import Blog from "components/sections/blog"
+import Logos from "components/sections/logos"
+import { EnrollmentContext } from "../context/enrollment"
 
 interface IQueryProps {
   data: {
@@ -24,28 +23,20 @@ interface IQueryProps {
 }
 
 const IndexPage = ({ data }: IQueryProps) => {
-  const isEnrollmentOpen = process.env.GATSBY_ENROLLMENT_OPEN === "true"
-  const [showEnrollmentSlideOver, setShowEnrollmentSlideOver] = useState(false)
+  const { isEnrollmentOpen, setShowEnrollmentSlideOver } = useContext(
+    EnrollmentContext
+  )
 
   return (
-    <div>
-      <SEO title="Home" />
+    <Page title="Home" hideHeader>
       <Hero data={data.lander} />
       {isEnrollmentOpen && (
         <CTA setShowEnrollmentSlideOver={setShowEnrollmentSlideOver} />
       )}
-      {/* <Testimonial /> */}
       <About data={data.about} />
       <Blog data={data.news.nodes} />
       <Logos data={data.sponsors} />
-      <Footer />
-      {isEnrollmentOpen && (
-        <EnrollmentSlideOver
-          showEnrollmentSlideOver={showEnrollmentSlideOver}
-          setShowEnrollmentSlideOver={setShowEnrollmentSlideOver}
-        />
-      )}
-    </div>
+    </Page>
   )
 }
 

@@ -2,10 +2,8 @@ import React from "react"
 
 import { graphql, Node, NodeInput } from "gatsby"
 
-import SEO from "../components/seo"
-import Header from "../components/header"
-import Content from "../sections/content"
-import Footer from "../sections/footer"
+import Page from "components/page"
+import Content from "components/content"
 
 interface IQueryProps {
   data: {
@@ -15,22 +13,15 @@ interface IQueryProps {
   }
 }
 
-const IndexPage = ({ data }: IQueryProps) => {
+const CtfPage = ({ data }: IQueryProps) => {
   return (
-    <div>
-      <SEO title="CTF" />
-      <div className="max-w-7xl mx-auto">
-        <div className="relative z-10 pb-8 bg-white">
-          <Header />
-        </div>
-      </div>
+    <Page title="CTF">
       <Content data={data.allContentfulContent.nodes[0]} />
-      <Footer />
-    </div>
+    </Page>
   )
 }
 
-export default IndexPage
+export default CtfPage
 
 export const query = graphql`
   query {

@@ -8,7 +8,7 @@ interface IMemberCardProps {
   onSetCaptain: () => void
 }
 
-const Select = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => (
+const MemberCard = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => (
   <li className="w-full bg-white shadow-sm rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 divide-x divide-gray-200">
     <div className="w-0 flex-1 flex items-center py-4 px-6">
       <div className="flex-1 truncate">
@@ -55,4 +55,4 @@ const Select = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => (
   </li>
 )
 
-export default Select
+export default MemberCard
