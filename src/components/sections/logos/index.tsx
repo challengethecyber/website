@@ -27,7 +27,6 @@ const options = {
       <ul className="list-disc mb-4 ml-8">{children}</ul>
     ),
     [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
-      console.log("Child: ")
       return <li className="mb-2">{children[0].props.children[0]}</li>
     },
   },
