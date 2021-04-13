@@ -1,7 +1,7 @@
 import React, { useEffect, createRef } from "react"
 
 import lottie from "lottie-web"
-import checkmark from "../../../animations/checkmark.json"
+import checkmark from "./animations/checkmark.json"
 
 type ISuccessScreenProps = {}
 

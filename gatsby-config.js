@@ -14,11 +14,6 @@ module.exports = {
     title: `Challenge the Cyber`,
     description: `Met Challenge the Cyber willen wij de groep jonge cybersecuritytalenten vergroten, diverser maken en hun de middelen geven om te excelleren.`,
     author: `@gatsbyjs`,
-    menu: [
-      { name: "Home", to: "/" },
-      { name: "Nieuws", to: "/nieuw" },
-      { name: "Links", to: "/links" },
-    ],
   },
   plugins: [
     {
@@ -30,13 +25,6 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
@@ -45,7 +33,7 @@ module.exports = {
         name: `challenge-the-cyber`,
         short_name: `ctc`,
         start_url: `/`,
-        icon: `src/images/ctc-satellite.svg`,
+        icon: `src/assets/ctc-satellite.svg`,
         background_color: `#ffffff`,
       },
     },

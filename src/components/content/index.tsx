@@ -1,11 +1,7 @@
 import React from "react"
-
 import { graphql } from "gatsby"
 
 import Shapes from "./shapes"
-import Header from "../../components/header"
-
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 
 import {
   RenderRichTextData,
@@ -28,24 +24,11 @@ const options = {
       return <li>{children}</li>
     },
     [INLINES.HYPERLINK]: (node: any, children: any) => {
-      if (node.data.uri.includes("youtube.com/embed")) {
-        return (
-          <iframe
-            className="w-full lg:max-w-lg h-72"
-            src={node.data.uri}
-            title="Replaceme"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        )
-      } else {
-        return (
-          <a href={node.data.uri} className="text-orange-500 font-medium">
-            {children}
-          </a>
-        )
-      }
+      return (
+        <a href={node.data.uri} className="text-orange-500 font-medium">
+          {children}
+        </a>
+      )
     },
   },
 }
@@ -75,7 +58,6 @@ const Content = ({ data }: IContentProps) => (
           {renderRichText(data.content, options)}
         </div>
       </div>
-      <div className="mt-6 prose prose-indigo prose-lg text-gray-500 mx-auto"></div>
     </div>
   </div>
 )
