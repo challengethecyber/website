@@ -8,10 +8,10 @@ import {
 
 import { IIndividualEnrollmentInput } from "../types"
 
-import Input from "@components/input"
-import Select from "@components/select"
-import Toggle from "@components/toggle"
-import ContextCard from "@components/context-card"
+import ContextCard from "components/context-card"
+import Input from "components/input"
+import Select from "components/select"
+import Toggle from "components/toggle"
 
 type IIndividualEnrollmentFormProps = {
   register: UseFormRegister<IIndividualEnrollmentInput>
