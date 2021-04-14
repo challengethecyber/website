@@ -1,7 +1,8 @@
 const colors = require("tailwindcss/colors")
 
 module.exports = {
-  purge: ["./public/**/*.html", "./src/**/*.{js,jsx,ts,tsx}"],
+  mode: "jit",
+  purge: ["./src/**/*.tsx"],
   darkMode: false,
   theme: {
     container: {
@@ -26,8 +27,4 @@ module.exports = {
     require("@tailwindcss/typography"),
     require("@tailwindcss/forms"),
   ],
-  variants: {
-    opacity: ["responsive", "hover", "focus", "group-hover"],
-    display: ["responsive", "hover", "focus", "last"],
-  },
 }

@@ -12,8 +12,8 @@ if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_ACCESS_TOKEN) {
 module.exports = {
   siteMetadata: {
     title: `Challenge the Cyber`,
-    description: `Met Challenge the Cyber willen wij de groep jonge cybersecuritytalenten vergroten, diverser maken en hun de middelen geven om te excelleren.`,
-    author: `@gatsbyjs`,
+    description: `Challenge the Cyber organiseert cybersecurity events voor scholieren en studenten. De jaarlijkse Challenge the Cyber CTF, het Cyberbootcamp en de uitzending naar de European Cybersecurity Challenge zijn de belangrijkste pijlers, met daaromheen trainings- en netwerkactiviteiten.`,
+    author: `Challenge the Cyber`,
   },
   plugins: [
     {
@@ -25,6 +25,13 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `assets`,
+        path: `${__dirname}/src/assets`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

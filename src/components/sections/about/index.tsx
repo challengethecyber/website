@@ -59,7 +59,7 @@ export default function About({ data }: IAboutProps) {
   const imageRight = false
   return (
     <div className="relative bg-white">
-      <div className="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2">
+      <div className="relative pt-12 pb-16 px-4 sm:pt-16 sm:px-6 lg:px-8 lg:max-w-7xl lg:mx-auto lg:grid lg:grid-cols-2 z-10">
         <div
           className={`${
             imageRight ? "lg:col-start-1 lg:pr-8" : "lg:col-start-2 lg:pl-8"
