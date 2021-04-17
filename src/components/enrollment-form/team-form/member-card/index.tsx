@@ -22,7 +22,7 @@ const MemberCard = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => (
             </span>
           )}
         </div>
-        <p className="mt-1 text-gray-500 text-sm truncate">
+        <p className="mt-1 text-gray-500 text-sm truncate" title={`${member.emailAddress} - ${member.educationalInstitution}`}>
           {`${member.gender} (${member.birthYear}) - ${member.emailAddress}`}
         </p>
       </div>
@@ -33,11 +33,10 @@ const MemberCard = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => (
           <button
             disabled={member.isCaptain}
             onClick={() => onSetCaptain()}
-            className={`w-full border border-transparent rounded-none rounded-tr-lg px-4 py-3 flex items-center justify-center text-sm font-medium ${
-              member.isCaptain
-                ? "cursor-default text-gray-300"
-                : "text-orange-500 hover:text-orange-400 focus:outline-none focus:z-10 focus:ring-2 focus:ring-orange-400"
-            }`}
+            className={`w-full border border-transparent rounded-none rounded-tr-lg px-4 py-3 flex items-center justify-center text-sm font-medium ${member.isCaptain
+              ? "cursor-default text-gray-300"
+              : "text-orange-500 hover:text-orange-400 focus:outline-none focus:z-10 focus:ring-2 focus:ring-orange-400"
+              }`}
           >
             Maak captain
           </button>
