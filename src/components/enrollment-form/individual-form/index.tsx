@@ -82,9 +82,9 @@ const IndividualEnrollmentForm = ({
               message: "Je kunt alleen deelnemen met een geboortejaar na 1995",
             },
             max: {
-              value: 2006,
+              value: 2007,
               message:
-                "Je kunt alleen deelnemen met een geboortejaar voor 2006",
+                "Je kunt alleen deelnemen met een geboortejaar voor 2007",
             },
           })}
         />
