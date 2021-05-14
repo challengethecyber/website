@@ -89,6 +89,7 @@ const TeamEnrollmentForm = ({
         error={errors?.teamName}
         {...register("teamName", {
           required: { value: true, message: "Dit veld is verplicht" },
+          maxLength: { value: 30, message: "Je teamnaam is te lang!" },
         })}
       />
       <div>
