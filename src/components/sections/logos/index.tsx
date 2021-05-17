@@ -72,21 +72,23 @@ const Logos = ({ data }: ILogosProps) => {
               </div>
             </div>
           </div>
-          <div className="mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
-            {data.logos.map(logo => (
-              <div
-                key={logo.description}
-                className="col-span-1 flex justify-center py-8 px-8 bg-gray-50"
-              >
-                <a href={logo.description}>
-                  <img
-                    className="max-h-12 h-12"
-                    src={logo.file.url}
-                    alt={logo.title}
-                  />
-                </a>
-              </div>
-            ))}
+          <div className="mt-8 grid grid-cols-2 gap-1.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+            {data.logos
+              .map(logo => (
+                <div
+                  key={logo.description}
+                  className="col-span-1 h-28 flex justify-center items-center bg-gray-50"
+                >
+                  <a href={logo.description}>
+                    <img
+                      className="h-16 max-w-48"
+                      src={logo.file.url}
+                      alt={logo.title}
+                    />
+                  </a>
+                </div>
+              ))
+              .sort(() => Math.random() - 0.5)}
           </div>
         </div>
       </div>
