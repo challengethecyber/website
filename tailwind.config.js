@@ -16,12 +16,12 @@ module.exports = {
       ...colors,
       transparent: "transparent",
     },
-    maxWidth: {
-      48: "12rem",
-    },
     extend: {
       zIndex: {
         "-1": "-1",
+      },
+      maxWidth: {
+        48: "12rem",
       },
     },
   },
