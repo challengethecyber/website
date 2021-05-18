@@ -13,10 +13,10 @@ const Stream = () => {
           Livestream
         </span>
         <div className="bg-white overflow-hidden shadow rounded-lg">
-          <div className=" aspect-w-16 aspect-h-9">
+          <div className="aspect-w-16 aspect-h-9">
             <iframe
               className="overflow-hidden -z-10w-full h-full"
-              src={`https://www.youtube.com/embed/live_stream?channel=${streamChannelId}&autoplay=1&controls=0&rel=0`}
+              src={`https://www.youtube.com/embed/live_stream?channel=${streamChannelId}&autoplay=1&controls=1&rel=0`}
               frameBorder="0"
               allow="autoplay"
             />
