@@ -16,12 +16,14 @@ interface IQueryProps {
 }
 
 const CtfPage = ({ data }: IQueryProps) => {
-  const { setShowEnrollmentSlideOver } = useContext(EnrollmentContext)
+  const { isEnrollmentOpen, setShowEnrollmentSlideOver } = useContext(
+    EnrollmentContext
+  )
 
   return (
     <Page title="CTF">
       <Content data={data.allContentfulContent.nodes[0]} />
-      <div className="">
+      {isEnrollmentOpen ? (
         <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
           <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             <span className="block">Klaar om te spelen?</span>
@@ -39,7 +41,7 @@ const CtfPage = ({ data }: IQueryProps) => {
             </div>
           </div>
         </div>
-      </div>
+      ) : null}
     </Page>
   )
 }
