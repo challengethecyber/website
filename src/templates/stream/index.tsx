@@ -16,7 +16,7 @@ const Stream = () => {
     {
       time: "11:00",
       description:
-        "Introductie, bekendmaking van het thema, presentatie van de jury en succeswensen van de sponsoren",
+        "Gesprek over het spelen van CTF's, hacking en ethiek en meer over Challenge the Cyber, het Cyberbootcamp en de European Cyber Challenge",
     },
     {
       time: "11:30",
