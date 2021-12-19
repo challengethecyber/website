@@ -4,6 +4,9 @@
   "description": "The website of Challenge the Cyber",
   "version": "0.1.0",
   "author": "Challenge the Cyber",
+  "engines": {
+    "node": ">=14.15.0"
+  },
   "dependencies": {
     "@headlessui/react": "^1.0.0",
     "@heroicons/react": "^1.0.1",
