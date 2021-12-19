@@ -144,11 +144,7 @@ const Header = () => {
               <div>
                 <Link to="/">
                   <span className="sr-only">Challenge the Cyber</span>
-                  <img
-                    className="h-8 w-auto"
-                    src={Logo}
-                    alt="Challenge the Cyber"
-                  />
+                  <Logo className="h-8 w-auto" alt="Challenge the Cyber" />
                 </Link>
               </div>
               <div className="-mr-2">
