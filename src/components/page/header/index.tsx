@@ -51,7 +51,7 @@ const Header = () => {
               <div className="flex items-center justify-between w-full md:w-auto">
                 <Link to="/">
                   <span className="sr-only">Workflow</span>
-                  <img className="h-8 w-auto sm:h-10" src={Logo} />
+                  <Logo className="h-8 w-auto sm:h-10" />
                 </Link>
                 <div className="-mr-2 flex items-center md:hidden">
                   <button
