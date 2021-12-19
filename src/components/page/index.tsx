@@ -7,6 +7,8 @@ import Footer from "./footer"
 import Banner from "components/banner"
 import { Link } from "gatsby"
 
+import DiscordIcon from "src/assets/icons8-discord.svg"
+
 interface IPageProps {
   title: string
   hideHeader?: boolean
@@ -24,7 +26,7 @@ const Page: FunctionComponent<IPageProps> = ({
   return (
     <>
       <SEO title={title} />
-      {showEventBanner && (
+      {showEventBanner ? (
         <Banner
           show={true}
           shortText={`CTC ${new Date().getFullYear()} is live!`}
@@ -45,13 +47,35 @@ const Page: FunctionComponent<IPageProps> = ({
                 href={process.env.GATSBY_EVENT_CTF_URL}
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-orange-50 w-full sm:w-auto"
+                className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-opacity-90 w-full sm:w-auto"
               >
                 <PuzzleIcon className="h-6 w-6 mr-2" />
                 Speel CTF
               </a>
             ),
           ]}
+        />
+      ) : (
+        <Banner
+          show={true}
+          shortText={`Kom bij onze Discord!`}
+          longText={`Heb je interesse in cybersecurity en de evenementen van Challenge the Cyber? Kom bij onze Discord!`}
+          onHide={() => setShowEventBanner(false)}
+          actions={[
+            process.env.GATSBY_DISCORD_INVITE_LINK && (
+              <a
+                key="ctf-link"
+                href={process.env.GATSBY_DISCORD_INVITE_LINK}
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-purple-500 bg-white hover:bg-opacity-90 w-full sm:w-auto"
+              >
+                <DiscordIcon className="h-6 w-6 mr-2" />
+                Discord
+              </a>
+            ),
+          ]}
+          color="purple"
         />
       )}
       {!hideHeader && <Header />}

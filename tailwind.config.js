@@ -1,9 +1,5 @@
-const colors = require("tailwindcss/colors")
-
 module.exports = {
-  mode: "jit",
-  purge: ["./src/**/*.tsx"],
-  darkMode: false,
+  content: ["./src/**/*.tsx"],
   theme: {
     container: {
       center: true,
@@ -11,10 +7,6 @@ module.exports = {
     },
     fontFamily: {
       sans: ["Inter var", "system-ui", "sans-serif"],
-    },
-    colors: {
-      ...colors,
-      transparent: "transparent",
     },
     extend: {
       zIndex: {
