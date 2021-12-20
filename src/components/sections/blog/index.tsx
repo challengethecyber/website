@@ -30,7 +30,11 @@ export interface IBlogProps {
       date: string
       content: RenderRichTextData<ContentfulRichTextGatsbyReference>
       picture: {
-        gatsbyImageData: IGatsbyImageData
+        localFile: {
+          childImageSharp: {
+            gatsbyImageData: IGatsbyImageData
+          }
+        }
         description: string
       }
     }
@@ -61,7 +65,9 @@ const Blog = ({ data }: IBlogProps) => {
                 <div className="flex-shrink-0">
                   <GatsbyImage
                     className="h-48 w-full object-cover"
-                    image={news.picture.gatsbyImageData}
+                    image={
+                      news.picture.localFile.childImageSharp.gatsbyImageData
+                    }
                     alt={news.picture.description}
                   />
                 </div>
@@ -115,7 +121,11 @@ export const query = graphql`
     }
     picture {
       description
-      gatsbyImageData(width: 400)
+      localFile {
+        childImageSharp {
+          gatsbyImageData(width: 400)
+        }
+      }
     }
   }
 `

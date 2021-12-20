@@ -39,8 +39,8 @@ export interface ILogosProps {
     callToAction: string
     logos: [
       {
-        file: {
-          url: string
+        localFile: {
+          publicURL: string
         }
         title: string
         description: string
@@ -82,7 +82,7 @@ const Logos = ({ data }: ILogosProps) => {
                   <a href={logo.description}>
                     <img
                       className="h-16 max-w-48"
-                      src={logo.file.url}
+                      src={logo.localFile.publicURL}
                       alt={logo.title}
                     />
                   </a>
@@ -108,8 +108,8 @@ export const query = graphql`
     logos {
       title
       description
-      file {
-        url
+      localFile {
+        publicURL
       }
     }
   }

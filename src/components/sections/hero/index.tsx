@@ -27,7 +27,11 @@ export interface IHeroProps {
     title: string
     subtitle: RenderRichTextData<ContentfulRichTextGatsbyReference>
     heroImage: {
-      gatsbyImageData: IGatsbyImageData
+      localFile: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData
+        }
+      }
       description: string
     }
   }
@@ -47,7 +51,7 @@ const Hero = ({ data }: IHeroProps) => {
                   Challenge the Cyber
                 </span>
               </h1>
-              <div className="mt-3 text-base text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+              <div className="mt-3 text-base text-justify text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
                 {renderRichText(data.subtitle, options)}
               </div>
             </div>
@@ -57,8 +61,9 @@ const Hero = ({ data }: IHeroProps) => {
       <div className="lg:absolute lg:inset-y-0 lg:right-0 lg:w-1/2">
         <GatsbyImage
           className="h-56 w-full object-cover sm:h-72 md:h-96 lg:w-full lg:h-full"
-          image={data.heroImage.gatsbyImageData}
+          image={data.heroImage.localFile.childImageSharp.gatsbyImageData}
           alt={data.heroImage.description}
+          loading="eager"
         />
       </div>
     </div>
@@ -70,7 +75,11 @@ export default Hero
 export const query = graphql`
   fragment Lander on ContentfulLander {
     heroImage {
-      gatsbyImageData(formats: AUTO)
+      localFile {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
       description
     }
     title

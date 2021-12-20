@@ -10,6 +10,7 @@ import About from "components/sections/about"
 import Blog from "components/sections/blog"
 import Logos from "components/sections/logos"
 import { EnrollmentContext } from "../context/enrollment"
+import Calendar from "components/sections/calendar"
 
 interface IQueryProps {
   data: {
@@ -18,14 +19,16 @@ interface IQueryProps {
     news: {
       nodes: any
     }
+    calendar: {
+      nodes: any
+    }
     sponsors: any
   }
 }
 
 const IndexPage = ({ data }: IQueryProps) => {
-  const { isEnrollmentOpen, setShowEnrollmentSlideOver } = useContext(
-    EnrollmentContext
-  )
+  const { isEnrollmentOpen, setShowEnrollmentSlideOver } =
+    useContext(EnrollmentContext)
 
   return (
     <Page title="Home" hideHeader>
@@ -33,6 +36,7 @@ const IndexPage = ({ data }: IQueryProps) => {
       {isEnrollmentOpen && (
         <CTA setShowEnrollmentSlideOver={setShowEnrollmentSlideOver} />
       )}
+      <Calendar data={data.calendar.nodes} />
       <About data={data.about} />
       <Blog data={data.news.nodes} />
       <Logos data={data.sponsors} />
@@ -53,6 +57,14 @@ export const query = graphql`
     news: allContentfulNews(limit: 3, sort: { fields: date, order: DESC }) {
       nodes {
         ...News
+      }
+    }
+    calendar: allContentfulCalendarEvent(
+      limit: 3
+      sort: { fields: startDate, order: ASC }
+    ) {
+      nodes {
+        ...CalendarEvent
       }
     }
     sponsors: contentfulSponsors {

@@ -57,7 +57,7 @@ module.exports = {
       options: {
         spaceId: CONTENTFUL_SPACE_ID,
         accessToken: CONTENTFUL_ACCESS_TOKEN,
-        downloadLocal: false,
+        downloadLocal: true,
       },
     },
     `gatsby-plugin-gatsby-cloud`,

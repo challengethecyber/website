@@ -60,7 +60,11 @@ export interface INewsProps {
     content: RenderRichTextData<ContentfulRichTextGatsbyReference>
     photographer: string
     picture: {
-      gatsbyImageData: IGatsbyImageData
+      localFile: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData
+        }
+      }
       description: string
     }
   }
@@ -130,7 +134,7 @@ const News = ({ data, textLeft }: INewsProps) => (
               <div className="">
                 <GatsbyImage
                   className="rounded-lg shadow-lg object-cover object-center"
-                  image={data.picture.gatsbyImageData}
+                  image={data.picture.localFile.childImageSharp.gatsbyImageData}
                   alt={data.picture.description}
                 />
               </div>
@@ -169,7 +173,11 @@ export const query = graphql`
     photographer
     picture {
       description
-      gatsbyImageData
+      localFile {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
     }
   }
 `

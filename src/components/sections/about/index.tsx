@@ -49,7 +49,11 @@ export interface IAboutProps {
     title: string
     about: RenderRichTextData<ContentfulRichTextGatsbyReference>
     picture: {
-      gatsbyImageData: IGatsbyImageData
+      localFile: {
+        childImageSharp: {
+          gatsbyImageData: IGatsbyImageData
+        }
+      }
       description: string
     }
   }
@@ -65,14 +69,14 @@ export default function About({ data }: IAboutProps) {
             imageRight ? "lg:col-start-1 lg:pr-8" : "lg:col-start-2 lg:pl-8"
           } `}
         >
-          <div className="text-base max-w-prose mx-auto lg:max-w-lg lg:mr-auto lg:ml-0">
+          <div className="text-base max-w-prose mx-auto lg:mr-auto lg:ml-0">
             <h2 className="leading-6 text-orange-500 font-semibold tracking-wide uppercase">
               {data.catchTitle}
             </h2>
             <h3 className="my-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
               {data.title}
             </h3>
-            <div className="text-gray-500">
+            <div className="text-gray-500 text-justify">
               {renderRichText(data.about, options)}
             </div>
           </div>
@@ -86,8 +90,9 @@ export default function About({ data }: IAboutProps) {
         >
           <GatsbyImage
             className="h-56 w-full object-cover lg:absolute lg:h-full"
-            image={data.picture.gatsbyImageData}
+            image={data.picture.localFile.childImageSharp.gatsbyImageData}
             alt={data.picture.description}
+            loading="eager"
           />
         </div>
       </div>
@@ -103,7 +108,11 @@ export const query = graphql`
       raw
     }
     picture {
-      gatsbyImageData(formats: AUTO)
+      localFile {
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
       description
     }
   }
