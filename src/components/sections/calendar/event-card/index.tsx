@@ -63,9 +63,7 @@ const EventCard: FC<IEventCardProps> = ({
             {eventName}
           </h4>
           <p className="text-gray-600 truncate">
-            {
-              "shortDescriptionshortDescriptionshortDescriptionshortDescriptionshortDescriptionshortDescription"
-            }
+            {shortDescription}
           </p>
         </div>
 
