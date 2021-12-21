@@ -43,16 +43,16 @@ const EventCard: FC<IEventCardProps> = ({
 
   return (
     <li className="p-2 rounded-lg shadow bg-white">
-      <div className="flex items-center gap-4 lg:gap-8">
-        <div className="flex-shrink-0 flex flex-col w-20 rounded-md overflow-hidden border border-gray-200">
-          <div className="bg-orange-500 p-px text-white text-center text-sm">
+      <div className="flex items-center gap-4 lg:gap-6">
+        <div className="flex-shrink-0 flex flex-col w-16 md:w-20 rounded-md overflow-hidden border border-gray-200">
+          <div className="bg-orange-500 p-px text-white text-center text-xs md:text-sm">
             <span>{parsedStartDate.toFormat("LLLL")}</span>
           </div>
           <div className="p-1 flex flex-col items-center">
-            <span className="text-lg font-semibold -mb-1">
+            <span className="text-base md:text-lg font-semibold -mb-1">
               {parsedStartDate.toFormat("dd")}
             </span>
-            <span className="text-orange-500 text-sm">
+            <span className="text-orange-500 text-xs md:text-sm">
               {parsedStartDate.toFormat("cccc")}
             </span>
           </div>
@@ -66,16 +66,11 @@ const EventCard: FC<IEventCardProps> = ({
             <p className="text-gray-600 truncate">{shortDescription}</p>
           )}
         </div>
-
-        <div
-          className="p-2 lg:mr-2 cursor-pointer"
+        <DownloadIcon
+          aria-label="Add to calendar"
+          className="h-6 w-6 text-orange-500 cursor-pointer mr-2 md:mr-4"
           onClick={() => downloadIcal(eventName, icalItem.toBlob())}
-        >
-          <DownloadIcon
-            aria-label="Add to calendar"
-            className="h-6 w-6 text-orange-500"
-          />
-        </div>
+        />
       </div>
     </li>
   )
