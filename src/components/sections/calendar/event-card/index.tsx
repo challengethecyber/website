@@ -8,7 +8,7 @@ interface IEventCardProps {
   eventName: string
   startDate: string
   endDate: string
-  shortDescription: string
+  shortDescription?: string
 }
 
 const downloadIcal = (eventName: string, data: Blob) => {
@@ -62,9 +62,9 @@ const EventCard: FC<IEventCardProps> = ({
           <h4 className="flex-1 text-gray-800 text-lg md:text-xl lg:text-2xl font-semibold tracking-tight truncate">
             {eventName}
           </h4>
-          <p className="text-gray-600 truncate">
-            {shortDescription}
-          </p>
+          {shortDescription && (
+            <p className="text-gray-600 truncate">{shortDescription}</p>
+          )}
         </div>
 
         <div

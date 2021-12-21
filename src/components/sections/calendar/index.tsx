@@ -40,7 +40,7 @@ export default function Calendar({ data }: ICalendarProps) {
                     eventName={eventName}
                     startDate={startDate}
                     endDate={endDate}
-                    shortDescription={shortDescription.shortDescription}
+                    shortDescription={shortDescription?.shortDescription}
                   />
                 )
               )}
