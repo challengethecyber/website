@@ -11,6 +11,7 @@ import Blog from "components/sections/blog"
 import Logos from "components/sections/logos"
 import { EnrollmentContext } from "../context/enrollment"
 import Calendar from "components/sections/calendar"
+import Newsletter from "components/sections/newsletter"
 
 interface IQueryProps {
   data: {
@@ -38,6 +39,7 @@ const IndexPage = ({ data }: IQueryProps) => {
       )}
       <Calendar data={data.calendar.nodes} />
       <About data={data.about} />
+      <Newsletter />
       <Blog data={data.news.nodes} />
       <Logos data={data.sponsors} />
     </Page>
