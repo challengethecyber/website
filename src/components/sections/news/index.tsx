@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import {
   RenderRichTextData,
@@ -51,6 +51,7 @@ export interface INewsProps {
     date: string
     content: RenderRichTextData<ContentfulRichTextGatsbyReference>
     photographer?: string
+    newsPath: string
     picture: {
       localFile: {
         childImageSharp: {
@@ -75,9 +76,11 @@ const News = ({ data, textLeft = false }: INewsProps) => (
           <h2 className="text-base text-orange-500 font-semibold tracking-wide uppercase">
             Nieuws
           </h2>
-          <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-            {data.title}
-          </h3>
+          <Link to={data.newsPath}>
+            <h1 className="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900">
+              {data.title}
+            </h1>
+          </Link>
         </div>
       </div>
       <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
@@ -164,6 +167,7 @@ export const query = graphql`
       raw
     }
     photographer
+    newsPath: gatsbyPath(filePath: "/news/{ContentfulNews.title}")
     picture {
       description
       localFile {

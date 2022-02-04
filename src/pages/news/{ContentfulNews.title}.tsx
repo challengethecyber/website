@@ -4,11 +4,10 @@ import { graphql } from "gatsby"
 
 import Page from "components/page"
 import News from "components/sections/news"
-import { INewsFields } from "types/contentful"
 
 interface IQueryProps {
   data: {
-    contentfulNews: INewsFields
+    contentfulNews: any
   }
 }
 
