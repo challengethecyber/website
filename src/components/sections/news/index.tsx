@@ -6,7 +6,7 @@ import {
   ContentfulRichTextGatsbyReference,
   renderRichText,
 } from "gatsby-source-contentful/rich-text"
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 
 import { CameraIcon } from "@heroicons/react/solid"
 
@@ -17,6 +17,8 @@ const options = {
     [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
       <p className="mb-4">{children}</p>
     ),
+    [BLOCKS.HEADING_2]: (_node: any, children: any) => <h2>{children}</h2>,
+    [BLOCKS.HEADING_3]: (_node: any, children: any) => <h3>{children}</h3>,
     // eslint-disable-next-line react/display-name
     [BLOCKS.UL_LIST]: (_node: any, children: any) => (
       <ul className="list-disc mb-4 ml-8">{children}</ul>
@@ -25,40 +27,30 @@ const options = {
     [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
       return <li>{children}</li>
     },
+    [MARKS.BOLD]: (_node: any, children: any) => {
+      return <span className="font-bold">{children}</span>
+    },
+    [MARKS.ITALIC]: (_node: any, children: any) => {
+      return <span className="italic">{children}</span>
+    },
     [INLINES.HYPERLINK]: (node: any, children: any) => {
-      if (node.data.uri.includes("youtube.com/embed")) {
-        console.log(node)
-
-        return (
-          <iframe
-            className="w-full lg:max-w-lg h-72"
-            src={node.data.uri}
-            title="Replaceme"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        )
-      } else {
-        return (
-          <a href={node.data.uri} className="text-orange-500 font-medium">
-            {children}
-          </a>
-        )
-      }
+      return (
+        <a href={node.data.uri} className="text-orange-500 font-medium">
+          {children}
+        </a>
+      )
     },
   },
 }
 
 export interface INewsProps {
-  textLeft: boolean
+  textLeft?: boolean
   data: {
-    type: string
     title: string
     author: string
     date: string
     content: RenderRichTextData<ContentfulRichTextGatsbyReference>
-    photographer: string
+    photographer?: string
     picture: {
       localFile: {
         childImageSharp: {
@@ -70,7 +62,7 @@ export interface INewsProps {
   }
 }
 
-const News = ({ data, textLeft }: INewsProps) => (
+const News = ({ data, textLeft = false }: INewsProps) => (
   <div className="overflow-hidden">
     <div className="relative max-w-7xl mx-auto py-4 md:py-8 lg:py-16 px-4 sm:px-6 lg:px-8">
       <div className="hidden lg:block bg-gray-50 absolute -z-1 top-0 bottom-0 left-3/4 w-screen"></div>
@@ -81,7 +73,7 @@ const News = ({ data, textLeft }: INewsProps) => (
           }`}
         >
           <h2 className="text-base text-orange-500 font-semibold tracking-wide uppercase">
-            {data.type}
+            Nieuws
           </h2>
           <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
             {data.title}
@@ -138,10 +130,12 @@ const News = ({ data, textLeft }: INewsProps) => (
                   alt={data.picture.description}
                 />
               </div>
-              <figcaption className="mt-3 flex text-sm text-gray-500">
-                <CameraIcon className="flex-none w-5 h-5 text-gray-400" />
-                <span className="ml-2">{data.photographer}</span>
-              </figcaption>
+              {data.photographer && (
+                <figcaption className="mt-3 flex text-sm text-gray-500">
+                  <CameraIcon className="flex-none w-5 h-5 text-gray-400" />
+                  <span className="ml-2">Foto: {data.photographer}</span>
+                </figcaption>
+              )}
             </figure>
           </div>
         </div>
@@ -164,7 +158,6 @@ export default News
 export const query = graphql`
   fragment AllNews on ContentfulNews {
     author
-    type
     title
     date
     content {
