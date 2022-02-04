@@ -28,6 +28,7 @@ export interface IBlogProps {
       title: string
       author: string
       date: string
+      newsPath: string
       content: RenderRichTextData<ContentfulRichTextGatsbyReference>
       picture: {
         localFile: {
@@ -59,7 +60,7 @@ const Blog = ({ data }: IBlogProps) => {
         </div>
         <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
           {data.map(news => (
-            <Link key={news.title} to="/news/" className="block mt-2">
+            <Link key={news.title} to={news.newsPath} className="block mt-2">
               {/* TODO jump to post */}
               <div className="flex flex-col rounded-lg shadow-lg overflow-hidden transform transition-all hover:scale-105">
                 <div className="flex-shrink-0">
@@ -77,7 +78,7 @@ const Blog = ({ data }: IBlogProps) => {
                       {news.type}
                     </p>
 
-                    <p className="text-xl font-semibold text-gray-900">
+                    <p className="text-xl font-semibold text-gray-900 truncate">
                       {news.title}
                     </p>
 
@@ -113,12 +114,12 @@ export default Blog
 export const query = graphql`
   fragment News on ContentfulNews {
     author
-    type
     title
     date
     content {
       raw
     }
+    newsPath: gatsbyPath(filePath: "/news/{ContentfulNews.title}")
     picture {
       description
       localFile {
