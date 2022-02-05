@@ -145,7 +145,7 @@ const News = ({ data, textLeft = false }: INewsProps) => (
         </div>
         <div className="mt-8 lg:mt-0">
           <div
-            className={`mt-5 prose prose-orange text-gray-500 mx-auto text-justify lg:text-left lg:max-w-none lg:row-start-1 ${
+            className={`mt-5 prose prose-orange text-gray-500 mx-auto lg:text-left lg:max-w-none lg:row-start-1 ${
               textLeft ? "lg:col-start-1" : "lg:col-start-2"
             }`}
           >
