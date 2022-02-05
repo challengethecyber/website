@@ -1,4 +1,4 @@
-import React from "react"
+import React, { ReactNode } from "react"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
 import {
@@ -11,7 +11,14 @@ import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 import { CameraIcon } from "@heroicons/react/solid"
 
 const options = {
-  renderMark: {},
+  renderMark: {
+    [MARKS.BOLD]: (text: ReactNode) => {
+      return <span className="font-bold">{text}</span>
+    },
+    [MARKS.ITALIC]: (text: ReactNode) => {
+      return <span className="italic">{text}</span>
+    },
+  },
   renderNode: {
     // eslint-disable-next-line react/display-name
     [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
@@ -26,12 +33,6 @@ const options = {
     // eslint-disable-next-line react/display-name
     [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
       return <li>{children}</li>
-    },
-    [MARKS.BOLD]: (_node: any, children: any) => {
-      return <span className="font-bold">{children}</span>
-    },
-    [MARKS.ITALIC]: (_node: any, children: any) => {
-      return <span className="italic">{children}</span>
     },
     [INLINES.HYPERLINK]: (node: any, children: any) => {
       return (
@@ -144,7 +145,7 @@ const News = ({ data, textLeft = false }: INewsProps) => (
         </div>
         <div className="mt-8 lg:mt-0">
           <div
-            className={`mt-5 prose prose-orange text-gray-500 mx-auto lg:max-w-none lg:row-start-1 ${
+            className={`mt-5 prose prose-orange text-gray-500 mx-auto text-justify lg:text-left lg:max-w-none lg:row-start-1 ${
               textLeft ? "lg:col-start-1" : "lg:col-start-2"
             }`}
           >

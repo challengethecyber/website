@@ -7,7 +7,7 @@ import Page from "components/page"
 import Hero from "components/sections/hero"
 import CTA from "components/sections/cta"
 import About from "components/sections/about"
-import Blog from "components/sections/blog"
+import NewsCards from "components/sections/news-cards"
 import Logos from "components/sections/logos"
 import { EnrollmentContext } from "../context/enrollment"
 import Calendar from "components/sections/calendar"
@@ -40,7 +40,7 @@ const IndexPage = ({ data }: IQueryProps) => {
       <Calendar data={data.calendar.nodes} />
       <About data={data.about} />
       <Newsletter />
-      <Blog data={data.news.nodes} />
+      <NewsCards data={data.news.nodes} />
       <Logos data={data.sponsors} />
     </Page>
   )

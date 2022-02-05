@@ -10,7 +10,7 @@ exports.createPages = async function ({ actions, graphql }) {
   if (process.env.GATSBY_EVENT_LIVE === "true") {
     actions.createPage({
       path: "/live",
-      component: require.resolve("./src/templates/stream/index.tsx"),
+      component: require.resolve("./src/templates/stream.tsx"),
     })
   }
 }

@@ -3,7 +3,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Page from "components/page"
-import News from "components/sections/news"
+import News from "templates/news"
 
 interface IQueryProps {
   data: {
