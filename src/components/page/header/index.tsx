@@ -1,17 +1,15 @@
-import React, { useState } from "react"
+import React, { Fragment, useState } from "react"
 import { Link } from "gatsby"
 import { Transition } from "@headlessui/react"
 
-import {
-  MenuIcon,
-  XIcon,
-  PuzzleIcon,
-  AcademicCapIcon,
-  FlagIcon,
-  ChevronDownIcon,
-} from "@heroicons/react/outline"
+import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline"
 
-import Logo from "/src/assets/ctc-satellite.svg"
+import Logo from "assets/ctc-satellite.svg"
+import TrainingMissionIcon from "assets/icons8-compass.svg"
+import ECSCIcon from "assets/icons8-trophy.svg"
+import CTFIcon from "assets/icons8-flag-2.svg"
+import BootcampIcon from "assets/icons8-graduation-cap.svg"
+import DiscordIcon from "src/assets/icons8-discord.svg"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -19,22 +17,29 @@ const Header = () => {
 
   const pages = [
     {
+      link: "/trainingmission/",
+      prettyName: "Training Mission",
+      icon: <TrainingMissionIcon className="h-6 w-6 fill-white" />,
+      description:
+        "Strijd met je team voor de winst in de jaarlijkse competitie",
+    },
+    {
       link: "/ctf/",
       prettyName: "CTF",
-      icon: <PuzzleIcon className="h-6 w-6" />,
+      icon: <CTFIcon className="h-6 w-6 fill-white" />,
       description:
         "Strijd met je team voor de winst in de jaarlijkse competitie",
     },
     {
       link: "/cyberbootcamp/",
       prettyName: "Cyberbootcamp",
-      icon: <AcademicCapIcon className="h-6 w-6" />,
+      icon: <BootcampIcon className="h-6 w-6 fill-white" />,
       description: "Een week lang leren, hacken, trainen en relaxen",
     },
     {
       link: "/ecsc/",
       prettyName: "ECSC",
-      icon: <FlagIcon className="h-6 w-6" />,
+      icon: <ECSCIcon className="h-6 w-6 fill-white" />,
       description: "Dé hackingcompetitie van Europa",
     },
   ]
@@ -66,7 +71,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <div className="hidden md:block md:ml-10 md:pr-4 md:space-x-8">
+            <div className="hidden md:flex md:ml-10 md:pr-4 md:space-x-8 md:items-center">
               <button
                 type="button"
                 className="text-gray-500 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-orange-500"
@@ -78,7 +83,7 @@ const Header = () => {
               </button>
 
               <Transition
-                className="absolute z-10 -ml-4 mt-3 right-0 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-10"
+                className="absolute z-10 top-10 right-0 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-10"
                 show={isInitiativesOpen}
                 enter="transition ease-out duration-200"
                 enterFrom="opacity-0 translate-y-1"
@@ -125,6 +130,17 @@ const Header = () => {
               >
                 Links
               </Link>
+              {process.env.GATSBY_SHOW_DISCORD_BANNER !== "true" && (
+                <a
+                  href={process.env.GATSBY_DISCORD_INVITE_LINK}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-400 hover:bg-opacity-90"
+                >
+                  <DiscordIcon className="h-6 w-6 mr-2" />
+                  Discord
+                </a>
+              )}
             </div>
           </nav>
         </div>

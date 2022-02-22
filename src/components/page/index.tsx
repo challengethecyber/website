@@ -24,7 +24,7 @@ const Page: FunctionComponent<IPageProps> = ({
   )
 
   const [showDiscordBanner, setShowDiscordBanner] = useState<boolean>(
-    process.env.GATSBY_EVENT_LIVE !== "true"
+    process.env.GATSBY_SHOW_DISCORD_BANNER === "true"
   )
 
   return (

@@ -3,40 +3,41 @@ import React, { FunctionComponent, createContext, useState } from "react"
 
 import Banner from "components/banner"
 
-interface IEnrollmentContextProps {
-  isEnrollmentOpen: boolean
-  setShowEnrollmentSlideOver: any
+interface ICtfEnrollmentContextProps {
+  isCtfEnrollmentOpen: boolean
+  setShowCtfEnrollmentSlideOver: any
 }
 
-export const EnrollmentContext = createContext<
-  Partial<IEnrollmentContextProps>
+export const CtfEnrollmentContext = createContext<
+  Partial<ICtfEnrollmentContextProps>
 >({})
 
-export const EnrollmentProvider: FunctionComponent = ({ children }) => {
-  const [showEnrollmentSlideOver, setShowEnrollmentSlideOver] = useState(false)
-  const [showEnrollmentPopup, setShowEnrollmentPopup] = useState(true)
+export const CtfEnrollmentProvider: FunctionComponent = ({ children }) => {
+  const [showCtfEnrollmentSlideOver, setShowCtfEnrollmentSlideOver] =
+    useState(false)
+  const [showCtfEnrollmentPopup, setShowCtfEnrollmentPopup] = useState(true)
 
-  const isEnrollmentOpen = process.env.GATSBY_ENROLLMENT_OPEN === "true"
+  const isCtfEnrollmentOpen = process.env.GATSBY_ENROLLMENT_OPEN === "true"
 
   return (
-    <EnrollmentContext.Provider
+    <CtfEnrollmentContext.Provider
       value={{
-        isEnrollmentOpen,
-        setShowEnrollmentSlideOver,
+        isCtfEnrollmentOpen,
+        setShowCtfEnrollmentSlideOver,
       }}
     >
       <Banner
-        show={isEnrollmentOpen && showEnrollmentPopup}
+        show={isCtfEnrollmentOpen && showCtfEnrollmentPopup}
         shortText="De aanmeldingen voor de CTF zijn open!"
-        longText="De aanmeldingen voor de Challenge the Cyber CTF op 29 mei zijn
+        longText="De aanmeldingen voor de Challenge the Cyber CTF op 14 mei zijn
               open!"
-        onHide={() => setShowEnrollmentPopup(false)}
+        onHide={() => setShowCtfEnrollmentPopup(false)}
         actions={
           <button
             className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-orange-50 w-full sm:w-auto"
             onClick={() => {
-              setShowEnrollmentPopup(false)
-              setShowEnrollmentSlideOver(true)
+              setShowCtfEnrollmentPopup(false)
+              setShowCtfEnrollmentSlideOver(true)
             }}
           >
             Nu aanmelden
@@ -45,9 +46,9 @@ export const EnrollmentProvider: FunctionComponent = ({ children }) => {
       />
       {children}
       <EnrollmentSlideOver
-        showEnrollmentSlideOver={showEnrollmentSlideOver}
-        setShowEnrollmentSlideOver={setShowEnrollmentSlideOver}
+        showEnrollmentSlideOver={showCtfEnrollmentSlideOver}
+        setShowEnrollmentSlideOver={setShowCtfEnrollmentSlideOver}
       />
-    </EnrollmentContext.Provider>
+    </CtfEnrollmentContext.Provider>
   )
 }

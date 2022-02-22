@@ -1,9 +1,9 @@
 import React from "react"
 
-import { EnrollmentProvider } from "./src/context/enrollment"
+import { CtfEnrollmentProvider } from "./src/context/enrollment"
 
 const wrapRootElement = ({ element }) => (
-  <EnrollmentProvider>{element}</EnrollmentProvider>
+  <CtfEnrollmentProvider>{element}</CtfEnrollmentProvider>
 )
 
 export default wrapRootElement
