@@ -13,11 +13,11 @@ interface IQueryProps {
   }
 }
 
-const CtfPage = ({ data }: IQueryProps) => {
+const TmPage = ({ data }: IQueryProps) => {
   const isEnrollmentOpen = process.env.GATSBY_TM_LIVE === "true"
 
   return (
-    <Page title="CTF">
+    <Page title="Training Mission">
       <Content data={data.allContentfulContent.nodes[0]} />
       {isEnrollmentOpen ? (
         <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
@@ -45,7 +45,7 @@ const CtfPage = ({ data }: IQueryProps) => {
   )
 }
 
-export default CtfPage
+export default TmPage
 
 export const query = graphql`
   query {
