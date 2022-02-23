@@ -6,6 +6,10 @@
 
 import "./src/styles/global.css"
 
-import EnrollmentContext from "./wrapRootElement"
+import React from "react"
 
-export const wrapRootElement = EnrollmentContext
+import { CtfEnrollmentProvider } from "./src/context/enrollment"
+
+export const wrapRootElement = ({ element }) => (
+  <CtfEnrollmentProvider>{element}</CtfEnrollmentProvider>
+)
