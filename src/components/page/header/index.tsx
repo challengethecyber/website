@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react"
+import React, { Fragment, useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { Popover, Transition } from "@headlessui/react"
 
@@ -14,6 +14,13 @@ import DiscordIcon from "src/assets/discord.svg"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [showDiscordButton, setShowDiscordButton] = useState(false)
+
+  useEffect(() => {
+    setShowDiscordButton(
+      localStorage.getItem(DISCORD_BANNER_PARAM_NAME) === "0"
+    )
+  }, [])
 
   const pages = [
     {
@@ -127,7 +134,7 @@ const Header = () => {
                 Links
               </Link>
               {(process.env.GATSBY_SHOW_DISCORD_BANNER !== "true" ||
-                localStorage.getItem(DISCORD_BANNER_PARAM_NAME) === "0") && (
+                showDiscordButton) && (
                 <a
                   href={process.env.GATSBY_DISCORD_INVITE_LINK}
                   target="_blank"

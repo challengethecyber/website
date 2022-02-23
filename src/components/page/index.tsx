@@ -22,11 +22,7 @@ interface IPageProps {
 
 // Helper functions for banner persistence
 const useBannerState = (baseCondition: boolean, paramName: string) =>
-  useState<boolean>(
-    localStorage.getItem(paramName) !== null
-      ? baseCondition && localStorage.getItem(paramName) === "1"
-      : baseCondition
-  )
+  useState<boolean>(true)
 
 const useBannerPersistenceEffect = (
   stateParam: boolean,
@@ -48,6 +44,16 @@ const Page: FunctionComponent<IPageProps> = ({
     process.env.GATSBY_SHOW_DISCORD_BANNER === "true",
     DISCORD_BANNER_PARAM_NAME
   )
+
+  // Hydrate state
+  useEffect(() => {
+    localStorage.getItem(DISCORD_BANNER_PARAM_NAME) !== null
+      ? setShowDiscordBanner(
+          process.env.GATSBY_SHOW_DISCORD_BANNER === "true" &&
+            localStorage.getItem(DISCORD_BANNER_PARAM_NAME) === "1"
+        )
+      : setShowDiscordBanner(process.env.GATSBY_SHOW_DISCORD_BANNER === "true")
+  }, [])
 
   useBannerPersistenceEffect(
     showDiscordBanner,
