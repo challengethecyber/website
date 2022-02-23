@@ -20,10 +20,7 @@ interface IPageProps {
   hideHeader?: boolean
 }
 
-// Helper functions for banner persistence
-const useBannerState = (baseCondition: boolean, paramName: string) =>
-  useState<boolean>(true)
-
+// Helper function for banner persistence
 const useBannerPersistenceEffect = (
   stateParam: boolean,
   paramName: string,
@@ -40,10 +37,7 @@ const Page: FunctionComponent<IPageProps> = ({
   hideHeader = false,
   children,
 }) => {
-  const [showDiscordBanner, setShowDiscordBanner] = useBannerState(
-    process.env.GATSBY_SHOW_DISCORD_BANNER === "true",
-    DISCORD_BANNER_PARAM_NAME
-  )
+  const [showDiscordBanner, setShowDiscordBanner] = useState<boolean>(false)
 
   // Hydrate state
   useEffect(() => {
