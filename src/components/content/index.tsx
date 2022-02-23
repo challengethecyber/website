@@ -14,6 +14,8 @@ import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 const options = {
   renderMark: {},
   renderNode: {
+    [BLOCKS.HEADING_2]: (_node: any, children: any) => <h2>{children}</h2>,
+    [BLOCKS.HEADING_3]: (_node: any, children: any) => <h3>{children}</h3>,
     [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
       <p className="mb-4">{children}</p>
     ),
@@ -54,7 +56,7 @@ const Content = ({ data }: IContentProps) => (
             {data.title}
           </span>
         </h1>
-        <div className="text-gray-500">
+        <div className="text-gray-500 prose lg:prose-lg max-w-full">
           {renderRichText(data.content, options)}
         </div>
       </div>

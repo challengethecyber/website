@@ -6,7 +6,8 @@ import { SpeakerphoneIcon, XIcon } from "@heroicons/react/outline"
 
 export interface IBannerProps {
   show: boolean
-  onHide: () => void
+  canHide?: boolean
+  onHide?: () => void
   shortText: string
   longText: string
   actions: ReactNode | ReactNode[]
@@ -17,6 +18,7 @@ const Banner = ({
   show,
   shortText,
   longText,
+  canHide = true,
   onHide,
   actions,
   color = "primary",
@@ -24,7 +26,7 @@ const Banner = ({
   <Transition
     className={cx(
       "transform",
-      color === "primary" ? "bg-orange-500" : "bg-purple-500"
+      color === "primary" ? "bg-orange-500" : "bg-indigo-500"
     )}
     show={show}
     leave="transition ease-in duration-200"
@@ -33,7 +35,7 @@ const Banner = ({
   >
     <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
       <div className="flex items-center justify-between flex-wrap">
-        <div className="w-0 flex-1 flex items-center">
+        <div className="flex-1 flex items-center">
           <span className="flex p-2 rounded-lg bg-black bg-opacity-20">
             <SpeakerphoneIcon className="h-6 w-6 text-white" />
           </span>
@@ -45,16 +47,18 @@ const Banner = ({
         <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto inline-flex">
           {actions}
         </div>
-        <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
-          <button
-            type="button"
-            className="-mr-1 flex p-2 rounded-md hover:bg-black hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
-            onClick={onHide}
-          >
-            <span className="sr-only">Dismiss</span>
-            <XIcon className="h-6 w-6 text-white" />
-          </button>
-        </div>
+        {canHide && (
+          <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+            <button
+              type="button"
+              className="-mr-1 flex p-2 rounded-md hover:bg-black hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+              onClick={onHide}
+            >
+              <span className="sr-only">Dismiss</span>
+              <XIcon className="h-6 w-6 text-white" />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   </Transition>
