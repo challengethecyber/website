@@ -14,7 +14,6 @@ import DiscordIcon from "src/assets/discord.svg"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  // const [isInitiativesOpen, setIsInitiativesOpen] = useState(false)
 
   const pages = [
     {
