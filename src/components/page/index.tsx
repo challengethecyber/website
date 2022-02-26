@@ -93,8 +93,8 @@ const Page: FunctionComponent<IPageProps> = ({
         canHide={false}
         actions={[
           <Link
-            key="stream-link"
-            to="/live"
+            key="tm-info-link"
+            to="/trainingmission"
             className="mr-4 flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-orange-50 w-full sm:w-auto"
           >
             <InformationCircleIcon className="h-6 w-6 mr-2" />
