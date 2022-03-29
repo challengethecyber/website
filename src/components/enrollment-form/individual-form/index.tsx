@@ -78,13 +78,13 @@ const IndividualEnrollmentForm = ({
             required: { value: true, message: "Dit veld is verplicht" },
             valueAsNumber: true,
             min: {
-              value: 1995,
-              message: "Je kunt alleen deelnemen met een geboortejaar na 1995",
+              value: 1997,
+              message: "Je kunt alleen deelnemen met een geboortejaar na 1997",
             },
             max: {
-              value: 2007,
+              value: 2008,
               message:
-                "Je kunt alleen deelnemen met een geboortejaar voor 2007",
+                "Je kunt alleen deelnemen met een geboortejaar voor 2008",
             },
           })}
         />

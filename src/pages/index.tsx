@@ -32,7 +32,9 @@ const IndexPage = ({ data }: IQueryProps) => {
   const { isCtfEnrollmentOpen, setShowCtfEnrollmentSlideOver } =
     useContext(CtfEnrollmentContext)
 
-  const isTrainingMissionLive = process.env.GATSBY_TM_LIVE === "true"
+  const isTrainingMissionLive =
+    process.env.GATSBY_TM_LIVE === "true" &&
+    process.env.ENROLLMENT_OPEN === "false"
 
   return (
     <Page title="Home" hideHeader>

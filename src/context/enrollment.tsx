@@ -1,5 +1,6 @@
 import EnrollmentSlideOver from "components/enrollment-form"
 import React, { FunctionComponent, createContext, useState } from "react"
+import { FlagIcon } from "@heroicons/react/outline"
 
 import Banner from "components/banner"
 
@@ -32,6 +33,8 @@ export const CtfEnrollmentProvider: FunctionComponent = ({ children }) => {
         longText="De aanmeldingen voor de Challenge the Cyber CTF op 14 mei zijn
               open!"
         onHide={() => setShowCtfEnrollmentPopup(false)}
+        canHide={false}
+        icon={<FlagIcon className="h-6 w-6 text-white" />}
         actions={
           <button
             className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-orange-50 w-full sm:w-auto"

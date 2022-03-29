@@ -12,6 +12,7 @@ export interface IBannerProps {
   longText: string
   actions: ReactNode | ReactNode[]
   color?: "primary" | "purple"
+  icon?: ReactNode
 }
 
 const Banner = ({
@@ -22,12 +23,13 @@ const Banner = ({
   onHide,
   actions,
   color = "primary",
+  icon,
 }: IBannerProps) => (
   <Transition
-    className={cx(
-      "transform",
-      color === "primary" ? "bg-orange-500" : "bg-indigo-500"
-    )}
+    className={cx("transform border-t-2 border-gray-50 border-opacity-20", {
+      "bg-orange-500": color === "primary",
+      "bg-indigo-500": color === "purple",
+    })}
     show={show}
     leave="transition ease-in duration-200"
     leaveFrom="translate-y-0"
@@ -37,7 +39,7 @@ const Banner = ({
       <div className="flex items-center justify-between flex-wrap">
         <div className="flex-1 flex items-center">
           <span className="flex p-2 rounded-lg bg-black bg-opacity-20">
-            <SpeakerphoneIcon className="h-6 w-6 text-white" />
+            {icon ?? <SpeakerphoneIcon className="h-6 w-6 text-white" />}
           </span>
           <p className="ml-3 font-medium text-white truncate">
             <span className="md:hidden">{shortText}</span>

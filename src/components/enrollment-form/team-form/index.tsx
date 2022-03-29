@@ -42,8 +42,8 @@ const TeamEnrollmentForm = ({
   useEffect(() => {
     register("members", {
       validate: members =>
-        (members?.length > 1 && members?.length <= 5) ||
-        "Voeg minimaal twee en maximaal vijf teamleden toe",
+        (members?.length > 1 && members?.length <= 4) ||
+        "Voeg minimaal twee en maximaal vier teamleden toe",
     })
 
     register("privacyStatement", {

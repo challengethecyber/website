@@ -113,7 +113,7 @@ const EnrollmentSlideOver = ({
                         className="text-xl font-medium text-white"
                         id="slide-over-title"
                       >
-                        Aanmelden voor Challenge the Cyber CTF 2021
+                        {`Aanmelden voor Challenge the Cyber CTF ${new Date().getFullYear()}`}
                       </h2>
                       <div className="ml-3 h-7 flex items-center">
                         <button

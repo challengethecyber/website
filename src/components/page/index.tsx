@@ -1,10 +1,10 @@
 import React, { useState, useEffect, FunctionComponent } from "react"
-
 import {
   InformationCircleIcon,
   PlayIcon,
   PuzzleIcon,
 } from "@heroicons/react/outline"
+
 import SEO from "./seo"
 import Header from "./header"
 import Footer from "./footer"
@@ -12,6 +12,7 @@ import Banner from "components/banner"
 import { Link } from "gatsby"
 
 import DiscordIcon from "src/assets/discord.svg"
+import TrainingMissionIcon from "assets/icons8-compass.svg"
 
 export const DISCORD_BANNER_PARAM_NAME = "show-discord-banner"
 
@@ -88,9 +89,10 @@ const Page: FunctionComponent<IPageProps> = ({
       />
       <Banner
         show={process.env.GATSBY_TM_LIVE === "true"}
-        shortText={`TM ${new Date().getFullYear()} is live vanaf 1 maart!`}
-        longText={`Challenge the Cyber Training Mission ${new Date().getFullYear()} is live vanaf 1 maart!`}
+        shortText={`TM ${new Date().getFullYear()} is live!`}
+        longText={`Challenge the Cyber Training Mission ${new Date().getFullYear()} is live!`}
         canHide={false}
+        icon={<TrainingMissionIcon className="h-6 w-6 fill-white" />}
         actions={[
           <Link
             key="tm-info-link"
