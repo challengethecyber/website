@@ -115,6 +115,12 @@ const IndividualEnrollmentForm = ({
         error={errors?.educationalInstitution}
         {...register("educationalInstitution")}
       />
+      <Input
+        className="md:flex-1"
+        label="Dieetwensen"
+        error={errors?.dietaryPreferences}
+        {...register("dietaryPreferences")}
+      />
       <Toggle
         onChange={(value: boolean) => setValue("bootcamp", value)}
         value={watch("bootcamp")}

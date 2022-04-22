@@ -11,6 +11,7 @@ export type IIndividualEnrollmentInput = {
   bootcamp: boolean
   newsletter: boolean
   privacyStatement?: boolean
+  dietaryPreferences: string
 }
 
 export type ITeamEnrollmentInput = {
