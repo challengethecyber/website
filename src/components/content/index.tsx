@@ -2,6 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 
 import Shapes from "./shapes"
+import Schedule from "./schedule"
 
 import {
   RenderRichTextData,
@@ -30,6 +31,13 @@ const options = {
         <a href={node.data.uri} className="text-orange-500 font-medium">
           {children}
         </a>
+      )
+    },
+    [INLINES.EMBEDDED_ENTRY]: (node: any, children: any) => {
+      return (
+        <div className="not-prose">
+          <Schedule schedule={node.data.target.agenda} />
+        </div>
       )
     },
   },
@@ -72,6 +80,18 @@ export const query = graphql`
     title
     content {
       raw
+      references {
+        ...EventSchedule
+      }
+    }
+  }
+
+  fragment EventSchedule on ContentfulEventSchedule {
+    id
+    contentful_id
+    agenda {
+      time
+      description
     }
   }
 `
