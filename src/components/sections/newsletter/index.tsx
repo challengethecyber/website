@@ -45,7 +45,7 @@ export default function Newsletter() {
                 type="submit"
                 className="mt-3 w-full flex gap-2 items-center justify-center px-5 py-3 border border-transparent shadow text-base font-medium rounded-md text-orange-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:flex-shrink-0"
               >
-                <PaperAirplaneIcon className="h-5 w-5 rotate-90" />
+                <PaperAirplaneIcon className="h-5 w-5" />
                 Aanmelden
               </button>
             </Link>
