@@ -2,7 +2,7 @@ import React, { ReactNode } from "react"
 import { Transition } from "@headlessui/react"
 import cx from "classnames"
 
-import { SpeakerphoneIcon, XIcon } from "@heroicons/react/outline"
+import { MegaphoneIcon, XMarkIcon } from "@heroicons/react/24/outline"
 
 export interface IBannerProps {
   show: boolean
@@ -39,7 +39,7 @@ const Banner = ({
       <div className="flex items-center justify-between flex-wrap">
         <div className="flex-1 flex items-center">
           <span className="flex p-2 rounded-lg bg-black bg-opacity-20">
-            {icon ?? <SpeakerphoneIcon className="h-6 w-6 text-white" />}
+            {icon ?? <MegaphoneIcon className="h-6 w-6 text-white" />}
           </span>
           <p className="ml-3 font-medium text-white truncate">
             <span className="md:hidden">{shortText}</span>
@@ -57,7 +57,7 @@ const Banner = ({
               onClick={onHide}
             >
               <span className="sr-only">Dismiss</span>
-              <XIcon className="h-6 w-6 text-white" />
+              <XMarkIcon className="h-6 w-6 text-white" />
             </button>
           </div>
         )}

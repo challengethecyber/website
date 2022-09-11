@@ -3,8 +3,8 @@ import { Link } from "gatsby"
 
 import {
   InformationCircleIcon,
-  ArrowCircleRightIcon,
-} from "@heroicons/react/outline"
+  ArrowRightCircleIcon,
+} from "@heroicons/react/24/outline"
 
 interface ICTFCallToActionProps {
   setShowEnrollmentSlideOver: (
@@ -41,7 +41,7 @@ const CTFCallToAction = ({
               onClick={() => setShowEnrollmentSlideOver(true)}
               className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-500 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 sm:ml-4 mt-2 sm:mt-0"
             >
-              <ArrowCircleRightIcon className="h-6 w-6" />
+              <ArrowRightCircleIcon className="h-6 w-6" />
               <span className="ml-2">Aanmelden</span>
             </button>
           </div>

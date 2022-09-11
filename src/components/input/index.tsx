@@ -1,7 +1,7 @@
 import React from "react"
 import { FieldError, UseFormRegisterReturn } from "react-hook-form"
 
-import { XCircleIcon } from "@heroicons/react/solid"
+import { XCircleIcon } from "@heroicons/react/20/solid"
 
 interface IInputProps {
   className?: string

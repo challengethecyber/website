@@ -1,5 +1,5 @@
 import React from "react"
-import { CalendarIcon } from "@heroicons/react/solid"
+import { CalendarIcon } from "@heroicons/react/20/solid"
 
 type EventSchedule = { time: string; description: string }[]
 

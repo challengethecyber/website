@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { PaperAirplaneIcon } from "@heroicons/react/outline"
+import { PaperAirplaneIcon } from "@heroicons/react/24/outline"
 
 export default function Newsletter() {
   return (

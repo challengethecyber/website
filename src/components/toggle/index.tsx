@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react"
 import { FieldError } from "react-hook-form"
 
-import { XCircleIcon } from "@heroicons/react/solid"
+import { XCircleIcon } from "@heroicons/react/20/solid"
 
 interface IToggleProps {
   onChange: (newValue: boolean) => void
