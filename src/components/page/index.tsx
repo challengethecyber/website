@@ -159,8 +159,8 @@ const Page: FunctionComponent<IPageProps> = ({
       />
       <Banner
         show={showStoriesBanner}
-        shortText={`#ECSC STORIES`}
-        longText={`Watch ECSC 2022 Stories!`}
+        shortText={`Watch ECSC 2022 stories!`}
+        longText={`Watch European Cyber Security Challenge 2022 stories!`}
         onHide={() => setShowStoriesBanner(false)}
         actions={[
           process.env.GATSBY_STORIES_PATH_LIVEBLOG && (
