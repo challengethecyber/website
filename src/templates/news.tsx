@@ -8,7 +8,7 @@ import {
 } from "gatsby-source-contentful/rich-text"
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 
-import { CameraIcon } from "@heroicons/react/solid"
+import { CameraIcon } from "@heroicons/react/20/solid"
 
 const options = {
   renderMark: {

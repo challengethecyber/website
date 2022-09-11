@@ -2,8 +2,8 @@ import React, { useState, useEffect, FunctionComponent } from "react"
 import {
   InformationCircleIcon,
   PlayIcon,
-  PuzzleIcon,
-} from "@heroicons/react/outline"
+  PuzzlePieceIcon,
+} from "@heroicons/react/24/outline"
 
 import SEO from "./seo"
 import Header from "./header"
@@ -81,7 +81,7 @@ const Page: FunctionComponent<IPageProps> = ({
               rel="noreferrer"
               className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-opacity-90 w-full sm:w-auto"
             >
-              <PuzzleIcon className="h-6 w-6 mr-2" />
+              <PuzzlePieceIcon className="h-6 w-6 mr-2" />
               Speel CTF
             </a>
           ),
@@ -110,7 +110,7 @@ const Page: FunctionComponent<IPageProps> = ({
               rel="noreferrer"
               className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-opacity-90 w-full sm:w-auto"
             >
-              <PuzzleIcon className="h-6 w-6 mr-2" />
+              <PuzzlePieceIcon className="h-6 w-6 mr-2" />
               Spelen
             </a>
           ),

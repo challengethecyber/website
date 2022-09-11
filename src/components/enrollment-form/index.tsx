@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form"
 
 import { IIndividualEnrollmentInput, ITeamEnrollmentInput } from "./types"
 
-import { XIcon } from "@heroicons/react/outline"
-import { UserIcon, UsersIcon } from "@heroicons/react/solid"
+import { XMarkIcon } from "@heroicons/react/24/outline"
+import { UserIcon, UsersIcon } from "@heroicons/react/20/solid"
 
 import IndividualEnrollmentForm from "./individual-form"
 import TeamEnrollmentForm from "./team-form"
@@ -123,7 +123,7 @@ const EnrollmentSlideOver = ({
                           onClick={() => setShowEnrollmentSlideOver(false)}
                         >
                           <span className="sr-only">Close panel</span>
-                          <XIcon className="h-6 w-6" />
+                          <XMarkIcon className="h-6 w-6" />
                         </button>
                       </div>
                     </div>

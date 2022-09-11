@@ -2,7 +2,7 @@ import React, { FC } from "react"
 import { DateTime } from "luxon"
 import ical from "ical-generator"
 import slugify from "slugify"
-import { DownloadIcon } from "@heroicons/react/outline"
+import { ArrowDownTrayIcon as DownloadIcon } from "@heroicons/react/24/outline"
 
 interface IEventCardProps {
   eventName: string

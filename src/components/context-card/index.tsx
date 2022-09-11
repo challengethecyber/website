@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 
-import { InformationCircleIcon } from "@heroicons/react/solid"
+import { InformationCircleIcon } from "@heroicons/react/20/solid"
 
 interface IContextCardProps {
   mainText: string

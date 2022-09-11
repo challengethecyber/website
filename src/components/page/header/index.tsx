@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { Popover, Transition } from "@headlessui/react"
 
-import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline"
+import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline"
 import { DISCORD_BANNER_PARAM_NAME } from "components/page"
 
 import Logo from "assets/ctc-satellite.svg"
@@ -72,7 +72,7 @@ const Header = () => {
                     onClick={() => setIsMenuOpen(true)}
                   >
                     <span className="sr-only">Open main menu</span>
-                    <MenuIcon className="h-6 w-6" />
+                    <Bars3Icon className="h-6 w-6" />
                   </button>
                 </div>
               </div>
@@ -174,7 +174,7 @@ const Header = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   <span className="sr-only">Close main menu</span>
-                  <XIcon className="h-6 w-6" />
+                  <XMarkIcon className="h-6 w-6" />
                 </button>
               </div>
             </div>

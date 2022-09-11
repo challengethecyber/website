@@ -3,9 +3,9 @@ import { Link } from "gatsby"
 
 import {
   InformationCircleIcon,
-  ArrowCircleRightIcon,
-  PuzzleIcon,
-} from "@heroicons/react/outline"
+  ArrowRightCircleIcon,
+  PuzzlePieceIcon,
+} from "@heroicons/react/24/outline"
 
 const TMCallToAction = () => (
   <div className="bg-white">
@@ -34,7 +34,7 @@ const TMCallToAction = () => (
               rel="noreferrer"
               className="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-orange-500 bg-white hover:bg-gray-100 md:py-4 md:text-lg md:px-10 sm:ml-4 mt-2 sm:mt-0"
             >
-              <PuzzleIcon className="h-6 w-6" />
+              <PuzzlePieceIcon className="h-6 w-6" />
               <span className="ml-2">Spelen</span>
             </a>
           </div>

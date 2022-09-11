@@ -1,6 +1,6 @@
 import EnrollmentSlideOver from "components/enrollment-form"
 import React, { FunctionComponent, createContext, useState } from "react"
-import { FlagIcon } from "@heroicons/react/outline"
+import { FlagIcon } from "@heroicons/react/24/outline"
 
 import Banner from "components/banner"
 
