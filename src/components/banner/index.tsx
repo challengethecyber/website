@@ -35,29 +35,29 @@ const Banner = ({
     leaveFrom="translate-y-0"
     leaveTo="-translate-y-24"
   >
-    <div className="max-w-7xl mx-auto py-3 px-3 sm:px-6 lg:px-8">
-      <div className="flex items-center justify-between flex-wrap">
-        <div className="flex-1 flex items-center">
-          <span className="flex p-2 rounded-lg bg-black bg-opacity-20">
-            {icon ?? <MegaphoneIcon className="h-6 w-6 text-white" />}
+    <div className="px-3 py-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
+      <div className="flex flex-wrap items-center justify-between">
+        <div className="flex items-center flex-1">
+          <span className="flex p-2 bg-black rounded-lg bg-opacity-20">
+            {icon ?? <MegaphoneIcon className="w-6 h-6 text-white" />}
           </span>
           <p className="ml-3 font-medium text-white truncate">
             <span className="md:hidden">{shortText}</span>
             <span className="hidden md:inline">{longText}</span>
           </p>
         </div>
-        <div className="order-3 mt-2 flex-shrink-0 w-full sm:order-2 sm:mt-0 sm:w-auto inline-flex">
+        <div className="inline-flex flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
           {actions}
         </div>
         {canHide && (
-          <div className="order-2 flex-shrink-0 sm:order-3 sm:ml-3">
+          <div className="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
             <button
               type="button"
-              className="-mr-1 flex p-2 rounded-md hover:bg-black hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+              className="flex p-2 -mr-1 rounded-md hover:bg-black hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
               onClick={onHide}
             >
               <span className="sr-only">Dismiss</span>
-              <XMarkIcon className="h-6 w-6 text-white" />
+              <XMarkIcon className="w-6 h-6 text-white" />
             </button>
           </div>
         )}
