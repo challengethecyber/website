@@ -56,12 +56,7 @@ const Page: FunctionComponent<IPageProps> = ({
         )
       : setShowDiscordBanner(process.env.GATSBY_SHOW_DISCORD_BANNER === "true")
 
-    localStorage.getItem(STORIES_BANNER_PARAM_NAME) !== null
-      ? setShowStoriesBanner(
-          process.env.GATSBY_SHOW_STORIES_BANNER === "true" &&
-            localStorage.getItem(STORIES_BANNER_PARAM_NAME) === "1"
-        )
-      : setShowStoriesBanner(process.env.GATSBY_SHOW_STORIES_BANNER === "true")
+    setShowStoriesBanner(process.env.GATSBY_SHOW_STORIES_BANNER === "true")
   }, [])
 
   useBannerPersistenceEffect(
@@ -162,6 +157,7 @@ const Page: FunctionComponent<IPageProps> = ({
         shortText={`Watch ECSC 2022 stories!`}
         longText={`Watch European Cyber Security Challenge 2022 stories!`}
         onHide={() => setShowStoriesBanner(false)}
+        canHide={false}
         actions={[
           process.env.GATSBY_STORIES_PATH_LIVEBLOG && (
             <Link
