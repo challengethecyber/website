@@ -1,4 +1,4 @@
-import React, { useState, useEffect, FunctionComponent } from "react"
+import React, { useState, useEffect, FC, PropsWithChildren } from "react"
 import {
   InformationCircleIcon,
   PlayIcon,
@@ -39,7 +39,7 @@ const useBannerPersistenceEffect = (
     }
   }, [stateParam])
 
-const Page: FunctionComponent<IPageProps> = ({
+const Page: FC<PropsWithChildren<IPageProps>> = ({
   title,
   hideHeader = false,
   children,

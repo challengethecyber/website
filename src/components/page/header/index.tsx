@@ -2,7 +2,11 @@ import React, { Fragment, useEffect, useState } from "react"
 import { Link } from "gatsby"
 import { Popover, Transition } from "@headlessui/react"
 
-import { Bars3Icon, XMarkIcon, ChevronDownIcon } from "@heroicons/react/24/outline"
+import {
+  Bars3Icon,
+  XMarkIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/24/outline"
 import { DISCORD_BANNER_PARAM_NAME } from "components/page"
 
 import Logo from "assets/ctc-satellite.svg"
@@ -133,6 +137,13 @@ const Header = () => {
               >
                 Links
               </Link>
+              {/* <Link
+                to="/team/"
+                className="font-medium text-gray-500 hover:text-gray-900"
+                activeClassName="!text-orange-500"
+              >
+                Team
+              </Link> */}
               {(process.env.GATSBY_SHOW_DISCORD_BANNER !== "true" ||
                 showDiscordButton) && (
                 <a
