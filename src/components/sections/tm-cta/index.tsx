@@ -17,8 +17,8 @@ const TMCallToAction = () => (
           </h2>
           <p className="mt-3 max-w-md mx-auto text-base text-orange-100 sm:text-lg md:mt-5 md:text-xl md:max-w-4xl">
             Gebruik de twee maanden durende Training Mission om jezelf of je
-            team helemaal klaar te stomen voor de Challenge the Cyber CTF op 14
-            mei 2022, en win bonuspunten of andere prijzen.
+            team helemaal klaar te stomen voor de Challenge the Cyber CTF op 13
+            mei 2023, en win bonuspunten of andere prijzen.
           </p>
           <div className="mt-5 max-w-xl mx-auto sm:flex sm:justify-center md:mt-8">
             <Link

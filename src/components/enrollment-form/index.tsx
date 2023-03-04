@@ -140,9 +140,8 @@ const EnrollmentSlideOver = ({
                       <div className="space-y-6 pt-6 pb-5">
                         <ContextCard
                           mainText="Let op!"
-                          subText="Challenge the Cyber is weer een fysiek evenement! De CTF wordt gespeeld op de Haagse Hogeschool, op loopafstand van Den Haag HS. Online deelname is niet mogelijk."
+                          subText="Challenge the Cyber is een fysiek evenement en online deelname is niet mogelijk."
                         />
-
                         <div>
                           <label className="block text-sm font-medium text-gray-900">
                             Soort inschrijving
