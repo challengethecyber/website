@@ -15,6 +15,7 @@ module.exports = {
     description: `Challenge the Cyber organiseert cybersecurity events voor scholieren en studenten. De jaarlijkse Challenge the Cyber CTF, het Cyberbootcamp en de uitzending naar de European Cybersecurity Challenge zijn de belangrijkste pijlers, met daaromheen trainings- en netwerkactiviteiten.`,
     author: `Challenge the Cyber`,
   },
+  graphqlTypegen: true,
   plugins: [
     {
       resolve: "gatsby-plugin-root-import",
