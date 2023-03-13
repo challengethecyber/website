@@ -25,9 +25,9 @@ const CTFCallToAction = ({
             </span>
           </h2>
           <p className="mt-3 max-w-md mx-auto text-base text-orange-100 sm:text-lg md:mt-5 md:text-xl md:max-w-4xl">
-            De Challenge the Cyber CTF is dé nationale hackerscompetitie. In
-            teams wordt op 14 mei een dag lang gestreden om de felbegeerde beker
-            en een plaats bij het Cyberbootcamp.
+            De Challenge the Cyber CTF is dé nationale hacking-competitie voor
+            jong talent. In teams wordt op 13 mei 2023 een dag lang gestreden om
+            de felbegeerde beker en een plaats bij het Cyberbootcamp.
           </p>
           <div className="mt-5 max-w-xl mx-auto sm:flex sm:justify-center md:mt-8">
             <Link

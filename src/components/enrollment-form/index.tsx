@@ -140,7 +140,7 @@ const EnrollmentSlideOver = ({
                       <div className="space-y-6 pt-6 pb-5">
                         <ContextCard
                           mainText="Let op!"
-                          subText="Challenge the Cyber is een fysiek evenement en online deelname is niet mogelijk."
+                          subText="Challenge the Cyber is een fysiek evenement en wordt dit jaar gespeeld op de Radboud Universiteit. Online deelname is niet mogelijk."
                         />
                         <div>
                           <label className="block text-sm font-medium text-gray-900">
