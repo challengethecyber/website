@@ -30,7 +30,7 @@ export const CtfEnrollmentProvider: FunctionComponent = ({ children }) => {
       <Banner
         show={isCtfEnrollmentOpen && showCtfEnrollmentPopup}
         shortText="Meld je snel aan voor de Challenge the Cyber CTF!"
-        longText="De aanmelding voor de Challenge the Cyber CTF sluit op 8 mei, meld je snel aan!"
+        longText="De aanmelding voor de Challenge the Cyber CTF sluit op 29 april, meld je snel aan!"
         onHide={() => setShowCtfEnrollmentPopup(false)}
         canHide={false}
         icon={<FlagIcon className="h-6 w-6 text-white" />}
