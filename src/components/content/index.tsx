@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql } from "gatsby"
+import { graphql, PageProps } from "gatsby"
 
 import Shapes from "./shapes"
 import Schedule from "./schedule"
@@ -10,13 +10,16 @@ import {
   renderRichText,
 } from "gatsby-source-contentful/rich-text"
 
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
+import { BLOCKS, INLINES, Inline, Block } from "@contentful/rich-text-types"
 
 const options = {
   renderMark: {},
   renderNode: {
     [BLOCKS.HEADING_2]: (_node: any, children: any) => <h2>{children}</h2>,
     [BLOCKS.HEADING_3]: (_node: any, children: any) => <h3>{children}</h3>,
+    [BLOCKS.HEADING_4]: (_node: any, children: any) => <h4>{children}</h4>,
+    [BLOCKS.HEADING_5]: (_node: any, children: any) => <h5>{children}</h5>,
+    [BLOCKS.HEADING_6]: (_node: any, children: any) => <h6>{children}</h6>,
     [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
       <p className="mb-4">{children}</p>
     ),
@@ -33,7 +36,7 @@ const options = {
         </a>
       )
     },
-    [INLINES.EMBEDDED_ENTRY]: (node: any, children: any) => {
+    [INLINES.EMBEDDED_ENTRY]: (node: any) => {
       return (
         <div className="not-prose">
           <Schedule schedule={node.data.target.agenda} />
