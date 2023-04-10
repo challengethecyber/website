@@ -83,7 +83,7 @@ const TeamEnrollmentForm = ({
   }
 
   return (
-    <form className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6">
       <Input
         label="Teamnaam*"
         error={errors?.teamName}
@@ -159,7 +159,7 @@ const TeamEnrollmentForm = ({
         }
         error={errors?.privacyStatement}
       />
-    </form>
+    </div>
   )
 }
 
