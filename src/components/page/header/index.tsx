@@ -15,6 +15,7 @@ import ECSCIcon from "assets/icons8-trophy.svg"
 import CTFIcon from "assets/icons8-flag-2.svg"
 import BootcampIcon from "assets/icons8-graduation-cap.svg"
 import DiscordIcon from "src/assets/discord.svg"
+import CyberWorkoutIcon from "assets/dumbbell-gym-svgrepo-com.svg"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -32,6 +33,12 @@ const Header = () => {
       prettyName: "Training Mission",
       icon: <TrainingMissionIcon className="h-6 w-6 fill-white" />,
       description: "Twee maanden de tijd om te oefenen voor de jaarlijkse CTF",
+    },
+    {
+      link: "/cyberworkout/",
+      prettyName: "Cyber Workout",
+      icon: <CyberWorkoutIcon className="h-6 w-6 fill-white" />,
+      description: "Door het jaar heen oefenen met CTFs",
     },
     {
       link: "/ctf/",
