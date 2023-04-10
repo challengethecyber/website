@@ -43,7 +43,7 @@ const IndividualEnrollmentForm = ({
   }, [])
 
   return (
-    <form className="flex flex-col space-y-6">
+    <div className="flex flex-col space-y-6">
       {!isMemberForm && (
         <ContextCard
           mainText="Geen team? Geen nood!"
@@ -163,7 +163,7 @@ const IndividualEnrollmentForm = ({
           error={errors?.privacyStatement}
         />
       )}
-    </form>
+    </div>
   )
 }
 
