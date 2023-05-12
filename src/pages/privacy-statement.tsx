@@ -25,7 +25,9 @@ export default PrivacyStatementPage
 
 export const query = graphql`
   query {
-    allContentfulContent(filter: { title: { eq: "Privacyverklaring" } }) {
+    allContentfulContent(
+      filter: { title: { eq: "Privacyverklaring" }, node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...Content
       }

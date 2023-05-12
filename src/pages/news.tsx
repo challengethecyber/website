@@ -29,12 +29,10 @@ const NewsPage = ({ data }: IQueryProps) => {
 
 export default NewsPage
 
-export const query = graphql`
-  query {
-    allContentfulNews(sort: { fields: date, order: DESC }) {
-      nodes {
-        ...AllNews
-      }
+export const query = graphql`{
+  allContentfulNews(sort: {date: DESC}) {
+    nodes {
+      ...AllNews
     }
   }
-`
+}`

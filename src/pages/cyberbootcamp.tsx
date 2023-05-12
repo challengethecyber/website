@@ -25,7 +25,9 @@ export default CyberBootcampPage
 
 export const query = graphql`
   query {
-    allContentfulContent(filter: { link: { eq: "Cyberbootcamp" } }) {
+    allContentfulContent(
+      filter: { link: { eq: "Cyberbootcamp" }, node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...Content
       }

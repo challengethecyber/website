@@ -55,7 +55,10 @@ const Logos = ({ data }: ILogosProps) => {
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
         <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
           <div>
-            <h2 id="vrienden" className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+            <h2
+              id="vrienden"
+              className="text-3xl font-extrabold text-gray-900 sm:text-4xl"
+            >
               {data.title}
             </h2>
             <div className="mt-3 max-w-3xl text-lg text-gray-500">
@@ -77,8 +80,14 @@ const Logos = ({ data }: ILogosProps) => {
               .map(logo => (
                 <div
                   key={logo.description}
-                  className="col-span-1 h-28 flex justify-center items-center bg-gray-50"
+                  className="col-span-1 h-28 flex flex-col gap-2 justify-center items-center bg-gray-50"
                 >
+                  {/* Show JCR as platform sponsor */}
+                  {logo.description.includes("jointcyberrange") && (
+                    <span className="uppercase tracking-wider text-xs text-gray-500">
+                      Platform Sponsor
+                    </span>
+                  )}
                   <a href={logo.description}>
                     <img
                       className="h-16 max-w-48"
