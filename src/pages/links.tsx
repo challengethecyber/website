@@ -25,7 +25,9 @@ export default LinksPage
 
 export const query = graphql`
   query {
-    allContentfulContent(filter: { link: { eq: "Links" } }) {
+    allContentfulContent(
+      filter: { link: { eq: "Links" }, node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...Content
       }

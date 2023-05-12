@@ -64,7 +64,11 @@ export const query = graphql`
     about: contentfulAbout {
       ...About
     }
-    news: allContentfulNews(limit: 3, sort: { fields: date, order: DESC }) {
+    news: allContentfulNews(
+      limit: 3
+      sort: { fields: date, order: DESC }
+      filter: { node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...News
       }
@@ -72,6 +76,7 @@ export const query = graphql`
     calendar: allContentfulCalendarEvent(
       limit: 3
       sort: { fields: startDate, order: ASC }
+      filter: { node_locale: { eq: "nl" } }
     ) {
       nodes {
         ...CalendarEvent

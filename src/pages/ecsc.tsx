@@ -25,7 +25,9 @@ export default EcscPage
 
 export const query = graphql`
   query {
-    allContentfulContent(filter: { link: { eq: "ECSC" } }) {
+    allContentfulContent(
+      filter: { link: { eq: "ECSC" }, node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...Content
       }

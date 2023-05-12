@@ -81,8 +81,8 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
       <SEO title={title} />
       <Banner
         show={process.env.GATSBY_EVENT_LIVE === "true"}
-        shortText={`CTC ${new Date().getFullYear()} is live!`}
-        longText={`Challenge the Cyber ${new Date().getFullYear()} is nu live!`}
+        shortText={`CTC CTF ${new Date().getFullYear()} is nu live!`}
+        longText={`Challenge the Cyber CTF ${new Date().getFullYear()} is nu live!`}
         canHide={false}
         actions={[
           <Link
@@ -114,17 +114,9 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
         canHide={false}
         icon={<TrainingMissionIcon className="w-6 h-6 fill-white" />}
         actions={[
-          <Link
-            key="tm-info-link"
-            to="/trainingmission"
-            className="flex items-center justify-center w-full px-4 py-2 mr-4 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-orange-50 sm:w-auto"
-          >
-            <InformationCircleIcon className="w-6 h-6 mr-2" />
-            Meer informatie
-          </Link>,
           process.env.GATSBY_TM_URL && (
             <a
-              key="trainingsmission-link"
+              key="ctf-link"
               href={process.env.GATSBY_TM_URL}
               target="_blank"
               rel="noreferrer"

@@ -31,7 +31,10 @@ export default NewsPage
 
 export const query = graphql`
   query {
-    allContentfulNews(sort: { fields: date, order: DESC }) {
+    allContentfulNews(
+      sort: { fields: date, order: DESC }
+      filter: { node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...AllNews
       }

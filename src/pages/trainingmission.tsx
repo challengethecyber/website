@@ -49,7 +49,9 @@ export default TmPage
 
 export const query = graphql`
   query {
-    allContentfulContent(filter: { link: { eq: "Training Mission" } }) {
+    allContentfulContent(
+      filter: { link: { eq: "Training Mission" }, node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...Content
       }
