@@ -85,17 +85,9 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
         longText={`Challenge the Cyber CTF ${new Date().getFullYear()} is nu live!`}
         canHide={false}
         actions={[
-          <Link
-            key="stream-link"
-            to="/live"
-            className="flex items-center justify-center w-full px-4 py-2 mr-4 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-orange-50 sm:w-auto"
-          >
-            <PlayIcon className="w-6 h-6 mr-2" />
-            Kijk live
-          </Link>,
           process.env.GATSBY_EVENT_CTF_URL && (
             <a
-              key="stream-link"
+              key="ctf-link"
               href={process.env.GATSBY_EVENT_CTF_URL}
               target="_blank"
               rel="noreferrer"
