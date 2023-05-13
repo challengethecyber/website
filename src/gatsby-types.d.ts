@@ -426,6 +426,664 @@ type ContentfulAboutGroupConnection_sumArgs = {
   field: ContentfulAboutFieldsEnum;
 };
 
+type ContentfulAboutPage = ContentfulEntry & ContentfulReference & Node & {
+  readonly bestuurders: Maybe<ReadonlyArray<Maybe<ContentfulTeamMember>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly generalInformation: Maybe<ContentfulAboutPageGeneralInformation>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly policyPlan: Maybe<ContentfulAsset>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulAboutPageSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulAboutPage_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulAboutPage_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulAboutPageConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAboutPageEdge>;
+  readonly group: ReadonlyArray<ContentfulAboutPageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAboutPage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulAboutPageConnection_distinctArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+
+type ContentfulAboutPageConnection_groupArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulAboutPageConnection_maxArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+
+type ContentfulAboutPageConnection_minArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+
+type ContentfulAboutPageConnection_sumArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+type ContentfulAboutPageEdge = {
+  readonly next: Maybe<ContentfulAboutPage>;
+  readonly node: ContentfulAboutPage;
+  readonly previous: Maybe<ContentfulAboutPage>;
+};
+
+type ContentfulAboutPageFieldsEnum =
+  | 'bestuurders'
+  | 'bestuurders.aboutpage'
+  | 'bestuurders.aboutpage.bestuurders'
+  | 'bestuurders.aboutpage.bestuurders.aboutpage'
+  | 'bestuurders.aboutpage.bestuurders.children'
+  | 'bestuurders.aboutpage.bestuurders.childrenContentfulTeamMemberBiographyTextNode'
+  | 'bestuurders.aboutpage.bestuurders.contentful_id'
+  | 'bestuurders.aboutpage.bestuurders.createdAt'
+  | 'bestuurders.aboutpage.bestuurders.emailAddress'
+  | 'bestuurders.aboutpage.bestuurders.firstName'
+  | 'bestuurders.aboutpage.bestuurders.id'
+  | 'bestuurders.aboutpage.bestuurders.lastName'
+  | 'bestuurders.aboutpage.bestuurders.node_locale'
+  | 'bestuurders.aboutpage.bestuurders.role'
+  | 'bestuurders.aboutpage.bestuurders.spaceId'
+  | 'bestuurders.aboutpage.bestuurders.updatedAt'
+  | 'bestuurders.aboutpage.children'
+  | 'bestuurders.aboutpage.children.children'
+  | 'bestuurders.aboutpage.children.id'
+  | 'bestuurders.aboutpage.contentful_id'
+  | 'bestuurders.aboutpage.createdAt'
+  | 'bestuurders.aboutpage.generalInformation.raw'
+  | 'bestuurders.aboutpage.id'
+  | 'bestuurders.aboutpage.internal.content'
+  | 'bestuurders.aboutpage.internal.contentDigest'
+  | 'bestuurders.aboutpage.internal.contentFilePath'
+  | 'bestuurders.aboutpage.internal.description'
+  | 'bestuurders.aboutpage.internal.fieldOwners'
+  | 'bestuurders.aboutpage.internal.ignoreType'
+  | 'bestuurders.aboutpage.internal.mediaType'
+  | 'bestuurders.aboutpage.internal.owner'
+  | 'bestuurders.aboutpage.internal.type'
+  | 'bestuurders.aboutpage.node_locale'
+  | 'bestuurders.aboutpage.parent.children'
+  | 'bestuurders.aboutpage.parent.id'
+  | 'bestuurders.aboutpage.policyPlan.children'
+  | 'bestuurders.aboutpage.policyPlan.contentful_id'
+  | 'bestuurders.aboutpage.policyPlan.createdAt'
+  | 'bestuurders.aboutpage.policyPlan.description'
+  | 'bestuurders.aboutpage.policyPlan.filename'
+  | 'bestuurders.aboutpage.policyPlan.filesize'
+  | 'bestuurders.aboutpage.policyPlan.gatsbyImage'
+  | 'bestuurders.aboutpage.policyPlan.gatsbyImageData'
+  | 'bestuurders.aboutpage.policyPlan.height'
+  | 'bestuurders.aboutpage.policyPlan.id'
+  | 'bestuurders.aboutpage.policyPlan.mimeType'
+  | 'bestuurders.aboutpage.policyPlan.node_locale'
+  | 'bestuurders.aboutpage.policyPlan.placeholderUrl'
+  | 'bestuurders.aboutpage.policyPlan.publicUrl'
+  | 'bestuurders.aboutpage.policyPlan.size'
+  | 'bestuurders.aboutpage.policyPlan.spaceId'
+  | 'bestuurders.aboutpage.policyPlan.title'
+  | 'bestuurders.aboutpage.policyPlan.updatedAt'
+  | 'bestuurders.aboutpage.policyPlan.url'
+  | 'bestuurders.aboutpage.policyPlan.width'
+  | 'bestuurders.aboutpage.spaceId'
+  | 'bestuurders.aboutpage.sys.revision'
+  | 'bestuurders.aboutpage.sys.type'
+  | 'bestuurders.aboutpage.updatedAt'
+  | 'bestuurders.biography.biography'
+  | 'bestuurders.biography.children'
+  | 'bestuurders.biography.children.children'
+  | 'bestuurders.biography.children.id'
+  | 'bestuurders.biography.id'
+  | 'bestuurders.biography.internal.content'
+  | 'bestuurders.biography.internal.contentDigest'
+  | 'bestuurders.biography.internal.contentFilePath'
+  | 'bestuurders.biography.internal.description'
+  | 'bestuurders.biography.internal.fieldOwners'
+  | 'bestuurders.biography.internal.ignoreType'
+  | 'bestuurders.biography.internal.mediaType'
+  | 'bestuurders.biography.internal.owner'
+  | 'bestuurders.biography.internal.type'
+  | 'bestuurders.biography.parent.children'
+  | 'bestuurders.biography.parent.id'
+  | 'bestuurders.biography.sys.type'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.biography'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.children'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.children.children'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.children.id'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.id'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.content'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.contentDigest'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.contentFilePath'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.description'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.fieldOwners'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.ignoreType'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.mediaType'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.owner'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.internal.type'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.parent.children'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.parent.id'
+  | 'bestuurders.childContentfulTeamMemberBiographyTextNode.sys.type'
+  | 'bestuurders.children'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.biography'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.children'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.children.children'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.children.id'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.id'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.content'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.contentDigest'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.contentFilePath'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.description'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.fieldOwners'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.ignoreType'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.mediaType'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.owner'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.internal.type'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.parent.children'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.parent.id'
+  | 'bestuurders.childrenContentfulTeamMemberBiographyTextNode.sys.type'
+  | 'bestuurders.children.children'
+  | 'bestuurders.children.children.children'
+  | 'bestuurders.children.children.id'
+  | 'bestuurders.children.id'
+  | 'bestuurders.children.internal.content'
+  | 'bestuurders.children.internal.contentDigest'
+  | 'bestuurders.children.internal.contentFilePath'
+  | 'bestuurders.children.internal.description'
+  | 'bestuurders.children.internal.fieldOwners'
+  | 'bestuurders.children.internal.ignoreType'
+  | 'bestuurders.children.internal.mediaType'
+  | 'bestuurders.children.internal.owner'
+  | 'bestuurders.children.internal.type'
+  | 'bestuurders.children.parent.children'
+  | 'bestuurders.children.parent.id'
+  | 'bestuurders.contentful_id'
+  | 'bestuurders.createdAt'
+  | 'bestuurders.emailAddress'
+  | 'bestuurders.firstName'
+  | 'bestuurders.id'
+  | 'bestuurders.internal.content'
+  | 'bestuurders.internal.contentDigest'
+  | 'bestuurders.internal.contentFilePath'
+  | 'bestuurders.internal.description'
+  | 'bestuurders.internal.fieldOwners'
+  | 'bestuurders.internal.ignoreType'
+  | 'bestuurders.internal.mediaType'
+  | 'bestuurders.internal.owner'
+  | 'bestuurders.internal.type'
+  | 'bestuurders.lastName'
+  | 'bestuurders.node_locale'
+  | 'bestuurders.parent.children'
+  | 'bestuurders.parent.children.children'
+  | 'bestuurders.parent.children.id'
+  | 'bestuurders.parent.id'
+  | 'bestuurders.parent.internal.content'
+  | 'bestuurders.parent.internal.contentDigest'
+  | 'bestuurders.parent.internal.contentFilePath'
+  | 'bestuurders.parent.internal.description'
+  | 'bestuurders.parent.internal.fieldOwners'
+  | 'bestuurders.parent.internal.ignoreType'
+  | 'bestuurders.parent.internal.mediaType'
+  | 'bestuurders.parent.internal.owner'
+  | 'bestuurders.parent.internal.type'
+  | 'bestuurders.parent.parent.children'
+  | 'bestuurders.parent.parent.id'
+  | 'bestuurders.photo.children'
+  | 'bestuurders.photo.children.children'
+  | 'bestuurders.photo.children.id'
+  | 'bestuurders.photo.contentful_id'
+  | 'bestuurders.photo.createdAt'
+  | 'bestuurders.photo.description'
+  | 'bestuurders.photo.fields.localFile'
+  | 'bestuurders.photo.file.contentType'
+  | 'bestuurders.photo.file.fileName'
+  | 'bestuurders.photo.file.url'
+  | 'bestuurders.photo.filename'
+  | 'bestuurders.photo.filesize'
+  | 'bestuurders.photo.gatsbyImage'
+  | 'bestuurders.photo.gatsbyImageData'
+  | 'bestuurders.photo.height'
+  | 'bestuurders.photo.id'
+  | 'bestuurders.photo.internal.content'
+  | 'bestuurders.photo.internal.contentDigest'
+  | 'bestuurders.photo.internal.contentFilePath'
+  | 'bestuurders.photo.internal.description'
+  | 'bestuurders.photo.internal.fieldOwners'
+  | 'bestuurders.photo.internal.ignoreType'
+  | 'bestuurders.photo.internal.mediaType'
+  | 'bestuurders.photo.internal.owner'
+  | 'bestuurders.photo.internal.type'
+  | 'bestuurders.photo.localFile.absolutePath'
+  | 'bestuurders.photo.localFile.accessTime'
+  | 'bestuurders.photo.localFile.atime'
+  | 'bestuurders.photo.localFile.atimeMs'
+  | 'bestuurders.photo.localFile.base'
+  | 'bestuurders.photo.localFile.birthTime'
+  | 'bestuurders.photo.localFile.birthtime'
+  | 'bestuurders.photo.localFile.birthtimeMs'
+  | 'bestuurders.photo.localFile.blksize'
+  | 'bestuurders.photo.localFile.blocks'
+  | 'bestuurders.photo.localFile.changeTime'
+  | 'bestuurders.photo.localFile.children'
+  | 'bestuurders.photo.localFile.childrenImageSharp'
+  | 'bestuurders.photo.localFile.ctime'
+  | 'bestuurders.photo.localFile.ctimeMs'
+  | 'bestuurders.photo.localFile.dev'
+  | 'bestuurders.photo.localFile.dir'
+  | 'bestuurders.photo.localFile.ext'
+  | 'bestuurders.photo.localFile.extension'
+  | 'bestuurders.photo.localFile.gid'
+  | 'bestuurders.photo.localFile.id'
+  | 'bestuurders.photo.localFile.ino'
+  | 'bestuurders.photo.localFile.mode'
+  | 'bestuurders.photo.localFile.modifiedTime'
+  | 'bestuurders.photo.localFile.mtime'
+  | 'bestuurders.photo.localFile.mtimeMs'
+  | 'bestuurders.photo.localFile.name'
+  | 'bestuurders.photo.localFile.nlink'
+  | 'bestuurders.photo.localFile.prettySize'
+  | 'bestuurders.photo.localFile.publicURL'
+  | 'bestuurders.photo.localFile.rdev'
+  | 'bestuurders.photo.localFile.relativeDirectory'
+  | 'bestuurders.photo.localFile.relativePath'
+  | 'bestuurders.photo.localFile.root'
+  | 'bestuurders.photo.localFile.size'
+  | 'bestuurders.photo.localFile.sourceInstanceName'
+  | 'bestuurders.photo.localFile.uid'
+  | 'bestuurders.photo.localFile.url'
+  | 'bestuurders.photo.mimeType'
+  | 'bestuurders.photo.node_locale'
+  | 'bestuurders.photo.parent.children'
+  | 'bestuurders.photo.parent.id'
+  | 'bestuurders.photo.placeholderUrl'
+  | 'bestuurders.photo.publicUrl'
+  | 'bestuurders.photo.resize.height'
+  | 'bestuurders.photo.resize.src'
+  | 'bestuurders.photo.resize.width'
+  | 'bestuurders.photo.size'
+  | 'bestuurders.photo.spaceId'
+  | 'bestuurders.photo.sys.revision'
+  | 'bestuurders.photo.sys.type'
+  | 'bestuurders.photo.title'
+  | 'bestuurders.photo.updatedAt'
+  | 'bestuurders.photo.url'
+  | 'bestuurders.photo.width'
+  | 'bestuurders.role'
+  | 'bestuurders.spaceId'
+  | 'bestuurders.sys.revision'
+  | 'bestuurders.sys.type'
+  | 'bestuurders.updatedAt'
+  | 'children'
+  | 'children.children'
+  | 'children.children.children'
+  | 'children.children.children.children'
+  | 'children.children.children.id'
+  | 'children.children.id'
+  | 'children.children.internal.content'
+  | 'children.children.internal.contentDigest'
+  | 'children.children.internal.contentFilePath'
+  | 'children.children.internal.description'
+  | 'children.children.internal.fieldOwners'
+  | 'children.children.internal.ignoreType'
+  | 'children.children.internal.mediaType'
+  | 'children.children.internal.owner'
+  | 'children.children.internal.type'
+  | 'children.children.parent.children'
+  | 'children.children.parent.id'
+  | 'children.id'
+  | 'children.internal.content'
+  | 'children.internal.contentDigest'
+  | 'children.internal.contentFilePath'
+  | 'children.internal.description'
+  | 'children.internal.fieldOwners'
+  | 'children.internal.ignoreType'
+  | 'children.internal.mediaType'
+  | 'children.internal.owner'
+  | 'children.internal.type'
+  | 'children.parent.children'
+  | 'children.parent.children.children'
+  | 'children.parent.children.id'
+  | 'children.parent.id'
+  | 'children.parent.internal.content'
+  | 'children.parent.internal.contentDigest'
+  | 'children.parent.internal.contentFilePath'
+  | 'children.parent.internal.description'
+  | 'children.parent.internal.fieldOwners'
+  | 'children.parent.internal.ignoreType'
+  | 'children.parent.internal.mediaType'
+  | 'children.parent.internal.owner'
+  | 'children.parent.internal.type'
+  | 'children.parent.parent.children'
+  | 'children.parent.parent.id'
+  | 'contentful_id'
+  | 'createdAt'
+  | 'generalInformation.raw'
+  | 'id'
+  | 'internal.content'
+  | 'internal.contentDigest'
+  | 'internal.contentFilePath'
+  | 'internal.description'
+  | 'internal.fieldOwners'
+  | 'internal.ignoreType'
+  | 'internal.mediaType'
+  | 'internal.owner'
+  | 'internal.type'
+  | 'node_locale'
+  | 'parent.children'
+  | 'parent.children.children'
+  | 'parent.children.children.children'
+  | 'parent.children.children.id'
+  | 'parent.children.id'
+  | 'parent.children.internal.content'
+  | 'parent.children.internal.contentDigest'
+  | 'parent.children.internal.contentFilePath'
+  | 'parent.children.internal.description'
+  | 'parent.children.internal.fieldOwners'
+  | 'parent.children.internal.ignoreType'
+  | 'parent.children.internal.mediaType'
+  | 'parent.children.internal.owner'
+  | 'parent.children.internal.type'
+  | 'parent.children.parent.children'
+  | 'parent.children.parent.id'
+  | 'parent.id'
+  | 'parent.internal.content'
+  | 'parent.internal.contentDigest'
+  | 'parent.internal.contentFilePath'
+  | 'parent.internal.description'
+  | 'parent.internal.fieldOwners'
+  | 'parent.internal.ignoreType'
+  | 'parent.internal.mediaType'
+  | 'parent.internal.owner'
+  | 'parent.internal.type'
+  | 'parent.parent.children'
+  | 'parent.parent.children.children'
+  | 'parent.parent.children.id'
+  | 'parent.parent.id'
+  | 'parent.parent.internal.content'
+  | 'parent.parent.internal.contentDigest'
+  | 'parent.parent.internal.contentFilePath'
+  | 'parent.parent.internal.description'
+  | 'parent.parent.internal.fieldOwners'
+  | 'parent.parent.internal.ignoreType'
+  | 'parent.parent.internal.mediaType'
+  | 'parent.parent.internal.owner'
+  | 'parent.parent.internal.type'
+  | 'parent.parent.parent.children'
+  | 'parent.parent.parent.id'
+  | 'policyPlan.children'
+  | 'policyPlan.children.children'
+  | 'policyPlan.children.children.children'
+  | 'policyPlan.children.children.id'
+  | 'policyPlan.children.id'
+  | 'policyPlan.children.internal.content'
+  | 'policyPlan.children.internal.contentDigest'
+  | 'policyPlan.children.internal.contentFilePath'
+  | 'policyPlan.children.internal.description'
+  | 'policyPlan.children.internal.fieldOwners'
+  | 'policyPlan.children.internal.ignoreType'
+  | 'policyPlan.children.internal.mediaType'
+  | 'policyPlan.children.internal.owner'
+  | 'policyPlan.children.internal.type'
+  | 'policyPlan.children.parent.children'
+  | 'policyPlan.children.parent.id'
+  | 'policyPlan.contentful_id'
+  | 'policyPlan.createdAt'
+  | 'policyPlan.description'
+  | 'policyPlan.fields.localFile'
+  | 'policyPlan.file.contentType'
+  | 'policyPlan.file.details.size'
+  | 'policyPlan.file.fileName'
+  | 'policyPlan.file.url'
+  | 'policyPlan.filename'
+  | 'policyPlan.filesize'
+  | 'policyPlan.gatsbyImage'
+  | 'policyPlan.gatsbyImageData'
+  | 'policyPlan.height'
+  | 'policyPlan.id'
+  | 'policyPlan.internal.content'
+  | 'policyPlan.internal.contentDigest'
+  | 'policyPlan.internal.contentFilePath'
+  | 'policyPlan.internal.description'
+  | 'policyPlan.internal.fieldOwners'
+  | 'policyPlan.internal.ignoreType'
+  | 'policyPlan.internal.mediaType'
+  | 'policyPlan.internal.owner'
+  | 'policyPlan.internal.type'
+  | 'policyPlan.localFile.absolutePath'
+  | 'policyPlan.localFile.accessTime'
+  | 'policyPlan.localFile.atime'
+  | 'policyPlan.localFile.atimeMs'
+  | 'policyPlan.localFile.base'
+  | 'policyPlan.localFile.birthTime'
+  | 'policyPlan.localFile.birthtime'
+  | 'policyPlan.localFile.birthtimeMs'
+  | 'policyPlan.localFile.blksize'
+  | 'policyPlan.localFile.blocks'
+  | 'policyPlan.localFile.changeTime'
+  | 'policyPlan.localFile.childImageSharp.children'
+  | 'policyPlan.localFile.childImageSharp.gatsbyImageData'
+  | 'policyPlan.localFile.childImageSharp.id'
+  | 'policyPlan.localFile.children'
+  | 'policyPlan.localFile.childrenImageSharp'
+  | 'policyPlan.localFile.childrenImageSharp.children'
+  | 'policyPlan.localFile.childrenImageSharp.gatsbyImageData'
+  | 'policyPlan.localFile.childrenImageSharp.id'
+  | 'policyPlan.localFile.children.children'
+  | 'policyPlan.localFile.children.id'
+  | 'policyPlan.localFile.ctime'
+  | 'policyPlan.localFile.ctimeMs'
+  | 'policyPlan.localFile.dev'
+  | 'policyPlan.localFile.dir'
+  | 'policyPlan.localFile.ext'
+  | 'policyPlan.localFile.extension'
+  | 'policyPlan.localFile.gid'
+  | 'policyPlan.localFile.id'
+  | 'policyPlan.localFile.ino'
+  | 'policyPlan.localFile.internal.content'
+  | 'policyPlan.localFile.internal.contentDigest'
+  | 'policyPlan.localFile.internal.contentFilePath'
+  | 'policyPlan.localFile.internal.description'
+  | 'policyPlan.localFile.internal.fieldOwners'
+  | 'policyPlan.localFile.internal.ignoreType'
+  | 'policyPlan.localFile.internal.mediaType'
+  | 'policyPlan.localFile.internal.owner'
+  | 'policyPlan.localFile.internal.type'
+  | 'policyPlan.localFile.mode'
+  | 'policyPlan.localFile.modifiedTime'
+  | 'policyPlan.localFile.mtime'
+  | 'policyPlan.localFile.mtimeMs'
+  | 'policyPlan.localFile.name'
+  | 'policyPlan.localFile.nlink'
+  | 'policyPlan.localFile.parent.children'
+  | 'policyPlan.localFile.parent.id'
+  | 'policyPlan.localFile.prettySize'
+  | 'policyPlan.localFile.publicURL'
+  | 'policyPlan.localFile.rdev'
+  | 'policyPlan.localFile.relativeDirectory'
+  | 'policyPlan.localFile.relativePath'
+  | 'policyPlan.localFile.root'
+  | 'policyPlan.localFile.size'
+  | 'policyPlan.localFile.sourceInstanceName'
+  | 'policyPlan.localFile.uid'
+  | 'policyPlan.localFile.url'
+  | 'policyPlan.mimeType'
+  | 'policyPlan.node_locale'
+  | 'policyPlan.parent.children'
+  | 'policyPlan.parent.children.children'
+  | 'policyPlan.parent.children.id'
+  | 'policyPlan.parent.id'
+  | 'policyPlan.parent.internal.content'
+  | 'policyPlan.parent.internal.contentDigest'
+  | 'policyPlan.parent.internal.contentFilePath'
+  | 'policyPlan.parent.internal.description'
+  | 'policyPlan.parent.internal.fieldOwners'
+  | 'policyPlan.parent.internal.ignoreType'
+  | 'policyPlan.parent.internal.mediaType'
+  | 'policyPlan.parent.internal.owner'
+  | 'policyPlan.parent.internal.type'
+  | 'policyPlan.parent.parent.children'
+  | 'policyPlan.parent.parent.id'
+  | 'policyPlan.placeholderUrl'
+  | 'policyPlan.publicUrl'
+  | 'policyPlan.resize.height'
+  | 'policyPlan.resize.src'
+  | 'policyPlan.resize.width'
+  | 'policyPlan.size'
+  | 'policyPlan.spaceId'
+  | 'policyPlan.sys.revision'
+  | 'policyPlan.sys.type'
+  | 'policyPlan.title'
+  | 'policyPlan.updatedAt'
+  | 'policyPlan.url'
+  | 'policyPlan.width'
+  | 'spaceId'
+  | 'sys.contentType.sys.id'
+  | 'sys.contentType.sys.linkType'
+  | 'sys.contentType.sys.type'
+  | 'sys.revision'
+  | 'sys.type'
+  | 'updatedAt';
+
+type ContentfulAboutPageFilterInput = {
+  readonly bestuurders: InputMaybe<ContentfulTeamMemberFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly generalInformation: InputMaybe<ContentfulAboutPageGeneralInformationFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly policyPlan: InputMaybe<ContentfulAssetFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulAboutPageSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulAboutPageFilterListInput = {
+  readonly elemMatch: InputMaybe<ContentfulAboutPageFilterInput>;
+};
+
+type ContentfulAboutPageGeneralInformation = {
+  readonly raw: Maybe<Scalars['String']>;
+};
+
+type ContentfulAboutPageGeneralInformationFilterInput = {
+  readonly raw: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulAboutPageGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulAboutPageEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulAboutPageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulAboutPage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulAboutPageGroupConnection_distinctArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+
+type ContentfulAboutPageGroupConnection_groupArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulAboutPageGroupConnection_maxArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+
+type ContentfulAboutPageGroupConnection_minArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+
+type ContentfulAboutPageGroupConnection_sumArgs = {
+  field: ContentfulAboutPageFieldsEnum;
+};
+
+type ContentfulAboutPageSortInput = {
+  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAboutPageFieldsEnum>>>;
+  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+};
+
+type ContentfulAboutPageSys = {
+  readonly contentType: Maybe<ContentfulAboutPageSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulAboutPageSysContentType = {
+  readonly sys: Maybe<ContentfulAboutPageSysContentTypeSys>;
+};
+
+type ContentfulAboutPageSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulAboutPageSysContentTypeSysFilterInput>;
+};
+
+type ContentfulAboutPageSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulAboutPageSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulAboutPageSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulAboutPageSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
 type ContentfulAboutSortInput = {
   readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulAboutFieldsEnum>>>;
   readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
@@ -4679,6 +5337,7 @@ type ContentfulSponsorsSysFilterInput = {
 };
 
 type ContentfulTeamMember = ContentfulEntry & ContentfulReference & Node & {
+  readonly aboutpage: Maybe<ReadonlyArray<Maybe<ContentfulAboutPage>>>;
   readonly biography: Maybe<contentfulTeamMemberBiographyTextNode>;
   /** Returns the first child node of type contentfulTeamMemberBiographyTextNode or null if there are no children of given type on this node */
   readonly childContentfulTeamMemberBiographyTextNode: Maybe<contentfulTeamMemberBiographyTextNode>;
@@ -4695,6 +5354,7 @@ type ContentfulTeamMember = ContentfulEntry & ContentfulReference & Node & {
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
   readonly photo: Maybe<ContentfulAsset>;
+  readonly role: Maybe<Scalars['String']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulTeamMemberSys>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -4762,6 +5422,202 @@ type ContentfulTeamMemberEdge = {
 };
 
 type ContentfulTeamMemberFieldsEnum =
+  | 'aboutpage'
+  | 'aboutpage.bestuurders'
+  | 'aboutpage.bestuurders.aboutpage'
+  | 'aboutpage.bestuurders.aboutpage.bestuurders'
+  | 'aboutpage.bestuurders.aboutpage.children'
+  | 'aboutpage.bestuurders.aboutpage.contentful_id'
+  | 'aboutpage.bestuurders.aboutpage.createdAt'
+  | 'aboutpage.bestuurders.aboutpage.id'
+  | 'aboutpage.bestuurders.aboutpage.node_locale'
+  | 'aboutpage.bestuurders.aboutpage.spaceId'
+  | 'aboutpage.bestuurders.aboutpage.updatedAt'
+  | 'aboutpage.bestuurders.biography.biography'
+  | 'aboutpage.bestuurders.biography.children'
+  | 'aboutpage.bestuurders.biography.id'
+  | 'aboutpage.bestuurders.childContentfulTeamMemberBiographyTextNode.biography'
+  | 'aboutpage.bestuurders.childContentfulTeamMemberBiographyTextNode.children'
+  | 'aboutpage.bestuurders.childContentfulTeamMemberBiographyTextNode.id'
+  | 'aboutpage.bestuurders.children'
+  | 'aboutpage.bestuurders.childrenContentfulTeamMemberBiographyTextNode'
+  | 'aboutpage.bestuurders.childrenContentfulTeamMemberBiographyTextNode.biography'
+  | 'aboutpage.bestuurders.childrenContentfulTeamMemberBiographyTextNode.children'
+  | 'aboutpage.bestuurders.childrenContentfulTeamMemberBiographyTextNode.id'
+  | 'aboutpage.bestuurders.children.children'
+  | 'aboutpage.bestuurders.children.id'
+  | 'aboutpage.bestuurders.contentful_id'
+  | 'aboutpage.bestuurders.createdAt'
+  | 'aboutpage.bestuurders.emailAddress'
+  | 'aboutpage.bestuurders.firstName'
+  | 'aboutpage.bestuurders.id'
+  | 'aboutpage.bestuurders.internal.content'
+  | 'aboutpage.bestuurders.internal.contentDigest'
+  | 'aboutpage.bestuurders.internal.contentFilePath'
+  | 'aboutpage.bestuurders.internal.description'
+  | 'aboutpage.bestuurders.internal.fieldOwners'
+  | 'aboutpage.bestuurders.internal.ignoreType'
+  | 'aboutpage.bestuurders.internal.mediaType'
+  | 'aboutpage.bestuurders.internal.owner'
+  | 'aboutpage.bestuurders.internal.type'
+  | 'aboutpage.bestuurders.lastName'
+  | 'aboutpage.bestuurders.node_locale'
+  | 'aboutpage.bestuurders.parent.children'
+  | 'aboutpage.bestuurders.parent.id'
+  | 'aboutpage.bestuurders.photo.children'
+  | 'aboutpage.bestuurders.photo.contentful_id'
+  | 'aboutpage.bestuurders.photo.createdAt'
+  | 'aboutpage.bestuurders.photo.description'
+  | 'aboutpage.bestuurders.photo.filename'
+  | 'aboutpage.bestuurders.photo.filesize'
+  | 'aboutpage.bestuurders.photo.gatsbyImage'
+  | 'aboutpage.bestuurders.photo.gatsbyImageData'
+  | 'aboutpage.bestuurders.photo.height'
+  | 'aboutpage.bestuurders.photo.id'
+  | 'aboutpage.bestuurders.photo.mimeType'
+  | 'aboutpage.bestuurders.photo.node_locale'
+  | 'aboutpage.bestuurders.photo.placeholderUrl'
+  | 'aboutpage.bestuurders.photo.publicUrl'
+  | 'aboutpage.bestuurders.photo.size'
+  | 'aboutpage.bestuurders.photo.spaceId'
+  | 'aboutpage.bestuurders.photo.title'
+  | 'aboutpage.bestuurders.photo.updatedAt'
+  | 'aboutpage.bestuurders.photo.url'
+  | 'aboutpage.bestuurders.photo.width'
+  | 'aboutpage.bestuurders.role'
+  | 'aboutpage.bestuurders.spaceId'
+  | 'aboutpage.bestuurders.sys.revision'
+  | 'aboutpage.bestuurders.sys.type'
+  | 'aboutpage.bestuurders.updatedAt'
+  | 'aboutpage.children'
+  | 'aboutpage.children.children'
+  | 'aboutpage.children.children.children'
+  | 'aboutpage.children.children.id'
+  | 'aboutpage.children.id'
+  | 'aboutpage.children.internal.content'
+  | 'aboutpage.children.internal.contentDigest'
+  | 'aboutpage.children.internal.contentFilePath'
+  | 'aboutpage.children.internal.description'
+  | 'aboutpage.children.internal.fieldOwners'
+  | 'aboutpage.children.internal.ignoreType'
+  | 'aboutpage.children.internal.mediaType'
+  | 'aboutpage.children.internal.owner'
+  | 'aboutpage.children.internal.type'
+  | 'aboutpage.children.parent.children'
+  | 'aboutpage.children.parent.id'
+  | 'aboutpage.contentful_id'
+  | 'aboutpage.createdAt'
+  | 'aboutpage.generalInformation.raw'
+  | 'aboutpage.id'
+  | 'aboutpage.internal.content'
+  | 'aboutpage.internal.contentDigest'
+  | 'aboutpage.internal.contentFilePath'
+  | 'aboutpage.internal.description'
+  | 'aboutpage.internal.fieldOwners'
+  | 'aboutpage.internal.ignoreType'
+  | 'aboutpage.internal.mediaType'
+  | 'aboutpage.internal.owner'
+  | 'aboutpage.internal.type'
+  | 'aboutpage.node_locale'
+  | 'aboutpage.parent.children'
+  | 'aboutpage.parent.children.children'
+  | 'aboutpage.parent.children.id'
+  | 'aboutpage.parent.id'
+  | 'aboutpage.parent.internal.content'
+  | 'aboutpage.parent.internal.contentDigest'
+  | 'aboutpage.parent.internal.contentFilePath'
+  | 'aboutpage.parent.internal.description'
+  | 'aboutpage.parent.internal.fieldOwners'
+  | 'aboutpage.parent.internal.ignoreType'
+  | 'aboutpage.parent.internal.mediaType'
+  | 'aboutpage.parent.internal.owner'
+  | 'aboutpage.parent.internal.type'
+  | 'aboutpage.parent.parent.children'
+  | 'aboutpage.parent.parent.id'
+  | 'aboutpage.policyPlan.children'
+  | 'aboutpage.policyPlan.children.children'
+  | 'aboutpage.policyPlan.children.id'
+  | 'aboutpage.policyPlan.contentful_id'
+  | 'aboutpage.policyPlan.createdAt'
+  | 'aboutpage.policyPlan.description'
+  | 'aboutpage.policyPlan.fields.localFile'
+  | 'aboutpage.policyPlan.file.contentType'
+  | 'aboutpage.policyPlan.file.fileName'
+  | 'aboutpage.policyPlan.file.url'
+  | 'aboutpage.policyPlan.filename'
+  | 'aboutpage.policyPlan.filesize'
+  | 'aboutpage.policyPlan.gatsbyImage'
+  | 'aboutpage.policyPlan.gatsbyImageData'
+  | 'aboutpage.policyPlan.height'
+  | 'aboutpage.policyPlan.id'
+  | 'aboutpage.policyPlan.internal.content'
+  | 'aboutpage.policyPlan.internal.contentDigest'
+  | 'aboutpage.policyPlan.internal.contentFilePath'
+  | 'aboutpage.policyPlan.internal.description'
+  | 'aboutpage.policyPlan.internal.fieldOwners'
+  | 'aboutpage.policyPlan.internal.ignoreType'
+  | 'aboutpage.policyPlan.internal.mediaType'
+  | 'aboutpage.policyPlan.internal.owner'
+  | 'aboutpage.policyPlan.internal.type'
+  | 'aboutpage.policyPlan.localFile.absolutePath'
+  | 'aboutpage.policyPlan.localFile.accessTime'
+  | 'aboutpage.policyPlan.localFile.atime'
+  | 'aboutpage.policyPlan.localFile.atimeMs'
+  | 'aboutpage.policyPlan.localFile.base'
+  | 'aboutpage.policyPlan.localFile.birthTime'
+  | 'aboutpage.policyPlan.localFile.birthtime'
+  | 'aboutpage.policyPlan.localFile.birthtimeMs'
+  | 'aboutpage.policyPlan.localFile.blksize'
+  | 'aboutpage.policyPlan.localFile.blocks'
+  | 'aboutpage.policyPlan.localFile.changeTime'
+  | 'aboutpage.policyPlan.localFile.children'
+  | 'aboutpage.policyPlan.localFile.childrenImageSharp'
+  | 'aboutpage.policyPlan.localFile.ctime'
+  | 'aboutpage.policyPlan.localFile.ctimeMs'
+  | 'aboutpage.policyPlan.localFile.dev'
+  | 'aboutpage.policyPlan.localFile.dir'
+  | 'aboutpage.policyPlan.localFile.ext'
+  | 'aboutpage.policyPlan.localFile.extension'
+  | 'aboutpage.policyPlan.localFile.gid'
+  | 'aboutpage.policyPlan.localFile.id'
+  | 'aboutpage.policyPlan.localFile.ino'
+  | 'aboutpage.policyPlan.localFile.mode'
+  | 'aboutpage.policyPlan.localFile.modifiedTime'
+  | 'aboutpage.policyPlan.localFile.mtime'
+  | 'aboutpage.policyPlan.localFile.mtimeMs'
+  | 'aboutpage.policyPlan.localFile.name'
+  | 'aboutpage.policyPlan.localFile.nlink'
+  | 'aboutpage.policyPlan.localFile.prettySize'
+  | 'aboutpage.policyPlan.localFile.publicURL'
+  | 'aboutpage.policyPlan.localFile.rdev'
+  | 'aboutpage.policyPlan.localFile.relativeDirectory'
+  | 'aboutpage.policyPlan.localFile.relativePath'
+  | 'aboutpage.policyPlan.localFile.root'
+  | 'aboutpage.policyPlan.localFile.size'
+  | 'aboutpage.policyPlan.localFile.sourceInstanceName'
+  | 'aboutpage.policyPlan.localFile.uid'
+  | 'aboutpage.policyPlan.localFile.url'
+  | 'aboutpage.policyPlan.mimeType'
+  | 'aboutpage.policyPlan.node_locale'
+  | 'aboutpage.policyPlan.parent.children'
+  | 'aboutpage.policyPlan.parent.id'
+  | 'aboutpage.policyPlan.placeholderUrl'
+  | 'aboutpage.policyPlan.publicUrl'
+  | 'aboutpage.policyPlan.resize.height'
+  | 'aboutpage.policyPlan.resize.src'
+  | 'aboutpage.policyPlan.resize.width'
+  | 'aboutpage.policyPlan.size'
+  | 'aboutpage.policyPlan.spaceId'
+  | 'aboutpage.policyPlan.sys.revision'
+  | 'aboutpage.policyPlan.sys.type'
+  | 'aboutpage.policyPlan.title'
+  | 'aboutpage.policyPlan.updatedAt'
+  | 'aboutpage.policyPlan.url'
+  | 'aboutpage.policyPlan.width'
+  | 'aboutpage.spaceId'
+  | 'aboutpage.sys.revision'
+  | 'aboutpage.sys.type'
+  | 'aboutpage.updatedAt'
   | 'biography.biography'
   | 'biography.children'
   | 'biography.children.children'
@@ -5117,6 +5973,7 @@ type ContentfulTeamMemberFieldsEnum =
   | 'photo.updatedAt'
   | 'photo.url'
   | 'photo.width'
+  | 'role'
   | 'spaceId'
   | 'sys.contentType.sys.id'
   | 'sys.contentType.sys.linkType'
@@ -5126,6 +5983,7 @@ type ContentfulTeamMemberFieldsEnum =
   | 'updatedAt';
 
 type ContentfulTeamMemberFilterInput = {
+  readonly aboutpage: InputMaybe<ContentfulAboutPageFilterListInput>;
   readonly biography: InputMaybe<contentfulTeamMemberBiographyTextNodeFilterInput>;
   readonly childContentfulTeamMemberBiographyTextNode: InputMaybe<contentfulTeamMemberBiographyTextNodeFilterInput>;
   readonly children: InputMaybe<NodeFilterListInput>;
@@ -5140,9 +5998,14 @@ type ContentfulTeamMemberFilterInput = {
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly photo: InputMaybe<ContentfulAssetFilterInput>;
+  readonly role: InputMaybe<StringQueryOperatorInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulTeamMemberSysFilterInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulTeamMemberFilterListInput = {
+  readonly elemMatch: InputMaybe<ContentfulTeamMemberFilterInput>;
 };
 
 type ContentfulTeamMemberGroupConnection = {
@@ -5221,212 +6084,6 @@ type ContentfulTeamMemberSysFilterInput = {
   readonly contentType: InputMaybe<ContentfulTeamMemberSysContentTypeFilterInput>;
   readonly revision: InputMaybe<IntQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
-};
-
-type ContentfulTestimonial = ContentfulEntry & ContentfulReference & Node & {
-  readonly children: ReadonlyArray<Node>;
-  readonly contentful_id: Scalars['String'];
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly node_locale: Scalars['String'];
-  readonly parent: Maybe<Node>;
-};
-
-type ContentfulTestimonialConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<ContentfulTestimonialEdge>;
-  readonly group: ReadonlyArray<ContentfulTestimonialGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<ContentfulTestimonial>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type ContentfulTestimonialConnection_distinctArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-
-type ContentfulTestimonialConnection_groupArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type ContentfulTestimonialConnection_maxArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-
-type ContentfulTestimonialConnection_minArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-
-type ContentfulTestimonialConnection_sumArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-type ContentfulTestimonialEdge = {
-  readonly next: Maybe<ContentfulTestimonial>;
-  readonly node: ContentfulTestimonial;
-  readonly previous: Maybe<ContentfulTestimonial>;
-};
-
-type ContentfulTestimonialFieldsEnum =
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'contentful_id'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'node_locale'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id';
-
-type ContentfulTestimonialFilterInput = {
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-};
-
-type ContentfulTestimonialGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<ContentfulTestimonialEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<ContentfulTestimonialGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<ContentfulTestimonial>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type ContentfulTestimonialGroupConnection_distinctArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-
-type ContentfulTestimonialGroupConnection_groupArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type ContentfulTestimonialGroupConnection_maxArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-
-type ContentfulTestimonialGroupConnection_minArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-
-type ContentfulTestimonialGroupConnection_sumArgs = {
-  field: ContentfulTestimonialFieldsEnum;
-};
-
-type ContentfulTestimonialSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ContentfulTestimonialFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
 };
 
 type DateQueryOperatorInput = {
@@ -6933,6 +7590,7 @@ type PotraceTurnPolicy =
 
 type Query = {
   readonly allContentfulAbout: ContentfulAboutConnection;
+  readonly allContentfulAboutPage: ContentfulAboutPageConnection;
   readonly allContentfulActionButton: ContentfulActionButtonConnection;
   readonly allContentfulAsset: ContentfulAssetConnection;
   readonly allContentfulBanner: ContentfulBannerConnection;
@@ -6948,7 +7606,6 @@ type Query = {
   readonly allContentfulSponsors: ContentfulSponsorsConnection;
   readonly allContentfulTeamMember: ContentfulTeamMemberConnection;
   readonly allContentfulTeamMemberBiographyTextNode: contentfulTeamMemberBiographyTextNodeConnection;
-  readonly allContentfulTestimonial: ContentfulTestimonialConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -6958,6 +7615,7 @@ type Query = {
   readonly allSitePage: SitePageConnection;
   readonly allSitePlugin: SitePluginConnection;
   readonly contentfulAbout: Maybe<ContentfulAbout>;
+  readonly contentfulAboutPage: Maybe<ContentfulAboutPage>;
   readonly contentfulActionButton: Maybe<ContentfulActionButton>;
   readonly contentfulAsset: Maybe<ContentfulAsset>;
   readonly contentfulBanner: Maybe<ContentfulBanner>;
@@ -6973,7 +7631,6 @@ type Query = {
   readonly contentfulSponsors: Maybe<ContentfulSponsors>;
   readonly contentfulTeamMember: Maybe<ContentfulTeamMember>;
   readonly contentfulTeamMemberBiographyTextNode: Maybe<contentfulTeamMemberBiographyTextNode>;
-  readonly contentfulTestimonial: Maybe<ContentfulTestimonial>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -6990,6 +7647,14 @@ type Query_allContentfulAboutArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ContentfulAboutSortInput>;
+};
+
+
+type Query_allContentfulAboutPageArgs = {
+  filter: InputMaybe<ContentfulAboutPageFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ContentfulAboutPageSortInput>;
 };
 
 
@@ -7113,14 +7778,6 @@ type Query_allContentfulTeamMemberBiographyTextNodeArgs = {
 };
 
 
-type Query_allContentfulTestimonialArgs = {
-  filter: InputMaybe<ContentfulTestimonialFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ContentfulTestimonialSortInput>;
-};
-
-
 type Query_allDirectoryArgs = {
   filter: InputMaybe<DirectoryFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
@@ -7199,6 +7856,23 @@ type Query_contentfulAboutArgs = {
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulAboutSysFilterInput>;
   title: InputMaybe<StringQueryOperatorInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
+type Query_contentfulAboutPageArgs = {
+  bestuurders: InputMaybe<ContentfulTeamMemberFilterListInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  generalInformation: InputMaybe<ContentfulAboutPageGeneralInformationFilterInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  policyPlan: InputMaybe<ContentfulAssetFilterInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulAboutPageSysFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
 };
 
@@ -7425,6 +8099,7 @@ type Query_contentfulSponsorsArgs = {
 
 
 type Query_contentfulTeamMemberArgs = {
+  aboutpage: InputMaybe<ContentfulAboutPageFilterListInput>;
   biography: InputMaybe<contentfulTeamMemberBiographyTextNodeFilterInput>;
   childContentfulTeamMemberBiographyTextNode: InputMaybe<contentfulTeamMemberBiographyTextNodeFilterInput>;
   children: InputMaybe<NodeFilterListInput>;
@@ -7439,6 +8114,7 @@ type Query_contentfulTeamMemberArgs = {
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   photo: InputMaybe<ContentfulAssetFilterInput>;
+  role: InputMaybe<StringQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulTeamMemberSysFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -7452,16 +8128,6 @@ type Query_contentfulTeamMemberBiographyTextNodeArgs = {
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   sys: InputMaybe<contentfulTeamMemberBiographyTextNodeSysFilterInput>;
-};
-
-
-type Query_contentfulTestimonialArgs = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
 };
 
 
@@ -9597,6 +10263,8 @@ type contentfulTeamMemberBiographyTextNodeSysFilterInput = {
 };
 
 type AboutFragment = { readonly catchTitle: string | null, readonly title: string | null, readonly about: { readonly raw: string | null } | null, readonly picture: { readonly description: string | null, readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
+
+type AboutPageFragment = { readonly generalInformation: { readonly raw: string | null } | null, readonly bestuurders: ReadonlyArray<{ readonly lastName: string | null, readonly firstName: string | null, readonly emailAddress: string | null, readonly role: string | null, readonly photo: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null> | null, readonly policyPlan: { readonly file: { readonly url: string | null } | null } | null };
 
 type AllNewsFragment = { readonly author: string | null, readonly title: string | null, readonly date: string | null, readonly photographer: string | null, readonly newsPath: string | null, readonly content: { readonly raw: string | null } | null, readonly picture: { readonly description: string | null, readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null };
 
