@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/outline"
 
 import SEO from "./seo"
-import Header from "./header"
+import Header from "./navigation"
 import Footer from "./footer"
 import Banner from "components/banner"
 import { Link } from "gatsby"
@@ -79,6 +79,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
   return (
     <>
       <SEO title={title} />
+      <Header />
       <Banner
         show={process.env.GATSBY_EVENT_LIVE === "true"}
         shortText={`CTC CTF ${new Date().getFullYear()} is nu live!`}
@@ -195,7 +196,6 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
         ]}
         color="primary"
       />
-      {!hideHeader && <Header />}
       {children}
       <Footer />
     </>
