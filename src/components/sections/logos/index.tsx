@@ -1,36 +1,12 @@
 import React from "react"
-
 import { graphql } from "gatsby"
-
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-
 import {
   RenderRichTextData,
   ContentfulRichTextGatsbyReference,
   renderRichText,
 } from "gatsby-source-contentful/rich-text"
 
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
-
-const options = {
-  renderMark: {},
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
-      <p className="mb-4">{children}</p>
-    ),
-    [INLINES.HYPERLINK]: (node: any, children: any) => (
-      <a href={node.data.uri} className="text-orange-500 font-medium">
-        {children}
-      </a>
-    ),
-    [BLOCKS.UL_LIST]: (_node: any, children: any) => (
-      <ul className="list-disc mb-4 ml-8">{children}</ul>
-    ),
-    [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
-      return <li className="mb-2">{children[0].props.children[0]}</li>
-    },
-  },
-}
+import { richTextOptions } from "const/richTextOptions"
 
 export interface ILogosProps {
   data: {
@@ -62,7 +38,7 @@ const Logos = ({ data }: ILogosProps) => {
               {data.title}
             </h2>
             <div className="mt-3 max-w-3xl text-lg text-gray-500">
-              {renderRichText(data.description, options)}
+              {renderRichText(data.description, richTextOptions)}
             </div>
             <div className="mt-8 sm:flex">
               <div className="rounded-md shadow">
