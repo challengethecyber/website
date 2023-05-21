@@ -33,7 +33,7 @@ export interface INewsProps {
 
 const News = ({ data, textLeft = false }: INewsProps) => (
   <div className="overflow-hidden">
-    <div className="relative max-w-7xl mx-auto py-4 md:py-8 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="relative max-w-7xl mx-auto py-4 md:py-8 px-4 sm:px-6 lg:px-8">
       <div className="hidden lg:block bg-gray-50 absolute -z-1 top-0 bottom-0 left-3/4 w-screen"></div>
       <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
         <div
@@ -45,7 +45,7 @@ const News = ({ data, textLeft = false }: INewsProps) => (
             Nieuws
           </h2>
           <Link to={data.newsPath}>
-            <h1 className="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900">
+            <h1 className="mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-900">
               {data.title}
             </h1>
           </Link>

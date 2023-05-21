@@ -13,7 +13,7 @@ const FoundationPage = ({ data }: PageProps<Queries.FoundationPageQuery>) => {
 
   return (
     <Page title="Stichting">
-      <div className="relative max-w-7xl mx-auto py-4 md:py-8 lg:py-16 px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto py-4 md:py-8 px-4 sm:px-6 lg:px-8">
         <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
           <div className="relative">
             <h2 className="text-base text-orange-500 font-semibold tracking-wide uppercase">

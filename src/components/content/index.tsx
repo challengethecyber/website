@@ -39,7 +39,7 @@ const Content = ({ data }: IContentProps) => (
     <Shapes />
     <div className="relative px-4 sm:px-6 lg:px-8">
       <div className="text-lg max-w-prose mx-auto">
-        <h1 className="mb-8">
+        <h1 className="my-8">
           <span className="block text-base text-center text-orange-500 font-semibold tracking-wide uppercase">
             {data.link || ""}
           </span>
