@@ -3,7 +3,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-
+import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import {
   RenderRichTextData,
   ContentfulRichTextGatsbyReference,

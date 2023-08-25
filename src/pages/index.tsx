@@ -37,7 +37,7 @@ const IndexPage = ({ data }: IQueryProps) => {
     process.env.ENROLLMENT_OPEN === "false"
 
   return (
-    <Page title="Home" hideHeader>
+    <Page title="Home">
       <Hero data={data.lander} />
       {isCtfEnrollmentOpen && (
         <CTFCallToAction
@@ -66,7 +66,7 @@ export const query = graphql`
     }
     news: allContentfulNews(
       limit: 3
-      sort: { fields: date, order: DESC }
+      sort: { date: DESC }
       filter: { node_locale: { eq: "nl" } }
     ) {
       nodes {
@@ -75,7 +75,7 @@ export const query = graphql`
     }
     calendar: allContentfulCalendarEvent(
       limit: 3
-      sort: { fields: startDate, order: ASC }
+      sort: { startDate: ASC }
       filter: { node_locale: { eq: "nl" } }
     ) {
       nodes {
