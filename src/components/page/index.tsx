@@ -24,7 +24,6 @@ export const STORIES_BANNER_PARAM_NAME = "show-stories-banner"
 
 interface IPageProps {
   title: string
-  hideHeader?: boolean
 }
 
 // Helper function for banner persistence
@@ -39,11 +38,7 @@ const useBannerPersistenceEffect = (
     }
   }, [stateParam])
 
-const Page: FC<PropsWithChildren<IPageProps>> = ({
-  title,
-  hideHeader = false,
-  children,
-}) => {
+const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
   const [showDiscordBanner, setShowDiscordBanner] = useState<boolean>(false)
   const [showStoriesBanner, setShowStoriesBanner] = useState<boolean>(false)
 

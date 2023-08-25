@@ -1,26 +1,13 @@
 import React from "react"
-
 import { graphql } from "gatsby"
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-
-import Header from "components/page/navigation"
-
 import {
   RenderRichTextData,
   ContentfulRichTextGatsbyReference,
   renderRichText,
 } from "gatsby-source-contentful/rich-text"
 
-import { BLOCKS } from "@contentful/rich-text-types"
-
-const options = {
-  renderMark: {},
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
-      <p className="mb-4">{children}</p>
-    ),
-  },
-}
+import { richTextOptions } from "const/richTextOptions"
 
 export interface IHeroProps {
   data: {
@@ -51,7 +38,7 @@ const Hero = ({ data }: IHeroProps) => {
                 </span>
               </h1>
               <div className="mt-3 text-base text-justify text-gray-500 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
-                {renderRichText(data.subtitle, options)}
+                {renderRichText(data.subtitle, richTextOptions)}
               </div>
             </div>
           </main>

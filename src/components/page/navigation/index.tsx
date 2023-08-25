@@ -21,7 +21,7 @@ const pages = [
   { name: "Nieuws", href: "/news/" },
   { name: "Links", href: "/links/" },
   { name: "Team", href: "/team/" },
-  // { name: "Stichting", href: "/foundation/" },
+  { name: "Stichting", href: "/foundation/" },
 ]
 
 const Navigation = () => {
