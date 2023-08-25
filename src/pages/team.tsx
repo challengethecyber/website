@@ -89,7 +89,7 @@ export default TeamPage
 
 export const query = graphql`
   query TeamPage {
-    allContentfulTeamMember {
+    allContentfulTeamMember(filter: { node_locale: { eq: "nl" } }) {
       nodes {
         id
         firstName

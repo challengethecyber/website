@@ -2190,6 +2190,256 @@ type ContentfulEventScheduleSysSortInput = {
   readonly type: InputMaybe<SortOrderEnum>;
 };
 
+type ContentfulFoundationPage = ContentfulEntry & ContentfulReference & Node & {
+  readonly bestuurders: Maybe<ReadonlyArray<Maybe<ContentfulTeamMember>>>;
+  readonly children: ReadonlyArray<Node>;
+  readonly contentful_id: Scalars['String'];
+  readonly createdAt: Maybe<Scalars['Date']>;
+  readonly generalInformation: Maybe<ContentfulFoundationPageGeneralInformation>;
+  readonly id: Scalars['ID'];
+  readonly internal: Internal;
+  readonly node_locale: Scalars['String'];
+  readonly parent: Maybe<Node>;
+  readonly policyPlan: Maybe<ContentfulAsset>;
+  readonly spaceId: Maybe<Scalars['String']>;
+  readonly sys: Maybe<ContentfulFoundationPageSys>;
+  readonly updatedAt: Maybe<Scalars['Date']>;
+};
+
+
+type ContentfulFoundationPage_createdAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+
+type ContentfulFoundationPage_updatedAtArgs = {
+  difference: InputMaybe<Scalars['String']>;
+  formatString: InputMaybe<Scalars['String']>;
+  fromNow: InputMaybe<Scalars['Boolean']>;
+  locale: InputMaybe<Scalars['String']>;
+};
+
+type ContentfulFoundationPageConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulFoundationPageEdge>;
+  readonly group: ReadonlyArray<ContentfulFoundationPageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulFoundationPage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulFoundationPageConnection_distinctArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+
+type ContentfulFoundationPageConnection_groupArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulFoundationPageConnection_maxArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+
+type ContentfulFoundationPageConnection_minArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+
+type ContentfulFoundationPageConnection_sumArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+type ContentfulFoundationPageEdge = {
+  readonly next: Maybe<ContentfulFoundationPage>;
+  readonly node: ContentfulFoundationPage;
+  readonly previous: Maybe<ContentfulFoundationPage>;
+};
+
+type ContentfulFoundationPageFieldSelector = {
+  readonly bestuurders: InputMaybe<ContentfulTeamMemberFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
+  readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly node_locale: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly policyPlan: InputMaybe<ContentfulAssetFieldSelector>;
+  readonly spaceId: InputMaybe<FieldSelectorEnum>;
+  readonly sys: InputMaybe<ContentfulFoundationPageSysFieldSelector>;
+  readonly updatedAt: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulFoundationPageFilterInput = {
+  readonly bestuurders: InputMaybe<ContentfulTeamMemberFilterListInput>;
+  readonly children: InputMaybe<NodeFilterListInput>;
+  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
+  readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationFilterInput>;
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly internal: InputMaybe<InternalFilterInput>;
+  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
+  readonly parent: InputMaybe<NodeFilterInput>;
+  readonly policyPlan: InputMaybe<ContentfulAssetFilterInput>;
+  readonly spaceId: InputMaybe<StringQueryOperatorInput>;
+  readonly sys: InputMaybe<ContentfulFoundationPageSysFilterInput>;
+  readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulFoundationPageFilterListInput = {
+  readonly elemMatch: InputMaybe<ContentfulFoundationPageFilterInput>;
+};
+
+type ContentfulFoundationPageGeneralInformation = {
+  readonly raw: Maybe<Scalars['String']>;
+};
+
+type ContentfulFoundationPageGeneralInformationFieldSelector = {
+  readonly raw: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulFoundationPageGeneralInformationFilterInput = {
+  readonly raw: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulFoundationPageGeneralInformationSortInput = {
+  readonly raw: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulFoundationPageGroupConnection = {
+  readonly distinct: ReadonlyArray<Scalars['String']>;
+  readonly edges: ReadonlyArray<ContentfulFoundationPageEdge>;
+  readonly field: Scalars['String'];
+  readonly fieldValue: Maybe<Scalars['String']>;
+  readonly group: ReadonlyArray<ContentfulFoundationPageGroupConnection>;
+  readonly max: Maybe<Scalars['Float']>;
+  readonly min: Maybe<Scalars['Float']>;
+  readonly nodes: ReadonlyArray<ContentfulFoundationPage>;
+  readonly pageInfo: PageInfo;
+  readonly sum: Maybe<Scalars['Float']>;
+  readonly totalCount: Scalars['Int'];
+};
+
+
+type ContentfulFoundationPageGroupConnection_distinctArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+
+type ContentfulFoundationPageGroupConnection_groupArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+};
+
+
+type ContentfulFoundationPageGroupConnection_maxArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+
+type ContentfulFoundationPageGroupConnection_minArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+
+type ContentfulFoundationPageGroupConnection_sumArgs = {
+  field: ContentfulFoundationPageFieldSelector;
+};
+
+type ContentfulFoundationPageSortInput = {
+  readonly bestuurders: InputMaybe<ContentfulTeamMemberSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly contentful_id: InputMaybe<SortOrderEnum>;
+  readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly node_locale: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly policyPlan: InputMaybe<ContentfulAssetSortInput>;
+  readonly spaceId: InputMaybe<SortOrderEnum>;
+  readonly sys: InputMaybe<ContentfulFoundationPageSysSortInput>;
+  readonly updatedAt: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulFoundationPageSys = {
+  readonly contentType: Maybe<ContentfulFoundationPageSysContentType>;
+  readonly revision: Maybe<Scalars['Int']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulFoundationPageSysContentType = {
+  readonly sys: Maybe<ContentfulFoundationPageSysContentTypeSys>;
+};
+
+type ContentfulFoundationPageSysContentTypeFieldSelector = {
+  readonly sys: InputMaybe<ContentfulFoundationPageSysContentTypeSysFieldSelector>;
+};
+
+type ContentfulFoundationPageSysContentTypeFilterInput = {
+  readonly sys: InputMaybe<ContentfulFoundationPageSysContentTypeSysFilterInput>;
+};
+
+type ContentfulFoundationPageSysContentTypeSortInput = {
+  readonly sys: InputMaybe<ContentfulFoundationPageSysContentTypeSysSortInput>;
+};
+
+type ContentfulFoundationPageSysContentTypeSys = {
+  readonly id: Maybe<Scalars['String']>;
+  readonly linkType: Maybe<Scalars['String']>;
+  readonly type: Maybe<Scalars['String']>;
+};
+
+type ContentfulFoundationPageSysContentTypeSysFieldSelector = {
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly linkType: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulFoundationPageSysContentTypeSysFilterInput = {
+  readonly id: InputMaybe<StringQueryOperatorInput>;
+  readonly linkType: InputMaybe<StringQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulFoundationPageSysContentTypeSysSortInput = {
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly linkType: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
+type ContentfulFoundationPageSysFieldSelector = {
+  readonly contentType: InputMaybe<ContentfulFoundationPageSysContentTypeFieldSelector>;
+  readonly revision: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
+type ContentfulFoundationPageSysFilterInput = {
+  readonly contentType: InputMaybe<ContentfulFoundationPageSysContentTypeFilterInput>;
+  readonly revision: InputMaybe<IntQueryOperatorInput>;
+  readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ContentfulFoundationPageSysSortInput = {
+  readonly contentType: InputMaybe<ContentfulFoundationPageSysContentTypeSortInput>;
+  readonly revision: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
+};
+
 type ContentfulImageCropFocus =
   | 'bottom'
   | 'bottom_right'
@@ -2990,12 +3240,14 @@ type ContentfulTeamMember = ContentfulEntry & ContentfulReference & Node & {
   readonly createdAt: Maybe<Scalars['Date']>;
   readonly emailAddress: Maybe<Scalars['String']>;
   readonly firstName: Maybe<Scalars['String']>;
+  readonly foundationpage: Maybe<ReadonlyArray<Maybe<ContentfulFoundationPage>>>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly lastName: Maybe<Scalars['String']>;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
   readonly photo: Maybe<ContentfulAsset>;
+  readonly role: Maybe<Scalars['String']>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulTeamMemberSys>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -3071,12 +3323,14 @@ type ContentfulTeamMemberFieldSelector = {
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
   readonly emailAddress: InputMaybe<FieldSelectorEnum>;
   readonly firstName: InputMaybe<FieldSelectorEnum>;
+  readonly foundationpage: InputMaybe<ContentfulFoundationPageFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly lastName: InputMaybe<FieldSelectorEnum>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly photo: InputMaybe<ContentfulAssetFieldSelector>;
+  readonly role: InputMaybe<FieldSelectorEnum>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulTeamMemberSysFieldSelector>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
@@ -3091,15 +3345,21 @@ type ContentfulTeamMemberFilterInput = {
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
   readonly emailAddress: InputMaybe<StringQueryOperatorInput>;
   readonly firstName: InputMaybe<StringQueryOperatorInput>;
+  readonly foundationpage: InputMaybe<ContentfulFoundationPageFilterListInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly lastName: InputMaybe<StringQueryOperatorInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly photo: InputMaybe<ContentfulAssetFilterInput>;
+  readonly role: InputMaybe<StringQueryOperatorInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulTeamMemberSysFilterInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+type ContentfulTeamMemberFilterListInput = {
+  readonly elemMatch: InputMaybe<ContentfulTeamMemberFilterInput>;
 };
 
 type ContentfulTeamMemberGroupConnection = {
@@ -3152,12 +3412,14 @@ type ContentfulTeamMemberSortInput = {
   readonly createdAt: InputMaybe<SortOrderEnum>;
   readonly emailAddress: InputMaybe<SortOrderEnum>;
   readonly firstName: InputMaybe<SortOrderEnum>;
+  readonly foundationpage: InputMaybe<ContentfulFoundationPageSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly lastName: InputMaybe<SortOrderEnum>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly photo: InputMaybe<ContentfulAssetSortInput>;
+  readonly role: InputMaybe<SortOrderEnum>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulTeamMemberSysSortInput>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
@@ -3225,128 +3487,6 @@ type ContentfulTeamMemberSysSortInput = {
   readonly contentType: InputMaybe<ContentfulTeamMemberSysContentTypeSortInput>;
   readonly revision: InputMaybe<SortOrderEnum>;
   readonly type: InputMaybe<SortOrderEnum>;
-};
-
-type ContentfulTestimonial = ContentfulEntry & ContentfulReference & Node & {
-  readonly children: ReadonlyArray<Node>;
-  readonly contentful_id: Scalars['String'];
-  readonly id: Scalars['ID'];
-  readonly internal: Internal;
-  readonly node_locale: Scalars['String'];
-  readonly parent: Maybe<Node>;
-};
-
-type ContentfulTestimonialConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<ContentfulTestimonialEdge>;
-  readonly group: ReadonlyArray<ContentfulTestimonialGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<ContentfulTestimonial>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type ContentfulTestimonialConnection_distinctArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-
-type ContentfulTestimonialConnection_groupArgs = {
-  field: ContentfulTestimonialFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type ContentfulTestimonialConnection_maxArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-
-type ContentfulTestimonialConnection_minArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-
-type ContentfulTestimonialConnection_sumArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-type ContentfulTestimonialEdge = {
-  readonly next: Maybe<ContentfulTestimonial>;
-  readonly node: ContentfulTestimonial;
-  readonly previous: Maybe<ContentfulTestimonial>;
-};
-
-type ContentfulTestimonialFieldSelector = {
-  readonly children: InputMaybe<NodeFieldSelector>;
-  readonly contentful_id: InputMaybe<FieldSelectorEnum>;
-  readonly id: InputMaybe<FieldSelectorEnum>;
-  readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly node_locale: InputMaybe<FieldSelectorEnum>;
-  readonly parent: InputMaybe<NodeFieldSelector>;
-};
-
-type ContentfulTestimonialFilterInput = {
-  readonly children: InputMaybe<NodeFilterListInput>;
-  readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
-  readonly id: InputMaybe<StringQueryOperatorInput>;
-  readonly internal: InputMaybe<InternalFilterInput>;
-  readonly node_locale: InputMaybe<StringQueryOperatorInput>;
-  readonly parent: InputMaybe<NodeFilterInput>;
-};
-
-type ContentfulTestimonialGroupConnection = {
-  readonly distinct: ReadonlyArray<Scalars['String']>;
-  readonly edges: ReadonlyArray<ContentfulTestimonialEdge>;
-  readonly field: Scalars['String'];
-  readonly fieldValue: Maybe<Scalars['String']>;
-  readonly group: ReadonlyArray<ContentfulTestimonialGroupConnection>;
-  readonly max: Maybe<Scalars['Float']>;
-  readonly min: Maybe<Scalars['Float']>;
-  readonly nodes: ReadonlyArray<ContentfulTestimonial>;
-  readonly pageInfo: PageInfo;
-  readonly sum: Maybe<Scalars['Float']>;
-  readonly totalCount: Scalars['Int'];
-};
-
-
-type ContentfulTestimonialGroupConnection_distinctArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-
-type ContentfulTestimonialGroupConnection_groupArgs = {
-  field: ContentfulTestimonialFieldSelector;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-};
-
-
-type ContentfulTestimonialGroupConnection_maxArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-
-type ContentfulTestimonialGroupConnection_minArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-
-type ContentfulTestimonialGroupConnection_sumArgs = {
-  field: ContentfulTestimonialFieldSelector;
-};
-
-type ContentfulTestimonialSortInput = {
-  readonly children: InputMaybe<NodeSortInput>;
-  readonly contentful_id: InputMaybe<SortOrderEnum>;
-  readonly id: InputMaybe<SortOrderEnum>;
-  readonly internal: InputMaybe<InternalSortInput>;
-  readonly node_locale: InputMaybe<SortOrderEnum>;
-  readonly parent: InputMaybe<NodeSortInput>;
 };
 
 type DateQueryOperatorInput = {
@@ -4633,12 +4773,12 @@ type Query = {
   readonly allContentfulEntry: ContentfulEntryConnection;
   readonly allContentfulEventSchedule: ContentfulEventScheduleConnection;
   readonly allContentfulEventScheduleAgendaJsonNode: contentfulEventScheduleAgendaJsonNodeConnection;
+  readonly allContentfulFoundationPage: ContentfulFoundationPageConnection;
   readonly allContentfulLander: ContentfulLanderConnection;
   readonly allContentfulNews: ContentfulNewsConnection;
   readonly allContentfulSponsors: ContentfulSponsorsConnection;
   readonly allContentfulTeamMember: ContentfulTeamMemberConnection;
   readonly allContentfulTeamMemberBiographyTextNode: contentfulTeamMemberBiographyTextNodeConnection;
-  readonly allContentfulTestimonial: ContentfulTestimonialConnection;
   readonly allDirectory: DirectoryConnection;
   readonly allFile: FileConnection;
   readonly allImageSharp: ImageSharpConnection;
@@ -4658,12 +4798,12 @@ type Query = {
   readonly contentfulEntry: Maybe<ContentfulEntry>;
   readonly contentfulEventSchedule: Maybe<ContentfulEventSchedule>;
   readonly contentfulEventScheduleAgendaJsonNode: Maybe<contentfulEventScheduleAgendaJsonNode>;
+  readonly contentfulFoundationPage: Maybe<ContentfulFoundationPage>;
   readonly contentfulLander: Maybe<ContentfulLander>;
   readonly contentfulNews: Maybe<ContentfulNews>;
   readonly contentfulSponsors: Maybe<ContentfulSponsors>;
   readonly contentfulTeamMember: Maybe<ContentfulTeamMember>;
   readonly contentfulTeamMemberBiographyTextNode: Maybe<contentfulTeamMemberBiographyTextNode>;
-  readonly contentfulTestimonial: Maybe<ContentfulTestimonial>;
   readonly directory: Maybe<Directory>;
   readonly file: Maybe<File>;
   readonly imageSharp: Maybe<ImageSharp>;
@@ -4763,6 +4903,14 @@ type Query_allContentfulEventScheduleAgendaJsonNodeArgs = {
 };
 
 
+type Query_allContentfulFoundationPageArgs = {
+  filter: InputMaybe<ContentfulFoundationPageFilterInput>;
+  limit: InputMaybe<Scalars['Int']>;
+  skip: InputMaybe<Scalars['Int']>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulFoundationPageSortInput>>>;
+};
+
+
 type Query_allContentfulLanderArgs = {
   filter: InputMaybe<ContentfulLanderFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
@@ -4800,14 +4948,6 @@ type Query_allContentfulTeamMemberBiographyTextNodeArgs = {
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
   sort: InputMaybe<ReadonlyArray<InputMaybe<contentfulTeamMemberBiographyTextNodeSortInput>>>;
-};
-
-
-type Query_allContentfulTestimonialArgs = {
-  filter: InputMaybe<ContentfulTestimonialFilterInput>;
-  limit: InputMaybe<Scalars['Int']>;
-  skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ReadonlyArray<InputMaybe<ContentfulTestimonialSortInput>>>;
 };
 
 
@@ -5058,6 +5198,23 @@ type Query_contentfulEventScheduleAgendaJsonNodeArgs = {
 };
 
 
+type Query_contentfulFoundationPageArgs = {
+  bestuurders: InputMaybe<ContentfulTeamMemberFilterListInput>;
+  children: InputMaybe<NodeFilterListInput>;
+  contentful_id: InputMaybe<StringQueryOperatorInput>;
+  createdAt: InputMaybe<DateQueryOperatorInput>;
+  generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationFilterInput>;
+  id: InputMaybe<StringQueryOperatorInput>;
+  internal: InputMaybe<InternalFilterInput>;
+  node_locale: InputMaybe<StringQueryOperatorInput>;
+  parent: InputMaybe<NodeFilterInput>;
+  policyPlan: InputMaybe<ContentfulAssetFilterInput>;
+  spaceId: InputMaybe<StringQueryOperatorInput>;
+  sys: InputMaybe<ContentfulFoundationPageSysFilterInput>;
+  updatedAt: InputMaybe<DateQueryOperatorInput>;
+};
+
+
 type Query_contentfulLanderArgs = {
   children: InputMaybe<NodeFilterListInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
@@ -5123,12 +5280,14 @@ type Query_contentfulTeamMemberArgs = {
   createdAt: InputMaybe<DateQueryOperatorInput>;
   emailAddress: InputMaybe<StringQueryOperatorInput>;
   firstName: InputMaybe<StringQueryOperatorInput>;
+  foundationpage: InputMaybe<ContentfulFoundationPageFilterListInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   lastName: InputMaybe<StringQueryOperatorInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   photo: InputMaybe<ContentfulAssetFilterInput>;
+  role: InputMaybe<StringQueryOperatorInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulTeamMemberSysFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -5142,16 +5301,6 @@ type Query_contentfulTeamMemberBiographyTextNodeArgs = {
   internal: InputMaybe<InternalFilterInput>;
   parent: InputMaybe<NodeFilterInput>;
   sys: InputMaybe<contentfulTeamMemberBiographyTextNodeSysFilterInput>;
-};
-
-
-type Query_contentfulTestimonialArgs = {
-  children: InputMaybe<NodeFilterListInput>;
-  contentful_id: InputMaybe<StringQueryOperatorInput>;
-  id: InputMaybe<StringQueryOperatorInput>;
-  internal: InputMaybe<InternalFilterInput>;
-  node_locale: InputMaybe<StringQueryOperatorInput>;
-  parent: InputMaybe<NodeFilterInput>;
 };
 
 
@@ -6657,6 +6806,11 @@ type CalendarEventFragment = { readonly id: string, readonly eventName: string |
 type ContentFragment = { readonly link: string | null, readonly title: string | null, readonly content: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly id: string, readonly contentful_id: string, readonly agenda: ReadonlyArray<{ readonly time: string | null, readonly description: string | null } | null> | null } | null> | null } | null };
 
 type EventScheduleFragment = { readonly id: string, readonly contentful_id: string, readonly agenda: ReadonlyArray<{ readonly time: string | null, readonly description: string | null } | null> | null };
+
+type FoundationPageQueryVariables = Exact<{ [key: string]: never; }>;
+
+
+type FoundationPageQuery = { readonly allContentfulFoundationPage: { readonly nodes: ReadonlyArray<{ readonly generalInformation: { readonly raw: string | null } | null, readonly bestuurders: ReadonlyArray<{ readonly lastName: string | null, readonly firstName: string | null, readonly emailAddress: string | null, readonly role: string | null, readonly photo: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null> | null, readonly policyPlan: { readonly file: { readonly url: string | null } | null } | null }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 

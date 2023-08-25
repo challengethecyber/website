@@ -9,40 +9,7 @@ import {
 import { BLOCKS, INLINES, MARKS } from "@contentful/rich-text-types"
 
 import { CameraIcon } from "@heroicons/react/20/solid"
-
-const options = {
-  renderMark: {
-    [MARKS.BOLD]: (text: ReactNode) => {
-      return <span className="font-bold">{text}</span>
-    },
-    [MARKS.ITALIC]: (text: ReactNode) => {
-      return <span className="italic">{text}</span>
-    },
-  },
-  renderNode: {
-    // eslint-disable-next-line react/display-name
-    [BLOCKS.PARAGRAPH]: (_node: any, children: any) => (
-      <p className="mb-4">{children}</p>
-    ),
-    [BLOCKS.HEADING_2]: (_node: any, children: any) => <h2>{children}</h2>,
-    [BLOCKS.HEADING_3]: (_node: any, children: any) => <h3>{children}</h3>,
-    // eslint-disable-next-line react/display-name
-    [BLOCKS.UL_LIST]: (_node: any, children: any) => (
-      <ul className="list-disc mb-4 ml-8">{children}</ul>
-    ),
-    // eslint-disable-next-line react/display-name
-    [BLOCKS.LIST_ITEM]: (_node: any, children: any) => {
-      return <li>{children}</li>
-    },
-    [INLINES.HYPERLINK]: (node: any, children: any) => {
-      return (
-        <a href={node.data.uri} className="text-orange-500 font-medium">
-          {children}
-        </a>
-      )
-    },
-  },
-}
+import { richTextOptions } from "const/richTextOptions"
 
 export interface INewsProps {
   textLeft?: boolean
@@ -66,7 +33,7 @@ export interface INewsProps {
 
 const News = ({ data, textLeft = false }: INewsProps) => (
   <div className="overflow-hidden">
-    <div className="relative max-w-7xl mx-auto py-4 md:py-8 lg:py-16 px-4 sm:px-6 lg:px-8">
+    <div className="relative max-w-7xl mx-auto py-4 md:py-8 px-4 sm:px-6 lg:px-8">
       <div className="hidden lg:block bg-gray-50 absolute -z-1 top-0 bottom-0 left-3/4 w-screen"></div>
       <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
         <div
@@ -78,7 +45,7 @@ const News = ({ data, textLeft = false }: INewsProps) => (
             Nieuws
           </h2>
           <Link to={data.newsPath}>
-            <h1 className="mt-2 text-4xl leading-8 font-extrabold tracking-tight text-gray-900">
+            <h1 className="mt-2 text-4xl leading-12 font-extrabold tracking-tight text-gray-900">
               {data.title}
             </h1>
           </Link>
@@ -149,7 +116,7 @@ const News = ({ data, textLeft = false }: INewsProps) => (
               textLeft ? "lg:col-start-1" : "lg:col-start-2"
             }`}
           >
-            {renderRichText(data.content, options)}
+            {renderRichText(data.content, richTextOptions)}
           </div>
         </div>
       </div>

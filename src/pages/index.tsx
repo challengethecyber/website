@@ -37,7 +37,7 @@ const IndexPage = ({ data }: IQueryProps) => {
     process.env.ENROLLMENT_OPEN === "false"
 
   return (
-    <Page title="Home" hideHeader>
+    <Page title="Home">
       <Hero data={data.lander} />
       {isCtfEnrollmentOpen && (
         <CTFCallToAction
@@ -56,32 +56,34 @@ const IndexPage = ({ data }: IQueryProps) => {
 
 export default IndexPage
 
-export const query = graphql`{
-  lander: contentfulLander {
-    ...Lander
-  }
-  about: contentfulAbout {
-    ...About
-  }
-  news: allContentfulNews(
-    limit: 3
-    sort: {date: DESC}
-    filter: {node_locale: {eq: "nl"}}
-  ) {
-    nodes {
-      ...News
+export const query = graphql`
+  query {
+    lander: contentfulLander {
+      ...Lander
+    }
+    about: contentfulAbout {
+      ...About
+    }
+    news: allContentfulNews(
+      limit: 3
+      sort: { date: DESC }
+      filter: { node_locale: { eq: "nl" } }
+    ) {
+      nodes {
+        ...News
+      }
+    }
+    calendar: allContentfulCalendarEvent(
+      limit: 3
+      sort: { startDate: ASC }
+      filter: { node_locale: { eq: "nl" } }
+    ) {
+      nodes {
+        ...CalendarEvent
+      }
+    }
+    sponsors: contentfulSponsors {
+      ...Sponsors
     }
   }
-  calendar: allContentfulCalendarEvent(
-    limit: 3
-    sort: {startDate: ASC}
-    filter: {node_locale: {eq: "nl"}}
-  ) {
-    nodes {
-      ...CalendarEvent
-    }
-  }
-  sponsors: contentfulSponsors {
-    ...Sponsors
-  }
-}`
+`

@@ -1,47 +1,13 @@
 import React from "react"
-
 import { graphql } from "gatsby"
-
 import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
-
 import {
   RenderRichTextData,
   ContentfulRichTextGatsbyReference,
   renderRichText,
 } from "gatsby-source-contentful/rich-text"
 
-import { BLOCKS, INLINES } from "@contentful/rich-text-types"
-
-const options = {
-  renderMark: {},
-  renderNode: {
-    [BLOCKS.PARAGRAPH]: (node: any, children: any) => (
-      <p className="mb-4">{children}</p>
-    ),
-    [INLINES.HYPERLINK]: (node: any, children: any) => {
-      if (node.data.uri.includes("youtube.com/embed")) {
-        console.log(node)
-
-        return (
-          <iframe
-            className="w-full lg:max-w-lg h-72"
-            src={node.data.uri}
-            title="Replaceme"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          ></iframe>
-        )
-      } else {
-        return (
-          <a href={node.data.uri} className="text-orange-500 font-medium">
-            {children}
-          </a>
-        )
-      }
-    },
-  },
-}
+import { richTextOptions } from "const/richTextOptions"
 
 export interface IAboutProps {
   data: {
@@ -77,7 +43,7 @@ export default function About({ data }: IAboutProps) {
               {data.title}
             </h3>
             <div className="text-gray-500 text-justify">
-              {renderRichText(data.about, options)}
+              {renderRichText(data.about, richTextOptions)}
             </div>
           </div>
         </div>

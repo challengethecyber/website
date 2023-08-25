@@ -49,7 +49,9 @@ export default CtfPage
 
 export const query = graphql`
   query {
-    allContentfulContent(filter: { link: { eq: "CTF" } }) {
+    allContentfulContent(
+      filter: { link: { eq: "CTF" }, node_locale: { eq: "nl" } }
+    ) {
       nodes {
         ...Content
       }

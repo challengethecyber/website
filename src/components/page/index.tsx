@@ -7,7 +7,7 @@ import {
 } from "@heroicons/react/24/outline"
 
 import SEO from "./seo"
-import Header from "./header"
+import Header from "./navigation"
 import Footer from "./footer"
 import Banner from "components/banner"
 import { Link } from "gatsby"
@@ -24,7 +24,6 @@ export const STORIES_BANNER_PARAM_NAME = "show-stories-banner"
 
 interface IPageProps {
   title: string
-  hideHeader?: boolean
 }
 
 // Helper function for banner persistence
@@ -39,11 +38,7 @@ const useBannerPersistenceEffect = (
     }
   }, [stateParam])
 
-const Page: FC<PropsWithChildren<IPageProps>> = ({
-  title,
-  hideHeader = false,
-  children,
-}) => {
+const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
   const [showDiscordBanner, setShowDiscordBanner] = useState<boolean>(false)
   const [showStoriesBanner, setShowStoriesBanner] = useState<boolean>(false)
 
@@ -79,6 +74,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
   return (
     <>
       <SEO title={title} />
+      <Header />
       <Banner
         show={process.env.GATSBY_EVENT_LIVE === "true"}
         shortText={`CTC CTF ${new Date().getFullYear()} is nu live!`}
@@ -106,17 +102,9 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
         canHide={false}
         icon={<TrainingMissionIcon className="w-6 h-6 fill-white" />}
         actions={[
-          <Link
-            key="tm-info-link"
-            to="/trainingmission"
-            className="flex items-center justify-center w-full px-4 py-2 mr-4 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-orange-50 sm:w-auto"
-          >
-            <InformationCircleIcon className="w-6 h-6 mr-2" />
-            Meer informatie
-          </Link>,
           process.env.GATSBY_TM_URL && (
             <a
-              key="trainingsmission-link"
+              key="ctf-link"
               href={process.env.GATSBY_TM_URL}
               target="_blank"
               rel="noreferrer"
@@ -203,7 +191,6 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({
         ]}
         color="primary"
       />
-      {!hideHeader && <Header />}
       {children}
       <Footer />
     </>
