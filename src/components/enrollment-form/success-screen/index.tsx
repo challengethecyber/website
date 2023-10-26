@@ -9,7 +9,7 @@ const SuccessScreen = ({}: ISuccessScreenProps) => {
   let animationContainer = createRef<any>()
 
   useEffect(() => {
-    if (animationContainer) {
+    if (typeof document !== "undefined" && animationContainer) {
       const anim = lottie.loadAnimation({
         container: animationContainer!.current,
         renderer: "svg",
