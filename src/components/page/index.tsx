@@ -139,8 +139,8 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
       />
       <Banner
         show={showStoriesBanner}
-        shortText={`Watch ECSC 2022 stories!`}
-        longText={`Watch European Cyber Security Challenge 2022 stories!`}
+        shortText={`Volg ons tijdens ECSC 2023!`}
+        longText={`Volg ons tijdens European Cyber Security Challenge 2023!`}
         onHide={() => setShowStoriesBanner(false)}
         actions={[
           process.env.GATSBY_STORIES_PATH_LIVEBLOG && (
