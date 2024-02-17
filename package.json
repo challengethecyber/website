@@ -5,7 +5,7 @@
   "version": "0.1.0",
   "author": "Challenge the Cyber",
   "engines": {
-    "node": ">=18"
+    "node": "^20"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.18",
