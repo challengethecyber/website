@@ -15,7 +15,7 @@ import ContextCard from "components/context-card"
 interface IEnrollmentSlideOverProps {
   showEnrollmentSlideOver: boolean
   setShowEnrollmentSlideOver: (
-    value: boolean | ((prevVar: boolean) => boolean)
+    value: boolean | ((prevVar: boolean) => boolean),
   ) => void
 }
 
@@ -52,7 +52,7 @@ const EnrollmentSlideOver = ({
   const [isTeamEnrollment, setIsTeamEnrollment] = useState(true)
 
   const onSubmit = async (
-    data: IIndividualEnrollmentInput | ITeamEnrollmentInput
+    data: IIndividualEnrollmentInput | ITeamEnrollmentInput,
   ) => {
     setIsLoading(true)
 
@@ -140,7 +140,7 @@ const EnrollmentSlideOver = ({
                       <div className="space-y-6 pt-6 pb-5">
                         <ContextCard
                           mainText="Let op!"
-                          subText="Challenge the Cyber is een fysiek evenement en wordt dit jaar gespeeld op de Radboud Universiteit. Online deelname is niet mogelijk."
+                          subText="Challenge the Cyber is een fysiek evenement en wordt dit jaar gespeeld op de Fontys Hogeschool in Eindhoven. Online deelname is niet mogelijk."
                         />
                         <div>
                           <label className="block text-sm font-medium text-gray-900">
