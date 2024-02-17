@@ -59,6 +59,7 @@
   },
   "scripts": {
     "build": "gatsby build",
+    "build:digitalocean": "yarn install --production=false && yarn run build",
     "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
