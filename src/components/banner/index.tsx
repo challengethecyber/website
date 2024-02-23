@@ -36,8 +36,8 @@ const Banner = ({
     leaveTo="-translate-y-24"
   >
     <div className="px-3 py-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
-      <div className="flex flex-wrap items-center justify-between">
-        <div className="flex items-center flex-1">
+      <div className="flex flex-wrap items-center justify-between gap-2">
+        <div className="flex items-center flex-1 max-w-full">
           <span className="flex p-2 bg-black rounded-lg bg-opacity-20">
             {icon ?? <MegaphoneIcon className="w-6 h-6 text-white" />}
           </span>
@@ -46,7 +46,7 @@ const Banner = ({
             <span className="hidden md:inline">{longText}</span>
           </p>
         </div>
-        <div className="inline-flex flex-shrink-0 order-3 w-full mt-2 sm:order-2 sm:mt-0 sm:w-auto">
+        <div className="inline-flex flex-shrink-0 order-3 w-full sm:order-2 sm:w-auto">
           {actions}
         </div>
         {canHide && (

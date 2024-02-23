@@ -1,6 +1,6 @@
 import React, { FC } from "react"
 import { DateTime } from "luxon"
-import ical from "ical-generator"
+import ical, { ICalCalendar } from "ical-generator"
 import slugify from "slugify"
 import { ArrowDownTrayIcon as DownloadIcon } from "@heroicons/react/24/outline"
 
@@ -11,9 +11,9 @@ interface IEventCardProps {
   shortDescription?: string
 }
 
-const downloadIcal = (eventName: string, data: Blob) => {
+const downloadIcal = (eventName: string, icalEvent: ICalCalendar) => {
   const element = document.createElement("a")
-  const file = new Blob([data], {
+  const file = new Blob([icalEvent.toString()], {
     type: "text/calendar",
   })
   element.href = URL.createObjectURL(file)
@@ -69,7 +69,7 @@ const EventCard: FC<IEventCardProps> = ({
         <DownloadIcon
           aria-label="Add to calendar"
           className="h-6 w-6 text-orange-500 cursor-pointer mr-2 md:mr-4"
-          onClick={() => downloadIcal(eventName, icalItem.toBlob())}
+          onClick={() => downloadIcal(eventName, icalItem)}
         />
       </div>
     </li>

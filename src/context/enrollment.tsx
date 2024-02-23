@@ -34,7 +34,7 @@ export const CtfEnrollmentProvider: FunctionComponent = ({ children }) => {
     >
       <Banner
         show={isCtfEnrollmentOpen && showCtfEnrollmentPopup}
-        shortText="Meld je snel aan voor de Challenge the Cyber CTF!"
+        shortText="Meld je aan voor de Challenge the Cyber CTF!"
         longText="De Challenge the Cyber CTF wordt gespeeld op 20 april in Eindhoven, meld je snel aan!"
         onHide={() => setShowCtfEnrollmentPopup(false)}
         canHide={false}
