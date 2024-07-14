@@ -2197,12 +2197,12 @@ type ContentfulFoundationPage = ContentfulEntry & ContentfulReference & Node & {
   readonly children: ReadonlyArray<Node>;
   readonly contentful_id: Scalars['String'];
   readonly createdAt: Maybe<Scalars['Date']>;
+  readonly files: Maybe<ReadonlyArray<Maybe<ContentfulAsset>>>;
   readonly generalInformation: Maybe<ContentfulFoundationPageGeneralInformation>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
-  readonly policyPlan: Maybe<ContentfulAsset>;
   readonly spaceId: Maybe<Scalars['String']>;
   readonly sys: Maybe<ContentfulFoundationPageSys>;
   readonly updatedAt: Maybe<Scalars['Date']>;
@@ -2274,12 +2274,12 @@ type ContentfulFoundationPageFieldSelector = {
   readonly children: InputMaybe<NodeFieldSelector>;
   readonly contentful_id: InputMaybe<FieldSelectorEnum>;
   readonly createdAt: InputMaybe<FieldSelectorEnum>;
+  readonly files: InputMaybe<ContentfulAssetFieldSelector>;
   readonly generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationFieldSelector>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
-  readonly policyPlan: InputMaybe<ContentfulAssetFieldSelector>;
   readonly spaceId: InputMaybe<FieldSelectorEnum>;
   readonly sys: InputMaybe<ContentfulFoundationPageSysFieldSelector>;
   readonly updatedAt: InputMaybe<FieldSelectorEnum>;
@@ -2290,12 +2290,12 @@ type ContentfulFoundationPageFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly contentful_id: InputMaybe<StringQueryOperatorInput>;
   readonly createdAt: InputMaybe<DateQueryOperatorInput>;
+  readonly files: InputMaybe<ContentfulAssetFilterListInput>;
   readonly generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationFilterInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
-  readonly policyPlan: InputMaybe<ContentfulAssetFilterInput>;
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulFoundationPageSysFilterInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -2367,12 +2367,12 @@ type ContentfulFoundationPageSortInput = {
   readonly children: InputMaybe<NodeSortInput>;
   readonly contentful_id: InputMaybe<SortOrderEnum>;
   readonly createdAt: InputMaybe<SortOrderEnum>;
+  readonly files: InputMaybe<ContentfulAssetSortInput>;
   readonly generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationSortInput>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
-  readonly policyPlan: InputMaybe<ContentfulAssetSortInput>;
   readonly spaceId: InputMaybe<SortOrderEnum>;
   readonly sys: InputMaybe<ContentfulFoundationPageSysSortInput>;
   readonly updatedAt: InputMaybe<SortOrderEnum>;
@@ -5205,12 +5205,12 @@ type Query_contentfulFoundationPageArgs = {
   children: InputMaybe<NodeFilterListInput>;
   contentful_id: InputMaybe<StringQueryOperatorInput>;
   createdAt: InputMaybe<DateQueryOperatorInput>;
+  files: InputMaybe<ContentfulAssetFilterListInput>;
   generalInformation: InputMaybe<ContentfulFoundationPageGeneralInformationFilterInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
-  policyPlan: InputMaybe<ContentfulAssetFilterInput>;
   spaceId: InputMaybe<StringQueryOperatorInput>;
   sys: InputMaybe<ContentfulFoundationPageSysFilterInput>;
   updatedAt: InputMaybe<DateQueryOperatorInput>;
@@ -6812,7 +6812,7 @@ type EventScheduleFragment = { readonly id: string, readonly contentful_id: stri
 type FoundationPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type FoundationPageQuery = { readonly allContentfulFoundationPage: { readonly nodes: ReadonlyArray<{ readonly generalInformation: { readonly raw: string | null } | null, readonly bestuurders: ReadonlyArray<{ readonly lastName: string | null, readonly firstName: string | null, readonly emailAddress: string | null, readonly role: string | null, readonly photo: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null> | null, readonly policyPlan: { readonly file: { readonly url: string | null } | null } | null }> } };
+type FoundationPageQuery = { readonly allContentfulFoundationPage: { readonly nodes: ReadonlyArray<{ readonly generalInformation: { readonly raw: string | null } | null, readonly bestuurders: ReadonlyArray<{ readonly lastName: string | null, readonly firstName: string | null, readonly emailAddress: string | null, readonly role: string | null, readonly photo: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null> | null, readonly files: ReadonlyArray<{ readonly id: string, readonly title: string | null, readonly file: { readonly url: string | null, readonly details: { readonly size: number | null } | null } | null } | null> | null }> } };
 
 type GatsbyImageSharpFixedFragment = { readonly base64: string | null, readonly width: number, readonly height: number, readonly src: string, readonly srcSet: string };
 
