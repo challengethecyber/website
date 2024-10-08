@@ -30,7 +30,7 @@ interface IPageProps {
 const useBannerPersistenceEffect = (
   stateParam: boolean,
   paramName: string,
-  baseCondition: boolean
+  baseCondition: boolean,
 ) =>
   useEffect(() => {
     if (baseCondition) {
@@ -47,14 +47,14 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
     localStorage.getItem(DISCORD_BANNER_PARAM_NAME) !== null
       ? setShowDiscordBanner(
           process.env.GATSBY_SHOW_DISCORD_BANNER === "true" &&
-            localStorage.getItem(DISCORD_BANNER_PARAM_NAME) === "1"
+            localStorage.getItem(DISCORD_BANNER_PARAM_NAME) === "1",
         )
       : setShowDiscordBanner(process.env.GATSBY_SHOW_DISCORD_BANNER === "true")
 
     localStorage.getItem(STORIES_BANNER_PARAM_NAME) !== null
       ? setShowStoriesBanner(
           process.env.GATSBY_SHOW_STORIES_BANNER === "true" &&
-            localStorage.getItem(STORIES_BANNER_PARAM_NAME) === "1"
+            localStorage.getItem(STORIES_BANNER_PARAM_NAME) === "1",
         )
       : setShowStoriesBanner(process.env.GATSBY_SHOW_STORIES_BANNER === "true")
   }, [])
@@ -62,13 +62,13 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
   useBannerPersistenceEffect(
     showDiscordBanner,
     DISCORD_BANNER_PARAM_NAME,
-    process.env.GATSBY_SHOW_DISCORD_BANNER === "true"
+    process.env.GATSBY_SHOW_DISCORD_BANNER === "true",
   )
 
   useBannerPersistenceEffect(
     showStoriesBanner,
     STORIES_BANNER_PARAM_NAME,
-    process.env.GATSBY_SHOW_STORIES_BANNER === "true"
+    process.env.GATSBY_SHOW_STORIES_BANNER === "true",
   )
 
   return (
@@ -139,8 +139,8 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
       />
       <Banner
         show={showStoriesBanner}
-        shortText={`Volg ons tijdens ECSC 2023!`}
-        longText={`Volg ons tijdens European Cyber Security Challenge 2023!`}
+        shortText={`Volg ons tijdens ECSC ${new Date().getFullYear()}!`}
+        longText={`Volg ons tijdens European Cyber Security Challenge ${new Date().getFullYear()}!`}
         onHide={() => setShowStoriesBanner(false)}
         actions={[
           process.env.GATSBY_STORIES_PATH_LIVEBLOG && (
