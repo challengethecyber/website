@@ -1,33 +1,20 @@
-import React, { useEffect, createRef } from "react"
+import React, { lazy, useEffect, createRef } from "react"
 
-import lottie from "lottie-web"
-import checkmark from "./animations/checkmark.json"
+const SuccessAnimation = lazy(() => import("./success-animation"))
 
 type ISuccessScreenProps = {}
 
 const SuccessScreen = ({}: ISuccessScreenProps) => {
-  let animationContainer = createRef<any>()
-
-  useEffect(() => {
-    if (typeof document !== "undefined" && animationContainer) {
-      const anim = lottie.loadAnimation({
-        container: animationContainer!.current,
-        renderer: "svg",
-        loop: false,
-        autoplay: true,
-        animationData: checkmark,
-      })
-      return () => anim.destroy() // optional clean up for unmounting
-    }
-  }, [animationContainer])
+  const isSSR = typeof window === "undefined"
 
   return (
     <div className="flex flex-col space-y-6 justify-center h-full">
-      <div
-        className="h-48 fill-current text-orange-500"
-        ref={animationContainer}
-      />
       <div className="flex flex-col">
+        {!isSSR && (
+          <React.Suspense fallback={<div />}>
+            <SuccessAnimation />
+          </React.Suspense>
+        )}
         <span className="font-medium text-lg text-center">
           Leuk dat je meedoet!
         </span>

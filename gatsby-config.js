@@ -5,7 +5,7 @@ const { CONTENTFUL_SPACE_ID, CONTENTFUL_ACCESS_TOKEN } = process.env
 
 if (!CONTENTFUL_SPACE_ID || !CONTENTFUL_ACCESS_TOKEN) {
   throw new Error(
-    "Contentful spaceId and the access token need to be provided."
+    "Contentful spaceId and the access token need to be provided.",
   )
 }
 
@@ -23,7 +23,6 @@ module.exports = {
         components: path.join(__dirname, "src/components"),
       },
     },
-    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     {
