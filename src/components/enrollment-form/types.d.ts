@@ -19,3 +19,10 @@ export type ITeamEnrollmentInput = {
   members: IIndividualEnrollmentInput[]
   privacyStatement: boolean
 }
+
+export type IBaseInput = {
+  type: "individual" | "team"
+}
+
+export type IEnrollmentInput = IBaseInput &
+  (IIndividualEnrollmentInput | ITeamEnrollmentInput)

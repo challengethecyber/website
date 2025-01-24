@@ -75,7 +75,8 @@ const IndividualEnrollmentForm = ({
           autoComplete="bday-year"
           error={errors?.birthYear}
           warnCondition={(birthYear: number) =>
-            /^\d{4}$/.test(birthYear.toString()) && birthYear < 1999
+            /^\d{4}$/.test(birthYear.toString()) &&
+            birthYear < new Date().getFullYear() - 25
               ? "Je voegt een teamlid toe in de buitencategorie"
               : ""
           }
@@ -83,9 +84,8 @@ const IndividualEnrollmentForm = ({
             required: { value: true, message: "Dit veld is verplicht" },
             valueAsNumber: true,
             max: {
-              value: 2010,
-              message:
-                "Je kunt alleen deelnemen met een geboortejaar voor 2010",
+              value: new Date().getFullYear() - 14,
+              message: `Je kunt alleen deelnemen met een geboortejaar voor ${new Date().getFullYear() - 14}`,
             },
           })}
         />

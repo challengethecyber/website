@@ -27,12 +27,12 @@ export default function Newsletter() {
                 type="email"
                 autoComplete="email"
                 required
-                className="w-full border-white px-5 py-3 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white rounded-md"
+                className="w-full border-white px-5 py-3 placeholder-gray-500 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white rounded-md"
                 placeholder="Enter your email"
               />
               <button
                 type="submit"
-                className="mt-3 w-full flex items-center justify-center px-5 py-3 border border-transparent shadow text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white sm:mt-0 sm:ml-3 sm:w-auto sm:flex-shrink-0"
+                className="mt-3 w-full flex items-center justify-center px-5 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-indigo-500 hover:bg-indigo-400 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-offset-indigo-700 focus:ring-white sm:mt-0 sm:ml-3 sm:w-auto sm:shrink-0"
               >
                 Notify me
               </button>
@@ -43,7 +43,7 @@ export default function Newsletter() {
             >
               <button
                 type="submit"
-                className="mt-3 w-full flex gap-2 items-center justify-center px-5 py-3 border border-transparent shadow text-base font-medium rounded-md text-orange-500 bg-white hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:flex-shrink-0"
+                className="mt-3 w-full flex gap-2 items-center justify-center px-5 py-3 border border-transparent shadow-sm text-base font-medium rounded-md text-orange-500 bg-white hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-offset-2 sm:mt-0 sm:w-auto sm:shrink-0"
               >
                 <PaperAirplaneIcon className="h-5 w-5" />
                 Aanmelden

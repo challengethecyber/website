@@ -1,5 +1,44 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss" source(none);
 
-@import "inter.css";
+@import "./inter.css" layer(utilities);
+
+@plugin '@tailwindcss/aspect-ratio';
+@plugin '@tailwindcss/typography';
+@plugin '@tailwindcss/forms';
+
+@source "../components";
+@source "../pages";
+@source "../context";
+@source "../templates";
+
+@theme {
+  --font-*: initial;
+  --font-sans: Inter var, system-ui, sans-serif;
+
+  --z-index--1: -1;
+
+  --container-48: 12rem;
+}
+
+@utility container {
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
+
+/*
+  The default border color has changed to `currentColor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentColor);
+  }
+}

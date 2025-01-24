@@ -36,7 +36,7 @@ const Input = React.forwardRef<any, IInputProps>(
           {label}
         </label>
         <input
-          className={`mt-1 py-3 px-4 block w-full shadow-sm text-sm rounded-md border-none bg-gray-100 focus:outline-none transition duration-75 ease-linear focus:ring-2 ${
+          className={`mt-1 py-3 px-4 block w-full shadow-sm text-sm rounded-md border-none bg-gray-100 focus:outline-hidden transition duration-75 ease-linear focus:ring-2 ${
             error
               ? "border-red-500 focus:ring-red-400 focus:border-red-500"
               : "focus:ring-orange-400 focus:border-orange-400"
@@ -55,13 +55,13 @@ const Input = React.forwardRef<any, IInputProps>(
         />
         {warnCondition && warning !== "" && (
           <div className="flex mt-2">
-            <ExclamationTriangleIcon className="flex-shrink-0 h-5 w-5 text-orange-500" />
+            <ExclamationTriangleIcon className="shrink-0 h-5 w-5 text-orange-500" />
             <p className="ml-2 text-sm text-orange-500">{warning}</p>
           </div>
         )}
         {error && (
           <div className="flex mt-2">
-            <XCircleIcon className="flex-shrink-0 h-5 w-5 text-red-500" />
+            <XCircleIcon className="shrink-0 h-5 w-5 text-red-500" />
             <p className="ml-2 text-sm text-red-500">{error.message}</p>
           </div>
         )}

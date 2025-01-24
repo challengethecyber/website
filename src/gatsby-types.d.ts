@@ -1166,7 +1166,6 @@ type ContentfulCalendarEvent = ContentfulEntry & ContentfulReference & Node & {
   readonly eventName: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
   readonly internal: Internal;
-  readonly location: Maybe<ContentfulCalendarEventLocation>;
   readonly node_locale: Scalars['String'];
   readonly parent: Maybe<Node>;
   readonly shortDescription: Maybe<contentfulCalendarEventShortDescriptionTextNode>;
@@ -1263,7 +1262,6 @@ type ContentfulCalendarEventFieldSelector = {
   readonly eventName: InputMaybe<FieldSelectorEnum>;
   readonly id: InputMaybe<FieldSelectorEnum>;
   readonly internal: InputMaybe<InternalFieldSelector>;
-  readonly location: InputMaybe<ContentfulCalendarEventLocationFieldSelector>;
   readonly node_locale: InputMaybe<FieldSelectorEnum>;
   readonly parent: InputMaybe<NodeFieldSelector>;
   readonly shortDescription: InputMaybe<contentfulCalendarEventShortDescriptionTextNodeFieldSelector>;
@@ -1283,7 +1281,6 @@ type ContentfulCalendarEventFilterInput = {
   readonly eventName: InputMaybe<StringQueryOperatorInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
   readonly internal: InputMaybe<InternalFilterInput>;
-  readonly location: InputMaybe<ContentfulCalendarEventLocationFilterInput>;
   readonly node_locale: InputMaybe<StringQueryOperatorInput>;
   readonly parent: InputMaybe<NodeFilterInput>;
   readonly shortDescription: InputMaybe<contentfulCalendarEventShortDescriptionTextNodeFilterInput>;
@@ -1334,26 +1331,6 @@ type ContentfulCalendarEventGroupConnection_sumArgs = {
   field: ContentfulCalendarEventFieldSelector;
 };
 
-type ContentfulCalendarEventLocation = {
-  readonly lat: Maybe<Scalars['Float']>;
-  readonly lon: Maybe<Scalars['Float']>;
-};
-
-type ContentfulCalendarEventLocationFieldSelector = {
-  readonly lat: InputMaybe<FieldSelectorEnum>;
-  readonly lon: InputMaybe<FieldSelectorEnum>;
-};
-
-type ContentfulCalendarEventLocationFilterInput = {
-  readonly lat: InputMaybe<FloatQueryOperatorInput>;
-  readonly lon: InputMaybe<FloatQueryOperatorInput>;
-};
-
-type ContentfulCalendarEventLocationSortInput = {
-  readonly lat: InputMaybe<SortOrderEnum>;
-  readonly lon: InputMaybe<SortOrderEnum>;
-};
-
 type ContentfulCalendarEventSortInput = {
   readonly childContentfulCalendarEventShortDescriptionTextNode: InputMaybe<contentfulCalendarEventShortDescriptionTextNodeSortInput>;
   readonly children: InputMaybe<NodeSortInput>;
@@ -1364,7 +1341,6 @@ type ContentfulCalendarEventSortInput = {
   readonly eventName: InputMaybe<SortOrderEnum>;
   readonly id: InputMaybe<SortOrderEnum>;
   readonly internal: InputMaybe<InternalSortInput>;
-  readonly location: InputMaybe<ContentfulCalendarEventLocationSortInput>;
   readonly node_locale: InputMaybe<SortOrderEnum>;
   readonly parent: InputMaybe<NodeSortInput>;
   readonly shortDescription: InputMaybe<contentfulCalendarEventShortDescriptionTextNodeSortInput>;
@@ -3853,7 +3829,6 @@ type File = Node & {
   readonly size: Scalars['Int'];
   readonly sourceInstanceName: Scalars['String'];
   readonly uid: Scalars['Int'];
-  readonly url: Maybe<Scalars['String']>;
 };
 
 
@@ -3998,7 +3973,6 @@ type FileFieldSelector = {
   readonly size: InputMaybe<FieldSelectorEnum>;
   readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
   readonly uid: InputMaybe<FieldSelectorEnum>;
-  readonly url: InputMaybe<FieldSelectorEnum>;
 };
 
 type FileFilterInput = {
@@ -4042,7 +4016,6 @@ type FileFilterInput = {
   readonly size: InputMaybe<IntQueryOperatorInput>;
   readonly sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   readonly uid: InputMaybe<IntQueryOperatorInput>;
-  readonly url: InputMaybe<StringQueryOperatorInput>;
 };
 
 type FileGroupConnection = {
@@ -4127,7 +4100,6 @@ type FileSortInput = {
   readonly size: InputMaybe<SortOrderEnum>;
   readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
   readonly uid: InputMaybe<SortOrderEnum>;
-  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type FloatQueryOperatorInput = {
@@ -5112,7 +5084,6 @@ type Query_contentfulCalendarEventArgs = {
   eventName: InputMaybe<StringQueryOperatorInput>;
   id: InputMaybe<StringQueryOperatorInput>;
   internal: InputMaybe<InternalFilterInput>;
-  location: InputMaybe<ContentfulCalendarEventLocationFilterInput>;
   node_locale: InputMaybe<StringQueryOperatorInput>;
   parent: InputMaybe<NodeFilterInput>;
   shortDescription: InputMaybe<contentfulCalendarEventShortDescriptionTextNodeFilterInput>;
@@ -5386,7 +5357,6 @@ type Query_fileArgs = {
   size: InputMaybe<IntQueryOperatorInput>;
   sourceInstanceName: InputMaybe<StringQueryOperatorInput>;
   uid: InputMaybe<IntQueryOperatorInput>;
-  url: InputMaybe<StringQueryOperatorInput>;
 };
 
 

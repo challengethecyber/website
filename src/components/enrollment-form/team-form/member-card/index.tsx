@@ -14,7 +14,7 @@ const MemberCard = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => {
   } ${member.educationalInstitution && `- ${member.educationalInstitution}`}`
 
   return (
-    <li className="w-full bg-white shadow-sm rounded-lg pointer-events-auto flex ring-1 ring-black ring-opacity-5 divide-x divide-gray-200">
+    <li className="w-full bg-white shadow-xs rounded-lg pointer-events-auto flex ring-1 ring-black/5 divide-x divide-gray-200">
       <div className="w-0 flex-1 flex items-center py-4 px-6">
         <div className="flex-1 truncate">
           <div className="flex items-center space-x-3">
@@ -22,7 +22,7 @@ const MemberCard = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => {
               {`${member.name.firstName} ${member.name.lastName}`}
             </h3>
             {member.isCaptain && (
-              <span className="flex-shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orange-500 rounded-full">
+              <span className="shrink-0 inline-block px-2 py-0.5 text-white text-xs font-medium bg-orange-500 rounded-full">
                 Captain
               </span>
             )}
@@ -41,7 +41,7 @@ const MemberCard = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => {
               className={`w-full border border-transparent rounded-none rounded-tr-lg px-4 py-3 flex items-center justify-center text-sm font-medium ${
                 member.isCaptain
                   ? "cursor-default text-gray-300"
-                  : "text-orange-500 hover:text-orange-400 focus:outline-none focus:z-10 focus:ring-2 focus:ring-orange-400"
+                  : "text-orange-500 hover:text-orange-400 focus:outline-hidden focus:z-10 focus:ring-2 focus:ring-orange-400"
               }`}
             >
               Maak captain
@@ -49,7 +49,7 @@ const MemberCard = ({ member, onDelete, onSetCaptain }: IMemberCardProps) => {
           </div>
           <div className="h-0 flex-1 flex">
             <button
-              className="w-full border border-transparent rounded-none rounded-br-lg px-4 py-3 flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-orange-400"
+              className="w-full border border-transparent rounded-none rounded-br-lg px-4 py-3 flex items-center justify-center text-sm font-medium text-gray-700 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-orange-400"
               onClick={() => onDelete()}
             >
               Verwijderen

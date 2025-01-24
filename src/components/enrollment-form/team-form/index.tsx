@@ -114,7 +114,7 @@ const TeamEnrollmentForm = ({
         )}
         {errors?.members && (
           <div className="flex mt-2">
-            <XCircleIcon className="flex-shrink-0 h-5 w-5 text-red-500" />
+            <XCircleIcon className="shrink-0 h-5 w-5 text-red-500" />
             <p className="ml-2 text-sm text-red-500">
               {errors?.members.message}
             </p>
@@ -125,7 +125,7 @@ const TeamEnrollmentForm = ({
         <label className="mb-1 block text-sm font-medium text-gray-900">
           Teamlid toevoegen
         </label>
-        <div className="bg-white rounded-lg shadow-sm ring-1 ring-black ring-opacity-5 p-6">
+        <div className="bg-white rounded-lg shadow-xs ring-1 ring-black/5 p-6">
           <IndividualEnrollmentForm
             register={memberFormRegister}
             errors={memberFormErrors}
@@ -135,7 +135,7 @@ const TeamEnrollmentForm = ({
           />
           <div className="w-full flex justify-end">
             <button
-              className="mt-6 w-full inline-flex space-x-2 justify-center shadow-sm py-3 px-4 font-medium text-md rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
+              className="mt-6 w-full inline-flex space-x-2 justify-center shadow-xs py-3 px-4 font-medium text-md rounded-md text-white bg-orange-500 hover:bg-orange-600 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-orange-400"
               onClick={handleMemberFormSubmit(onMemberFormSubmit)}
             >
               <UserPlusIcon className="h-6 w-6" />

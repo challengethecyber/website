@@ -4,7 +4,7 @@ import { CalendarIcon } from "@heroicons/react/20/solid"
 type EventSchedule = { time: string; description: string }[]
 
 const Schedule = ({ schedule }: { schedule: EventSchedule }) => (
-  <div className="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200 w-full">
+  <div className="bg-white overflow-hidden shadow-sm rounded-lg divide-y divide-gray-200 w-full">
     <div className="px-4 py-5 sm:px-6 text-xl font-semibold text-gray-700 inline-flex items-center">
       <CalendarIcon className="h-7 w-7 mr-4" />
       Programma

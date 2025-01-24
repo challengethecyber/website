@@ -28,8 +28,8 @@ const CtfPage = ({ data }: IQueryProps) => {
             <span className="block">Klaar om te spelen?</span>
             <span className="block text-orange-500">Meld je nu aan.</span>
           </h2>
-          <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
-            <div className="inline-flex rounded-md shadow">
+          <div className="mt-8 flex lg:mt-0 lg:shrink-0">
+            <div className="inline-flex rounded-md shadow-sm">
               <button
                 type="button"
                 className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-orange-500 hover:bg-orange-600"

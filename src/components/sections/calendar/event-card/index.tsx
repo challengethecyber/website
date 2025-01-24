@@ -42,9 +42,9 @@ const EventCard: FC<IEventCardProps> = ({
   })
 
   return (
-    <li className="p-2 rounded-lg shadow bg-white">
+    <li className="p-2 rounded-lg shadow-sm bg-white">
       <div className="flex items-center gap-4 lg:gap-6">
-        <div className="flex-shrink-0 flex flex-col w-16 md:w-20 rounded-md overflow-hidden border border-gray-200">
+        <div className="shrink-0 flex flex-col w-16 md:w-20 rounded-md overflow-hidden border border-gray-200">
           <div className="bg-orange-500 p-px text-white text-center text-xs md:text-sm">
             <span>{parsedStartDate.toFormat("LLLL")}</span>
           </div>

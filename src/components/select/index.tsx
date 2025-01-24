@@ -32,7 +32,7 @@ const Select = React.forwardRef<any, ISelectProps>(
       </select>
       {error && (
         <div className="flex mt-2">
-          <XCircleIcon className="flex-shrink-0 h-5 w-5 text-red-500" />
+          <XCircleIcon className="shrink-0 h-5 w-5 text-red-500" />
           <p className="ml-2 text-sm text-red-500">{error.message}</p>
         </div>
       )}

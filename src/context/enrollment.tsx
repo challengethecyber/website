@@ -35,7 +35,7 @@ export const CtfEnrollmentProvider: FunctionComponent = ({ children }) => {
       <Banner
         show={isCtfEnrollmentOpen && showCtfEnrollmentPopup}
         shortText="Meld je aan voor de Challenge the Cyber CTF!"
-        longText="De aanmelding voor de Challenge the Cyber CTF sluit op 13 april, meld je snel aan!"
+        longText="De aanmelding voor de Challenge the Cyber CTF 2025 sluit op 29 maart, meld je snel aan!"
         onHide={() => setShowCtfEnrollmentPopup(false)}
         canHide={false}
         icon={<FlagIcon className="h-6 w-6 text-white" />}
@@ -51,7 +51,7 @@ export const CtfEnrollmentProvider: FunctionComponent = ({ children }) => {
           </Link>,
           <button
             key="signUpButton"
-            className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-orange-500 bg-white hover:bg-orange-50 w-full sm:w-auto"
+            className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-orange-500 bg-white hover:bg-orange-50 w-full sm:w-auto cursor-pointer"
             onClick={() => {
               setShowCtfEnrollmentSlideOver(true)
             }}

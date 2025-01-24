@@ -87,7 +87,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
               href={process.env.GATSBY_EVENT_CTF_URL}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-opacity-90 sm:w-auto"
+              className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <PuzzlePieceIcon className="w-6 h-6 mr-2" />
               Speel CTF
@@ -108,7 +108,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
               href={process.env.GATSBY_TM_URL}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-opacity-90 sm:w-auto"
+              className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <PuzzlePieceIcon className="w-6 h-6 mr-2" />
               Spelen
@@ -128,7 +128,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
               href={process.env.GATSBY_DISCORD_INVITE_LINK}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-indigo-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-opacity-90 sm:w-auto"
+              className="flex items-center justify-center w-full px-4 py-2 text-sm font-medium text-indigo-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <DiscordIcon className="w-5 h-5 mr-2 fill-indigo-500" />
               Discord
@@ -146,7 +146,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
           process.env.GATSBY_STORIES_PATH_LIVEBLOG && (
             <Link
               to={process.env.GATSBY_STORIES_PATH_LIVEBLOG}
-              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-opacity-90 sm:w-auto"
+              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <NewspaperIcon className="w-6 h-6 lg:mr-2" />
               <span className="hidden lg:inline">Liveblog</span>
@@ -158,7 +158,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
               href={process.env.GATSBY_STORIES_LINK_INSTAGRAM}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-opacity-90 sm:w-auto"
+              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <InstagramIcon className="w-6 h-6 lg:mr-2 fill-orange-500" />
               <span className="hidden lg:inline">Watch stories</span>
@@ -170,7 +170,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
               href={process.env.GATSBY_STORIES_LINK_TWITTER}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-opacity-90 sm:w-auto"
+              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <TwitterIcon className="w-6 h-6 lg:mr-2 fill-orange-500" />
               <span className="hidden lg:inline">Follow twitter</span>
@@ -182,7 +182,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
               href={process.env.GATSBY_STORIES_LINK_YOUTUBE}
               target="_blank"
               rel="noreferrer"
-              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-sm hover:bg-opacity-90 sm:w-auto"
+              className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <YoutubeIcon className="w-6 h-6 lg:mr-2 fill-orange-500" />
               <span className="hidden lg:inline">View trailer</span>

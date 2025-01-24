@@ -23,7 +23,7 @@ const Toggle = ({
       <div className="flex items-center justify-between">
         <button
           type="button"
-          className={`relative inline-flex flex-shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 ${
+          className={`relative inline-flex shrink-0 h-6 w-11 border-2 border-transparent rounded-full cursor-pointer transition-colors ease-in-out duration-200 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 ${
             value ? "bg-orange-500" : "bg-gray-200"
           }`}
           onClick={() => onChange(!value)}
@@ -73,7 +73,7 @@ const Toggle = ({
             </span>
           </span>
         </button>
-        <span className="flex-grow flex flex-col ml-6" id="availability-label">
+        <span className="grow flex flex-col ml-6" id="availability-label">
           <span className="text-sm font-medium text-gray-900">{mainText}</span>
           <span className="text-sm text-gray-500">{subText}</span>
         </span>
@@ -81,7 +81,7 @@ const Toggle = ({
 
       {error && (
         <div className="flex mt-2">
-          <XCircleIcon className="flex-shrink-0 h-5 w-5 text-red-500" />
+          <XCircleIcon className="shrink-0 h-5 w-5 text-red-500" />
           <p className="ml-2 text-sm text-red-500">{error.message}</p>
         </div>
       )}

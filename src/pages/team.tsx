@@ -23,7 +23,7 @@ const TeamMember = ({
   return (
     <li key={id}>
       <div className="space-y-4">
-        <div className="!aspect-w-3 !aspect-h-2 rounded-lg">
+        <div className="aspect-w-3! aspect-h-2! rounded-lg">
           <GatsbyImage
             imgClassName="rounded-lg object-cover shadow-lg"
             image={photo!.localFile!.childImageSharp!.gatsbyImageData}

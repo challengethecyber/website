@@ -26,7 +26,7 @@ const Banner = ({
   icon,
 }: IBannerProps) => (
   <Transition
-    className={cx("transform border-t-2 border-gray-50 border-opacity-20", {
+    className={cx("transform", {
       "bg-orange-500": color === "primary",
       "bg-indigo-500": color === "purple",
     })}
@@ -38,7 +38,7 @@ const Banner = ({
     <div className="px-3 py-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center flex-1 max-w-full">
-          <span className="flex p-2 bg-black rounded-lg bg-opacity-20">
+          <span className="flex p-2 bg-orange-700 rounded-lg bg-opacity-20">
             {icon ?? <MegaphoneIcon className="w-6 h-6 text-white" />}
           </span>
           <p className="ml-3 font-medium text-white truncate">
@@ -46,14 +46,14 @@ const Banner = ({
             <span className="hidden md:inline">{longText}</span>
           </p>
         </div>
-        <div className="inline-flex flex-shrink-0 order-3 w-full sm:order-2 sm:w-auto">
+        <div className="inline-flex shrink-0 order-3 w-full sm:order-2 sm:w-auto">
           {actions}
         </div>
         {canHide && (
-          <div className="flex-shrink-0 order-2 sm:order-3 sm:ml-3">
+          <div className="shrink-0 order-2 sm:order-3 sm:ml-3">
             <button
               type="button"
-              className="flex p-2 -mr-1 rounded-md hover:bg-black hover:bg-opacity-10 focus:outline-none focus:ring-2 focus:ring-white sm:-mr-2"
+              className="flex p-2 -mr-1 rounded-md hover:bg-black hover:bg-opacity-10 focus:outline-hidden focus:ring-2 focus:ring-white sm:-mr-2"
               onClick={onHide}
             >
               <span className="sr-only">Dismiss</span>

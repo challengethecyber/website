@@ -29,8 +29,9 @@ const EnrollmentSlideOver = ({
     setValue: setIndividualFormValue,
     watch: individualFormWatch,
     formState: { errors: individualFormErrors },
-  } = useForm<IIndividualEnrollmentInput>({
+  } = useForm<IEnrollmentInput>({
     defaultValues: {
+      type: "individual",
       bootcamp: true,
       newsletter: true,
       privacyStatement: false,
@@ -43,22 +44,18 @@ const EnrollmentSlideOver = ({
     setValue: setTeamFormValue,
     watch: teamFormWatch,
     formState: { errors: teamFormErrors },
-  } = useForm<ITeamEnrollmentInput>({
-    defaultValues: { privacyStatement: false },
+  } = useForm<IEnrollmentInput>({
+    defaultValues: { type: "team", privacyStatement: false },
   })
 
   const [isLoading, setIsLoading] = useState(false)
   const [hasSubmissionSucceeded, setHasSubmissionSucceeded] = useState(false)
   const [isTeamEnrollment, setIsTeamEnrollment] = useState(true)
 
-  const onSubmit = async (
-    data: IIndividualEnrollmentInput | ITeamEnrollmentInput,
-  ) => {
+  const onSubmit = async (data: IEnrollmentInput) => {
     setIsLoading(true)
 
-    const enrollmentUrl = isTeamEnrollment
-      ? process.env.GATSBY_ENROLLMENT_WEBHOOK_TEAM!
-      : process.env.GATSBY_ENROLLMENT_WEBHOOK_INDIVIDUAL!
+    const enrollmentUrl = process.env.GATSBY_ENROLLMENT_WEBHOOK!
 
     await fetch(enrollmentUrl, {
       method: "POST",
@@ -80,7 +77,7 @@ const EnrollmentSlideOver = ({
     >
       <div className="absolute inset-0 overflow-hidden" aria-hidden="true">
         <Transition
-          className="absolute inset-0 bg-gray-500 bg-opacity-75"
+          className="absolute inset-0 bg-gray-500/75"
           onClick={() => setShowEnrollmentSlideOver(false)}
           show={showEnrollmentSlideOver}
           appear={true}
@@ -119,7 +116,7 @@ const EnrollmentSlideOver = ({
                       <div className="ml-3 h-7 flex items-center">
                         <button
                           type="button"
-                          className="bg-orange-500 rounded-md text-gray-100 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                          className="bg-orange-500 rounded-md text-gray-100 hover:text-white focus:outline-hidden focus:ring-2 focus:ring-white"
                           onClick={() => setShowEnrollmentSlideOver(false)}
                         >
                           <span className="sr-only">Close panel</span>
@@ -140,7 +137,7 @@ const EnrollmentSlideOver = ({
                       <div className="space-y-6 pt-6 pb-5">
                         <ContextCard
                           mainText="Let op!"
-                          subText="Challenge the Cyber is een fysiek evenement en wordt dit jaar gespeeld op de Fontys Hogeschool in Eindhoven. Online deelname is niet mogelijk."
+                          subText="Challenge the Cyber is een fysiek evenement - online deelname is niet mogelijk."
                         />
                         <div>
                           <label className="block text-sm font-medium text-gray-900">
@@ -151,7 +148,7 @@ const EnrollmentSlideOver = ({
                             aria-label="Tabs"
                           >
                             <button
-                              className={`transition ease-in-out duration-100 inline-flex space-x-2 ${
+                              className={`transition ease-in-out duration-100 inline-flex space-x-2 cursor-pointer ${
                                 !isTeamEnrollment
                                   ? "bg-orange-500 text-white"
                                   : "bg-gray-100 text-gray-500 hover:text-gray-700"
@@ -162,7 +159,7 @@ const EnrollmentSlideOver = ({
                               <span>Individueel</span>
                             </button>
                             <button
-                              className={`transition ease-in-out duration-100 inline-flex space-x-2 ${
+                              className={`transition ease-in-out duration-100 inline-flex space-x-2 cursor-pointer ${
                                 isTeamEnrollment
                                   ? "bg-orange-500 text-white"
                                   : "bg-gray-100 text-gray-500 hover:text-gray-700"
@@ -195,12 +192,12 @@ const EnrollmentSlideOver = ({
                   </div>
                 </div>
               )}
-              <div className="flex-shrink-0 px-4 border-t border-gray-200 py-5 sm:px-6">
+              <div className="shrink-0 px-4 border-t border-gray-200 py-5 sm:px-6">
                 <div className="space-x-3 flex justify-end">
                   {hasSubmissionSucceeded ? (
                     <button
                       disabled={isLoading}
-                      className="inline-flex justify-center text-white border border-transparent shadow-sm py-3 px-4 font-medium text-md rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 bg-orange-500 hover:bg-orange-600"
+                      className="inline-flex justify-center text-white border border-transparent shadow-xs py-3 px-4 font-medium text-md rounded-md  focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 bg-orange-500 hover:bg-orange-600"
                       onClick={() => setShowEnrollmentSlideOver(false)}
                     >
                       Sluiten
@@ -208,7 +205,7 @@ const EnrollmentSlideOver = ({
                   ) : (
                     <button
                       disabled={isLoading}
-                      className={`inline-flex justify-center text-white border border-transparent shadow-sm py-3 px-4 font-medium text-md rounded-md  focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 ${
+                      className={`inline-flex justify-center text-white border border-transparent shadow-sm py-3 px-4 font-medium text-md rounded-md  focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:ring-orange-400 ${
                         isLoading
                           ? "bg-gray-400 cursor-default"
                           : "bg-orange-500 hover:bg-orange-600"

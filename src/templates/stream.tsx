@@ -42,7 +42,7 @@ const Stream = () => {
           Livestream
         </span>
         <div className="flex flex-col 2xl:flex-row space-y-8 2xl:space-y-0 2xl:space-x-4">
-          <div className="flex-grow bg-white overflow-hidden shadow rounded-lg">
+          <div className="grow bg-white overflow-hidden shadow-sm rounded-lg">
             <div className="aspect-w-16 aspect-h-9">
               <iframe
                 className="overflow-hidden -z-10w-full h-full my-auto"
@@ -52,7 +52,7 @@ const Stream = () => {
               />
             </div>
           </div>
-          <div className="bg-white overflow-hidden shadow rounded-lg divide-y divide-gray-200 w-full 2xl:w-3/12">
+          <div className="bg-white overflow-hidden shadow-sm rounded-lg divide-y divide-gray-200 w-full 2xl:w-3/12">
             <div className="px-4 py-5 sm:px-6 text-lg font-semibold text-gray-700 inline-flex items-center">
               <CalendarIcon className="h-6 w-6 mr-2" />
               Programma

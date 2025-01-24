@@ -59,7 +59,7 @@ const NewsCards = ({ data }: INewsCardsProps) => {
               className="block mt-2 overflow-hidden shadow-lg lg:overflow-visible"
             >
               <div className="flex flex-col rounded-lg shadow-lg overflow-hidden lg:transform lg:transition-all lg:hover:scale-105">
-                <div className="flex-shrink-0">
+                <div className="shrink-0">
                   <GatsbyImage
                     className="h-48 w-full object-cover"
                     image={
@@ -74,7 +74,7 @@ const NewsCards = ({ data }: INewsCardsProps) => {
                       {news.title}
                     </p>
                     <div className="relative mt-3 text-base text-gray-500 max-h-32 line-clamp-5">
-                      <div className="absolute h-8 bottom-0 w-full bg-gradient-to-t from-white"></div>
+                      <div className="absolute h-8 bottom-0 w-full bg-linear-to-t from-white"></div>
                       {renderRichText(news.content, options)}
                     </div>
                   </div>

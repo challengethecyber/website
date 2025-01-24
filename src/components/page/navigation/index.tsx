@@ -29,7 +29,7 @@ const Navigation = () => {
 
   useEffect(() => {
     setShowDiscordButton(
-      localStorage.getItem(DISCORD_BANNER_PARAM_NAME) === "0"
+      localStorage.getItem(DISCORD_BANNER_PARAM_NAME) === "0",
     )
   }, [])
 
@@ -68,7 +68,7 @@ const Navigation = () => {
           <div className="mx-auto max-w-7xl px-4 md:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="flex flex-1 space-x-8 items-center justify-between sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
+                <div className="flex shrink-0 items-center">
                   <Link to="/">
                     <span className="sr-only">Home</span>
                     <Logo className="h-8 w-auto" />
@@ -76,7 +76,7 @@ const Navigation = () => {
                 </div>
                 <div className="hidden md:flex md:flex-1 md:gap-8 md:items-center">
                   <Popover className="flex space-x-8 items-center">
-                    <Popover.Button className="text-gray-700 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:text-orange-500">
+                    <Popover.Button className="text-gray-700 group bg-white rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-hidden focus:ring-2 focus:ring-offset-2 focus:text-orange-500">
                       <span>Initiatieven</span>
                       <ChevronDownIcon className="text-gray-500 ml-2 h-5 w-5 group-hover:text-gray-600" />
                     </Popover.Button>
@@ -91,7 +91,7 @@ const Navigation = () => {
                       leaveTo="opacity-0 translate-y-1"
                     >
                       <Popover.Panel className="absolute z-50 top-14 right-0 transform w-screen max-w-md lg:max-w-2xl lg:ml-0 lg:left-4">
-                        <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                        <div className="rounded-lg shadow-lg ring-1 ring-black/5 overflow-hidden">
                           <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8 lg:grid-cols-2">
                             {initiativePages.map(
                               ({ href, name, icon, description }) => (
@@ -100,7 +100,7 @@ const Navigation = () => {
                                   to={href}
                                   className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                                 >
-                                  <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-gradient-to-r from-orange-400 to-orange-600 text-white sm:h-12 sm:w-12">
+                                  <div className="shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-linear-to-r from-orange-400 to-orange-600 text-white sm:h-12 sm:w-12">
                                     {icon}
                                   </div>
                                   <div className="ml-4">
@@ -112,7 +112,7 @@ const Navigation = () => {
                                     </p>
                                   </div>
                                 </Link>
-                              )
+                              ),
                             )}
                           </div>
                         </div>
@@ -126,7 +126,7 @@ const Navigation = () => {
                       key={item.href}
                       to={item.href}
                       className="leading-6 text-base font-medium hover:text-gray-900 text-gray-700"
-                      activeClassName="!text-orange-500"
+                      activeClassName="text-orange-500!"
                     >
                       {item.name}
                     </Link>
@@ -134,14 +134,14 @@ const Navigation = () => {
                 </div>
 
                 {/* Discord button */}
-                <div className="hidden lg:flex lg:flex-shrink-0">
+                <div className="hidden lg:flex lg:shrink-0">
                   {(process.env.GATSBY_SHOW_DISCORD_BANNER !== "true" ||
                     showDiscordButton) && (
                     <a
                       href={process.env.GATSBY_DISCORD_INVITE_LINK}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-500 hover:bg-opacity-90"
+                      className="flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-xs text-sm font-medium text-white bg-indigo-500 hover:bg-opacity-90"
                     >
                       <DiscordIcon className="h-5 w-5 mr-2 fill-white" />
                       Discord
@@ -151,7 +151,7 @@ const Navigation = () => {
               </div>
               <div className="absolute flex inset-y-0 right-0 items-center md:hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-orange-500">
+                <Disclosure.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-hidden focus:ring-2 focus:ring-inset focus:ring-orange-500">
                   <span className="sr-only">Open main menu</span>
                   {open ? (
                     <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
@@ -179,7 +179,7 @@ const Navigation = () => {
                     key={item.href}
                     to={item.href}
                     className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                    activeClassName="bg-gray-50 !text-orange-500"
+                    activeClassName="bg-gray-50 text-orange-500!"
                   >
                     {item.name}
                   </Disclosure.Button>
@@ -193,7 +193,7 @@ const Navigation = () => {
                     key={item.href}
                     to={item.href}
                     className="block px-6 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-                    activeClassName="bg-gray-50 !text-orange-500"
+                    activeClassName="bg-gray-50 text-orange-500!"
                   >
                     {item.name}
                   </Disclosure.Button>
