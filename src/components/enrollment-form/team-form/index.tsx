@@ -36,7 +36,10 @@ const TeamEnrollmentForm = ({
     watch: memberFormWatch,
     reset: memberFormReset,
   } = useForm<IIndividualEnrollmentInput>({
-    defaultValues: { bootcamp: true, newsletter: true },
+    defaultValues: {
+      bootcamp: true,
+      newsletter: true,
+    },
   })
 
   useEffect(() => {
@@ -59,7 +62,18 @@ const TeamEnrollmentForm = ({
       newMember.isCaptain = true
     }
     setValue("members", [...(members ? members : []), newMember])
-    memberFormReset()
+
+    // Temporary fix - explicitly reset all fields
+    memberFormReset({
+      name: { firstName: "", lastName: "" },
+      birthYear: null,
+      gender: null,
+      emailAddress: null,
+      educationalInstitution: "",
+      dietaryPreferences: "",
+      bootcamp: true,
+      newsletter: true,
+    })
   }
 
   const removeMember = (index: number) => {

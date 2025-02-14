@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form"
 import { IIndividualEnrollmentInput, ITeamEnrollmentInput } from "./types"
 
 import { XMarkIcon } from "@heroicons/react/24/outline"
-import { UserIcon, UsersIcon } from "@heroicons/react/20/solid"
+import { UserIcon, UsersIcon, XCircleIcon } from "@heroicons/react/20/solid"
 
 import IndividualEnrollmentForm from "./individual-form"
 import TeamEnrollmentForm from "./team-form"
@@ -49,6 +49,7 @@ const EnrollmentSlideOver = ({
   })
 
   const [isLoading, setIsLoading] = useState(false)
+  const [hasErrored, setHasErrored] = useState(false)
   const [hasSubmissionSucceeded, setHasSubmissionSucceeded] = useState(false)
   const [isTeamEnrollment, setIsTeamEnrollment] = useState(true)
 
@@ -57,13 +58,22 @@ const EnrollmentSlideOver = ({
 
     const enrollmentUrl = process.env.GATSBY_ENROLLMENT_WEBHOOK!
 
-    await fetch(enrollmentUrl, {
+    const enrollmentResponse = await fetch(enrollmentUrl, {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     })
 
-    setIsLoading(false)
-    setHasSubmissionSucceeded(true)
+    if (enrollmentResponse.ok) {
+      setIsLoading(false)
+      setHasErrored(false)
+      setHasSubmissionSucceeded(true)
+    } else {
+      setHasErrored(true)
+      setIsLoading(false)
+    }
   }
 
   return (
@@ -194,6 +204,17 @@ const EnrollmentSlideOver = ({
               )}
               <div className="shrink-0 px-4 border-t border-gray-200 py-5 sm:px-6">
                 <div className="space-x-3 flex justify-end">
+                  {hasErrored && (
+                    <div className="w-full bg-gray-100 rounded-md flex items-center gap-3 px-2 py-1">
+                      <div className="shrink-0">
+                        <XCircleIcon className="size-6 text-orange-500" />
+                      </div>
+                      <span className="text-sm font-normal text-gray-800">
+                        Er ging iets mis bij het aanmelden. Probeer het later
+                        opnieuw of neem contact met ons op.
+                      </span>
+                    </div>
+                  )}
                   {hasSubmissionSucceeded ? (
                     <button
                       disabled={isLoading}
