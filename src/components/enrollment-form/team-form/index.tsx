@@ -11,6 +11,7 @@ import { XCircleIcon, UserPlusIcon } from "@heroicons/react/20/solid"
 import { ITeamEnrollmentInput, IIndividualEnrollmentInput } from "../types"
 
 import Input from "components/input"
+import ContextCard from "components/context-card"
 import MemberCard from "./member-card"
 import IndividualEnrollmentForm from "../individual-form"
 import Toggle from "components/toggle"
@@ -56,6 +57,9 @@ const TeamEnrollmentForm = ({
   }, [])
 
   const members = watch("members", [])
+  const isBuitenCategorie = members.find(
+    member => member.birthYear < new Date().getFullYear() - 25,
+  )
 
   const onMemberFormSubmit = (newMember: IIndividualEnrollmentInput) => {
     if (!members?.length) {
@@ -98,6 +102,13 @@ const TeamEnrollmentForm = ({
 
   return (
     <div className="flex flex-col space-y-6">
+      {isBuitenCategorie && (
+        <ContextCard
+          mainText="Buitencategorie"
+          subText="Je voegt een team toe in de buitencategorie. We geven voorrang aan deelnemers tussen de 14 en 25 jaar oud. Je team wordt op de wachtlijst geplaatst en je hoort twee weken van tevoren of er plek is om mee te doen."
+          isAlert
+        />
+      )}
       <Input
         label="Teamnaam*"
         error={errors?.teamName}

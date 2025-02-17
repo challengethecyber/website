@@ -76,13 +76,18 @@ const IndividualEnrollmentForm = ({
           error={errors?.birthYear}
           warnCondition={(birthYear: number) =>
             /^\d{4}$/.test(birthYear.toString()) &&
-            birthYear < new Date().getFullYear() - 25
+            birthYear < new Date().getFullYear() - 25 &&
+            birthYear >= new Date().getFullYear() - 30
               ? "Je voegt een teamlid toe in de buitencategorie"
               : ""
           }
           {...register("birthYear", {
             required: { value: true, message: "Dit veld is verplicht" },
             valueAsNumber: true,
+            min: {
+              value: new Date().getFullYear() - 30,
+              message: `Je kunt alleen deelnemen met een geboortejaar na ${new Date().getFullYear() - 30}`,
+            },
             max: {
               value: new Date().getFullYear() - 14,
               message: `Je kunt alleen deelnemen met een geboortejaar voor ${new Date().getFullYear() - 14}`,
