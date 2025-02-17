@@ -25,14 +25,7 @@ module.exports = {
     },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
-    {
-      resolve: "gatsby-plugin-react-svg",
-      options: {
-        rule: {
-          include: /assets/,
-        },
-      },
-    },
+    `gatsby-plugin-svgr`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {

@@ -10,6 +10,7 @@
   "dependencies": {
     "@headlessui/react": "^1.7.18",
     "@heroicons/react": "^2.1.1",
+    "@svgr/webpack": "^8.1.0",
     "@tailwindcss/aspect-ratio": "^0.4.0",
     "@tailwindcss/forms": "^0.5.7",
     "@tailwindcss/typography": "^0.5.10",
@@ -22,9 +23,9 @@
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-offline": "^6.13.1",
     "gatsby-plugin-postcss": "^6.13.1",
-    "gatsby-plugin-react-svg": "^3.1.0",
     "gatsby-plugin-root-import": "^2.0.6",
     "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-plugin-svgr": "^3.0.0-beta.0",
     "gatsby-source-contentful": "^8.13.1",
     "gatsby-source-filesystem": "^5.13.1",
     "gatsby-transformer-sharp": "^5.13.1",

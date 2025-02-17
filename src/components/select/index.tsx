@@ -27,7 +27,7 @@ const Select = React.forwardRef<any, ISelectProps>(
         ref={ref}
       >
         {options.map((o: string) => (
-          <option>{o}</option>
+          <option key={o}>{o}</option>
         ))}
       </select>
       {error && (
@@ -37,7 +37,7 @@ const Select = React.forwardRef<any, ISelectProps>(
         </div>
       )}
     </div>
-  )
+  ),
 )
 
 export default Select

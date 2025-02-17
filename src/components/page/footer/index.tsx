@@ -1,8 +1,8 @@
 import React from "react"
 
-import YoutubeIcon from "src/assets/youtube.svg"
-import InstagramIcon from "src/assets/instagram.svg"
-import TwitterIcon from "src/assets/twitter.svg"
+import { ReactComponent as YoutubeIcon } from "src/assets/youtube.svg"
+import { ReactComponent as InstagramIcon } from "src/assets/instagram.svg"
+import { ReactComponent as TwitterIcon } from "src/assets/twitter.svg"
 
 const Footer = () => {
   return (

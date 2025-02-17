@@ -10,12 +10,12 @@ import {
 } from "@heroicons/react/24/outline"
 import { DISCORD_BANNER_PARAM_NAME } from "components/page"
 
-import Logo from "assets/ctc-satellite.svg"
-import TrainingMissionIcon from "assets/icons8-compass.svg"
-import ECSCIcon from "assets/icons8-trophy.svg"
-import CTFIcon from "assets/icons8-flag-2.svg"
-import BootcampIcon from "assets/icons8-graduation-cap.svg"
-import DiscordIcon from "src/assets/discord.svg"
+import { ReactComponent as Logo } from "assets/ctc-satellite.svg"
+import { ReactComponent as TrainingMissionIcon } from "assets/icons8-compass.svg"
+import { ReactComponent as ECSCIcon } from "assets/icons8-trophy.svg"
+import { ReactComponent as CTFIcon } from "assets/icons8-flag-2.svg"
+import { ReactComponent as BootcampIcon } from "assets/icons8-graduation-cap.svg"
+import { ReactComponent as DiscordIcon } from "src/assets/discord.svg"
 
 const pages = [
   { name: "Nieuws", href: "/news/" },

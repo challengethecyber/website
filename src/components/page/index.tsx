@@ -12,12 +12,12 @@ import Footer from "./footer"
 import Banner from "components/banner"
 import { Link } from "gatsby"
 
-import DiscordIcon from "src/assets/discord.svg"
-import InstagramIcon from "src/assets/instagram.svg"
-import YoutubeIcon from "src/assets/youtube.svg"
-import TwitterIcon from "src/assets/twitter.svg"
+import { ReactComponent as DiscordIcon } from "src/assets/discord.svg"
+import { ReactComponent as InstagramIcon } from "src/assets/instagram.svg"
+import { ReactComponent as YoutubeIcon } from "src/assets/youtube.svg"
+import { ReactComponent as TwitterIcon } from "src/assets/twitter.svg"
 
-import TrainingMissionIcon from "assets/icons8-compass.svg"
+import { ReactComponent as TrainingMissionIcon } from "assets/icons8-compass.svg"
 
 export const DISCORD_BANNER_PARAM_NAME = "show-discord-banner"
 export const STORIES_BANNER_PARAM_NAME = "show-stories-banner"
@@ -146,6 +146,7 @@ const Page: FC<PropsWithChildren<IPageProps>> = ({ title, children }) => {
           process.env.GATSBY_STORIES_PATH_LIVEBLOG && (
             <Link
               to={process.env.GATSBY_STORIES_PATH_LIVEBLOG}
+              key="liveblog-link"
               className="flex items-center justify-center w-full px-4 py-2 mx-1 text-sm font-medium text-orange-500 bg-white border border-transparent rounded-md shadow-xs hover:bg-opacity-90 sm:w-auto"
             >
               <NewspaperIcon className="w-6 h-6 lg:mr-2" />

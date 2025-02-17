@@ -12,6 +12,9 @@ import {
 
 const options = {
   renderText: (text: string) => <span>{text}</span>,
+  renderNode: {
+    [INLINES.HYPERLINK]: (_: any, children: any) => <span>{children}</span>,
+  },
 }
 
 export interface INewsCardsProps {
@@ -31,7 +34,7 @@ export interface INewsCardsProps {
         }
         description: string
       }
-    }
+    },
   ]
 }
 
