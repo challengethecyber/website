@@ -38,7 +38,12 @@ const Banner = ({
     <div className="px-3 py-3 mx-auto max-w-7xl sm:px-6 lg:px-8">
       <div className="flex flex-wrap items-center justify-between gap-2">
         <div className="flex items-center flex-1 max-w-full">
-          <span className="flex p-2 bg-orange-700 rounded-lg bg-opacity-20">
+          <span
+            className={cx("flex p-2 rounded-lg bg-opacity-20", {
+              "bg-orange-700": color === "primary",
+              "bg-indigo-700": color === "purple",
+            })}
+          >
             {icon ?? <MegaphoneIcon className="w-6 h-6 text-white" />}
           </span>
           <p className="ml-3 font-medium text-white truncate">

@@ -20,7 +20,7 @@ export interface ILogosProps {
         }
         title: string
         description: string
-      }
+      },
     ]
   }
 }
@@ -58,12 +58,6 @@ const Logos = ({ data }: ILogosProps) => {
                   key={logo.description}
                   className="col-span-1 h-28 flex flex-col gap-2 justify-center items-center bg-gray-50"
                 >
-                  {/* Show JCR as platform sponsor */}
-                  {logo.description.includes("jointcyberrange") && (
-                    <span className="uppercase tracking-wider text-xs text-gray-500">
-                      Platform Sponsor
-                    </span>
-                  )}
                   <a href={logo.description}>
                     <img
                       className="h-16 max-w-48"

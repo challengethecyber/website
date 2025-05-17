@@ -25,7 +25,24 @@ module.exports = {
     },
     `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
-    `gatsby-plugin-svgr`,
+    {
+      resolve: "gatsby-plugin-svgr",
+      options: {
+        svgo: true,
+        svgoConfig: {
+          plugins: [
+            {
+              name: "preset-default",
+              params: {
+                overrides: {
+                  removeViewBox: false,
+                },
+              },
+            },
+          ],
+        },
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
