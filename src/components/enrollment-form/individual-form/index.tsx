@@ -77,7 +77,7 @@ const IndividualEnrollmentForm = ({
           warnCondition={(birthYear: number) =>
             /^\d{4}$/.test(birthYear.toString()) &&
             birthYear < new Date().getFullYear() - 25 &&
-            birthYear >= new Date().getFullYear() - 30
+            birthYear >= new Date().getFullYear() - 29
               ? "Je voegt een teamlid toe in de buitencategorie"
               : ""
           }
@@ -85,12 +85,12 @@ const IndividualEnrollmentForm = ({
             required: { value: true, message: "Dit veld is verplicht" },
             valueAsNumber: true,
             min: {
-              value: new Date().getFullYear() - 30,
-              message: `Je kunt alleen deelnemen met een geboortejaar na ${new Date().getFullYear() - 30}`,
+              value: new Date().getFullYear() - 29,
+              message: `Je kunt alleen deelnemen met een geboortejaar na ${new Date().getFullYear() - 29}`,
             },
             max: {
-              value: new Date().getFullYear() - 14,
-              message: `Je kunt alleen deelnemen met een geboortejaar voor ${new Date().getFullYear() - 14}`,
+              value: new Date().getFullYear() - 13,
+              message: `Je kunt alleen deelnemen met een geboortejaar voor ${new Date().getFullYear() - 13}`,
             },
           })}
         />
@@ -147,6 +147,30 @@ const IndividualEnrollmentForm = ({
             : "Geef hier aan of je twee keer per jaar een mailing wilt ontvangen van Challenge the Cyber"
         }
       />
+      {!isMemberForm && (
+        <Select
+          label="Ervaringsniveau*"
+          options={[
+            "Geen ervaring (dit is mijn eerste CTF)",
+            "Een beetje ervaring (ik heb aan enkele CTFs meegedaan)",
+            "Ik heb veel CTF-ervaring (>5 CTFs)",
+          ]}
+          error={errors?.experienceLevel}
+          {...register("experienceLevel", {
+            required: { value: true, message: "Dit veld is verplicht" },
+            setValueAs: (value: string) => {
+              if (value === "Geen ervaring (dit is mijn eerste CTF)") return 0
+              if (
+                value ===
+                "Een beetje ervaring (ik heb aan enkele CTFs meegedaan)"
+              )
+                return 1
+              if (value === "Ik heb veel CTF-ervaring (>5 CTFs)") return 2
+              return undefined
+            },
+          })}
+        />
+      )}
       {!isMemberForm && (
         <Toggle
           onChange={(value: boolean) => setValue("privacyStatement", value)}
