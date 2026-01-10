@@ -45,7 +45,11 @@ const EnrollmentSlideOver = ({
     watch: teamFormWatch,
     formState: { errors: teamFormErrors },
   } = useForm<IEnrollmentInput>({
-    defaultValues: { type: "team", privacyStatement: false },
+    defaultValues: {
+      type: "team",
+      privacyStatement: false,
+      combineWithOtherDuo: true,
+    },
   })
 
   const [isLoading, setIsLoading] = useState(false)

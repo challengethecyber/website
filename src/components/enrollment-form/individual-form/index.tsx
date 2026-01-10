@@ -76,7 +76,7 @@ const IndividualEnrollmentForm = ({
           error={errors?.birthYear}
           warnCondition={(birthYear: number) =>
             /^\d{4}$/.test(birthYear.toString()) &&
-            birthYear < new Date().getFullYear() - 24 &&
+            birthYear < new Date().getFullYear() - 25 &&
             birthYear >= new Date().getFullYear() - 29
               ? "Je voegt een teamlid toe in de buitencategorie"
               : ""
@@ -147,6 +147,30 @@ const IndividualEnrollmentForm = ({
             : "Geef hier aan of je twee keer per jaar een mailing wilt ontvangen van Challenge the Cyber"
         }
       />
+      {!isMemberForm && (
+        <Select
+          label="Ervaringsniveau*"
+          options={[
+            "Geen ervaring (dit is mijn eerste CTF)",
+            "Een beetje ervaring (ik heb aan enkele CTFs meegedaan)",
+            "Ik heb veel CTF-ervaring (>5 CTFs)",
+          ]}
+          error={errors?.experienceLevel}
+          {...register("experienceLevel", {
+            required: { value: true, message: "Dit veld is verplicht" },
+            setValueAs: (value: string) => {
+              if (value === "Geen ervaring (dit is mijn eerste CTF)") return 0
+              if (
+                value ===
+                "Een beetje ervaring (ik heb aan enkele CTFs meegedaan)"
+              )
+                return 1
+              if (value === "Ik heb veel CTF-ervaring (>5 CTFs)") return 2
+              return undefined
+            },
+          })}
+        />
+      )}
       {!isMemberForm && (
         <Toggle
           onChange={(value: boolean) => setValue("privacyStatement", value)}

@@ -11,6 +11,7 @@ import { XCircleIcon, UserPlusIcon } from "@heroicons/react/20/solid"
 import { ITeamEnrollmentInput, IIndividualEnrollmentInput } from "../types"
 
 import Input from "components/input"
+import Select from "components/select"
 import ContextCard from "components/context-card"
 import MemberCard from "./member-card"
 import IndividualEnrollmentForm from "../individual-form"
@@ -70,9 +71,9 @@ const TeamEnrollmentForm = ({
     // Temporary fix - explicitly reset all fields
     memberFormReset({
       name: { firstName: "", lastName: "" },
-      birthYear: null,
-      gender: null,
-      emailAddress: null,
+      birthYear: undefined,
+      gender: undefined,
+      emailAddress: undefined,
       educationalInstitution: "",
       dietaryPreferences: "",
       bootcamp: true,
@@ -169,6 +170,38 @@ const TeamEnrollmentForm = ({
           </div>
         </div>
       </div>
+      {members?.length === 2 && (
+        <Toggle
+          onChange={(value: boolean) => setValue("combineWithOtherDuo", value)}
+          value={watch("combineWithOtherDuo") ?? true}
+          mainText="Combineer ons met een ander duo"
+          subText="We combineren jullie team met een ander duo met soortgelijk ervaringsniveau en leeftijd. De definitieve samenstelling volgt uiterlijk een week voor het evenement."
+        />
+      )}
+      {members?.length === 2 && watch("combineWithOtherDuo") && (
+        <Select
+          label="Ervaringsniveau*"
+          options={[
+            "Geen ervaring (dit is onze eerste CTF)",
+            "Een beetje ervaring (we hebben aan enkele CTFs meegedaan)",
+            "We hebben veel CTF-ervaring (>5 CTFs)",
+          ]}
+          error={errors?.experienceLevel}
+          {...register("experienceLevel", {
+            required: { value: true, message: "Dit veld is verplicht" },
+            setValueAs: (value: string) => {
+              if (value === "Geen ervaring (dit is onze eerste CTF)") return 0
+              if (
+                value ===
+                "Een beetje ervaring (we hebben aan enkele CTFs meegedaan)"
+              )
+                return 1
+              if (value === "We hebben veel CTF-ervaring (>5 CTFs)") return 2
+              return undefined
+            },
+          })}
+        />
+      )}
       <Toggle
         onChange={(value: boolean) => setValue("privacyStatement", value)}
         value={watch("privacyStatement")}

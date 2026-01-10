@@ -12,12 +12,15 @@ export type IIndividualEnrollmentInput = {
   newsletter: boolean
   privacyStatement?: boolean
   dietaryPreferences: string
+  experienceLevel?: number
 }
 
 export type ITeamEnrollmentInput = {
   teamName: string
   members: IIndividualEnrollmentInput[]
   privacyStatement: boolean
+  combineWithOtherDuo?: boolean
+  experienceLevel?: number
 }
 
 export type IBaseInput = {
