@@ -671,6 +671,8 @@ type ContentfulAssetConnection_sumArgs = {
   field: ContentfulAssetFieldSelector;
 };
 
+type ContentfulAssetContentfulEventScheduleUnion = ContentfulAsset | ContentfulEventSchedule;
+
 type ContentfulAssetEdge = {
   readonly next: Maybe<ContentfulAsset>;
   readonly node: ContentfulAsset;
@@ -1487,22 +1489,19 @@ type ContentfulContentConnection_sumArgs = {
 
 type ContentfulContentContent = {
   readonly raw: Maybe<Scalars['String']>;
-  readonly references: Maybe<ReadonlyArray<Maybe<ContentfulEventSchedule>>>;
+  readonly references: Maybe<ReadonlyArray<Maybe<ContentfulAssetContentfulEventScheduleUnion>>>;
 };
 
 type ContentfulContentContentFieldSelector = {
   readonly raw: InputMaybe<FieldSelectorEnum>;
-  readonly references: InputMaybe<ContentfulEventScheduleFieldSelector>;
 };
 
 type ContentfulContentContentFilterInput = {
   readonly raw: InputMaybe<StringQueryOperatorInput>;
-  readonly references: InputMaybe<ContentfulEventScheduleFilterListInput>;
 };
 
 type ContentfulContentContentSortInput = {
   readonly raw: InputMaybe<SortOrderEnum>;
-  readonly references: InputMaybe<ContentfulEventScheduleSortInput>;
 };
 
 type ContentfulContentEdge = {
@@ -2041,10 +2040,6 @@ type ContentfulEventScheduleFilterInput = {
   readonly spaceId: InputMaybe<StringQueryOperatorInput>;
   readonly sys: InputMaybe<ContentfulEventScheduleSysFilterInput>;
   readonly updatedAt: InputMaybe<DateQueryOperatorInput>;
-};
-
-type ContentfulEventScheduleFilterListInput = {
-  readonly elemMatch: InputMaybe<ContentfulEventScheduleFilterInput>;
 };
 
 type ContentfulEventScheduleGroupConnection = {
@@ -6780,7 +6775,7 @@ type AllNewsFragment = { readonly author: string | null, readonly title: string 
 
 type CalendarEventFragment = { readonly id: string, readonly eventName: string | null, readonly startDate: string | null, readonly endDate: string | null, readonly shortDescription: { readonly shortDescription: string | null } | null };
 
-type ContentFragment = { readonly link: string | null, readonly title: string | null, readonly content: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly id: string, readonly contentful_id: string, readonly agenda: ReadonlyArray<{ readonly time: string | null, readonly description: string | null } | null> | null } | null> | null } | null };
+type ContentFragment = { readonly link: string | null, readonly title: string | null, readonly content: { readonly raw: string | null, readonly references: ReadonlyArray<{ readonly id: string, readonly contentful_id: string, readonly agenda: ReadonlyArray<{ readonly time: string | null, readonly description: string | null } | null> | null } | {} | null> | null } | null };
 
 type EventScheduleFragment = { readonly id: string, readonly contentful_id: string, readonly agenda: ReadonlyArray<{ readonly time: string | null, readonly description: string | null } | null> | null };
 
