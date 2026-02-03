@@ -76,8 +76,8 @@ const IndividualEnrollmentForm = ({
           error={errors?.birthYear}
           warnCondition={(birthYear: number) =>
             /^\d{4}$/.test(birthYear.toString()) &&
-            birthYear < new Date().getFullYear() - 25 &&
-            birthYear >= new Date().getFullYear() - 29
+              birthYear < new Date().getFullYear() - 25 &&
+              birthYear >= new Date().getFullYear() - 29
               ? "Je voegt een teamlid toe in de buitencategorie"
               : ""
           }
@@ -117,7 +117,7 @@ const IndividualEnrollmentForm = ({
       />
       <Input
         className="md:flex-1"
-        label="Onderwijsinstelling"
+        label="Opleiding en onderwijsinstelling"
         error={errors?.educationalInstitution}
         {...register("educationalInstitution")}
       />
